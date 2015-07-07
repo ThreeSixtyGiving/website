@@ -52,7 +52,7 @@ get_header(); ?>
               if (!file_exists($filename)) {
                   require_once $dir . '/ckan.php';
                   echo 'Data fetched: ' . date ("F d Y H:i:s.", time());
-              } elseif (date("U",filectime($filename) <= time() - 10)) {
+              } elseif (date("U",filectime($filename) <= time() - 7200)) {
                   require_once $dir . '/ckan.php';
                   echo 'Data last checked: ' . date ("F d Y H:i:s.", time());
               } else {
