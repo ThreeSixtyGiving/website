@@ -6,6 +6,11 @@
 *.swp
 Thumbs.db
 
+#ThreeSixtyGiving specific
+wp-content/themes/responsive-child/ckan/ckan/*
+wp-content/themes/responsive-child/ckan/urls/*
+wp-content/themes/responsive-child/ckan/data/*
+
 # wordpress specific
 wp-config.php
 wp-content/uploads/
