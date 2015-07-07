@@ -1,0 +1,8 @@
+Theme Name: Responsive Child Theme
+Author: caprenter
+Template: responsive
+*/
+
+@import url("../responsive/style.css");
+
+/* Your CSS goes after here */
