@@ -21,9 +21,9 @@ if ( !defined( 'ABSPATH' ) ) {
  */
 
 get_header(); ?>
-
+<div class="container">
 <div id="content" class="<?php echo esc_attr( implode( ' ', responsive_get_content_classes() ) ); ?>">
-
+  
 	<?php if ( have_posts() ) : ?>
 
 		<?php while( have_posts() ) : the_post(); ?>
@@ -116,8 +116,8 @@ get_header(); ?>
 
 	endif;
 	?>
-
+  
 </div><!-- end of #content -->
-
-<?php get_sidebar(); ?>
+</div><!-- end of .container -->
+<?php //get_sidebar(); ?>
 <?php get_footer(); ?>
