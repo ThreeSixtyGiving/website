@@ -52,13 +52,13 @@ get_header(); ?>
               <div class="container">
                 <h1><?php the_field('featured_text_1'); ?></h1>
                 <div class="grid col-300 fit first">
-                    <a class="call-to-action" href=""><?php the_field('call_to_action_1'); ?></a>
+                    <a class="call-to-action" href="<?php the_field('call_to_action_1_links_to'); ?>"><?php the_field('call_to_action_1'); ?></a>
                 </div>
                 <div class="grid col-300 fit">
-                    <a class="call-to-action" href=""><?php the_field('call_to_action_2'); ?></a>
+                    <a class="call-to-action" href="<?php the_field('call_to_action_2_links_to'); ?>"><?php the_field('call_to_action_2'); ?></a>
                 </div>
                 <div class="grid col-300 fit">
-                    <a class="call-to-action" href=""><?php the_field('call_to_action_3'); ?></a>
+                    <a class="call-to-action" href="<?php the_field('call_to_action_3_links_to'); ?>"><?php the_field('call_to_action_3'); ?></a>
                 </div>
               </div><!-- end of .container -->
             </div><!-- end of .banner data -->
@@ -145,10 +145,10 @@ get_header(); ?>
               <div class="container">
                 <h1><?php the_field('featured_text_2'); ?></h1>
                 <div class="grid col-300 fit first">
-                    <a class="call-to-action" href=""><?php the_field('call_to_action_4'); ?></a>
+                    <a class="call-to-action" href="<?php the_field('action_4_links_to'); ?>"><?php the_field('call_to_action_4'); ?></a>
                 </div>
                 <div class="grid col-300 fit">
-                    <a class="call-to-action" href=""><?php the_field('call_to_action_5'); ?></a>
+                    <a class="call-to-action" href="<?php the_field('action_5_links_to'); ?>"><?php the_field('call_to_action_5'); ?></a>
                 </div>
               </div><!-- end of .container -->
             </div><!-- end of .banner subscribe -->
