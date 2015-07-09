@@ -1,7 +1,8 @@
 <?php
 /*
  *      grab_urls.php
- *      
+ *      Adapted by caprenter <caprenter@gmail.com> from: 
+ * 
  *      Copyright 2012 caprenter <caprenter@gmail.com>
  *      
  *      This file is part of IATI Registry Refresher.
@@ -23,13 +24,30 @@
  *      for more details.
  */
 
-// mkdir ckan urls data
+/* Note
+ * For this script to work you may need to create the following directories
+ * and make then writable: 
+ * ./ckan
+ * ./urls
+ * ./data
+ * ./logos
+*/
 
 // Display errors for demo
 //@ini_set('error_reporting', E_ALL);
 //@ini_set('display_errors', 'stdout');
   
-// Function to perform an API request against the IATI Registry CKAN v3 API
+/* Function to perform an API request against the 360 Registry CKAN v3 API
+ * http://docs.ckan.org/en/latest/api/index.html
+ *
+ * name: api_request
+ * @param $path string  The final part of the api CKAN
+ * @param $data array   Key value pairs of post data parameters for the api call
+ * @param $ckan_file string Where to save the results of the api call 
+ * @return PHP Object of the call to the api result
+ * 
+ */
+
 function api_request($path, $data=null, $ckan_file=null) {
     $api_root = "http://data.threesixtygiving.org/api/3/";
 
@@ -62,7 +80,7 @@ function api_request($path, $data=null, $ckan_file=null) {
     curl_close($ch);
 
     if ($ckan_file !== null) {
-      //echo "Saving file ";
+        //echo "Saving file ";
         // Save CKAN json from the API call to a file
         file_put_contents($ckan_file, $result, LOCK_EX);
     }
@@ -78,19 +96,21 @@ $urls = array();
 $groups = api_request('action/group_list');
 //print_r($groups);
 //Overide the group array, e.g. for testing. Uncomment and edit the line(s) below
-//$groups = array("hewlett-foundation","aa");
-//$groups = array("dfid");
+//$groups = array("sport-england");
 
 
 //Loop through each group and save the URL end-points of the data files
 //You may need to set up an empty directory called "urls"
 //echo "Fetching:" . PHP_EOL;
 foreach ($groups as $group) {
-    if (isset($dir)) {
+    //Work out where to save the results
+    if (isset($dir)) { // will be set if called from wordpress. Not if run directly
       $file = $dir . "/urls/" . $group;
+      $logo_file = $dir . "/logos/" . $group;
       $ckan_file = $dir . "/ckan/" . $group;
     } else {
       $file = "urls/" . $group;
+      $logo_file = "logos/" . $group;
       $ckan_file = "ckan/" . $group;
     }
    // echo $group."\n";
@@ -102,6 +122,17 @@ foreach ($groups as $group) {
           //print_r($package);
             try {
                 $urls_string .= $package->name . ' ' . (string)$package->resources[0]->url . PHP_EOL;
+                //Save the logo
+                if ($package->groups[0]->image_display_url) {
+                  $logo_link = $package->groups[0]->image_display_url;
+                  //Find the extension of the logo image from it's url 
+                  $extension = explode('/', $logo_link); //split into path components
+                  $extension = array_pop($extension); // grab the last part of the path
+                  $extension = explode('.', $extension); // split into values seperated by .'s
+                  $extension = array_pop($extension); // get the last one. This should be e.g. jpg
+                  //print_r($extension); die;
+                  file_put_contents($logo_file . '.' . $extension,file_get_contents($logo_link), LOCK_EX);
+                }
             } catch (Exception $e) {
                 // Catch exceptions here to prevent one url from breaking an entire publisher
                 print 'Caught exception in '.$file.': ' . $e->getMessage();

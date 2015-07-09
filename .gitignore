@@ -10,6 +10,7 @@ Thumbs.db
 wp-content/themes/responsive-child/ckan/ckan/*
 wp-content/themes/responsive-child/ckan/urls/*
 wp-content/themes/responsive-child/ckan/data/*
+wp-content/themes/responsive-child/ckan/logos/*
 
 # wordpress specific
 wp-config.php

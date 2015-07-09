@@ -9,7 +9,7 @@ if ( !defined( 'ABSPATH' ) ) {
  * Pages Template
  *
  *
- * @file           page.php
+ * @file           page-data.php
  * @package        Responsive
  * @author         Emil Uzelac
  * @copyright      2003 - 2014 CyberChimps
@@ -20,6 +20,14 @@ if ( !defined( 'ABSPATH' ) ) {
  * @since          available since Release 1.0
  */
 
+/*
+ * This template is used to display the data pulled from CKAN
+ * 
+ * The data is pulled in one go via the CKAN API, stored locally, and 
+ * then we iterate over the stored data to display information on this
+ * page
+ * 
+*/ 
 get_header(); ?>
 <div class="container">
 <div id="content" class="<?php echo esc_attr( implode( ' ', responsive_get_content_classes() ) ); ?>">
@@ -41,26 +49,30 @@ get_header(); ?>
 					<?php the_content( __( 'Read more &#8250;', 'responsive' ) ); ?>
           
           <?php
-            
+            //Fetch and display the data from CKAN
             $dir = ABSPATH . 'wp-content/themes/responsive-child/ckan';
             $path = $dir . "/ckan";
             
+            //Check to see if we need to refresh the data
+            //We check to see if one of the files is older than $cache_time
             $filename = $path . '/arts-council-england';
+            $cache_time = 7200; // 2 hours
             //echo $filename;
            // echo date ("F d Y H:i:s.", filemtime($filename));
 
-              if (!file_exists($filename)) {
+              if (!file_exists($filename)) { //no data
                   require_once $dir . '/ckan.php';
                   echo 'Data fetched: ' . date ("F d Y H:i:s.", time());
-              } elseif (date("U",filectime($filename) <= time() - 7200)) {
+              } elseif (date("U",filectime($filename) <= time() - $cache_time)) { // data older than cache time
                   require_once $dir . '/ckan.php';
-                  echo 'Data last checked: ' . date ("F d Y H:i:s.", time());
-              } else {
+                  echo 'Data last checked: ' . date ("F d Y H:i:s.", filemtime($filename));
+              } else { // data is still fresh
                   echo 'Data last checked: ' . date ("F d Y H:i:s.", filemtime($filename));
               }
 
             
-            
+            //Confident we have some data??
+            //Loop over all our CKAN 'group' files and extract data
             if ($handle = opendir($path)) {
                 while (false !== ($file = readdir($handle))) {
                     if ('.' === $file) continue;
@@ -74,7 +86,20 @@ get_header(); ?>
                       //print_r($package);
                       try {
                           echo '<h2>' . $result->groups[0]->display_name . '</h2>';
-                          echo '<img src="' . $result->groups[0]->image_display_url . '" width=150 height=150 alt="' . $result->groups[0]->display_name .' logo" />';
+                          //logo
+                          //stored in a file called /logos/$file.$extension
+                          //To get the extension
+                          if ($result->groups[0]->image_display_url) {
+                            $logo_link = $result->groups[0]->image_display_url;
+                            $extension = explode('/', $logo_link); //split into path components
+                            $extension = array_pop($extension); // grab the last part of the path
+                            $extension = explode('.', $extension); // split into values seperated by .'s
+                            $extension = array_pop($extension); // get the last one. This should be e.g. jpg
+                            //print_r($extension); die;
+                            $logo_file = get_stylesheet_directory_uri() . '/ckan/logos/' . $file . '.' . $extension;
+                          }
+                          //echo '<img src="' . $result->groups[0]->image_display_url . '" width=150 height=150 alt="' . $result->groups[0]->display_name .' logo" />';
+                          echo '<img src="' . $logo_file . '" width=150 height=150 alt="' . $result->groups[0]->display_name .' logo" />';
                           echo '<p>Datasets: ' . $result->title . '</p>';
                           foreach ($result->resources as $resource) {
                             echo '<ul>'; 
