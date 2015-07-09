@@ -92,5 +92,24 @@ $responsive_options = responsive_get_options();
 <?php responsive_footer_after(); ?>
 
 <?php wp_footer(); ?>
+<?php if (is_tree(11)): ?>
+   <script src="<?php echo get_stylesheet_directory_uri(); ?>/js/toc/dist/toc.js"></script>
+    <script>
+    jQuery('#toc').toc({
+        'selectors': 'h2,h3,h4', //elements to use as headings
+        'smoothScrolling': true, //enable or disable smooth scrolling on click
+        'prefix': 'toc', //prefix for anchor tags and class names
+        'onHighlight': function(el) {}, //called when a new section is highlighted 
+        'highlightOnScroll': true, //add class to heading that is currently in focus
+        'highlightOffset': 100, //offset to trigger the next headline
+        'anchorName': function(i, heading, prefix) { //custom function for anchor name
+            return prefix+i;
+        },
+        'headerText': function(i, heading, $heading) { //custom function building the header-item text
+            return $heading.text();
+        }
+    });
+    </script>
+<?php endif; ?>
 </body>
 </html>

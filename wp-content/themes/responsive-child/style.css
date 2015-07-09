@@ -326,3 +326,56 @@ input[type="text"], input[type="password"], input[type="email"] {
 .top-widget #searchform {
   margin:10px 10px 0 10px;
 }
+
+
+#toc {
+    top: 60px;
+    left: 0px;
+    height: 100%;
+    position: fixed;
+    background: #e5e5e5;
+    box-shadow: inset -5px 0 5px 0px #d2d2d2;
+    width: 250px;
+    padding-top: 20px;
+    color: #515151;
+}
+
+#toc ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+#toc li {
+    
+    border-bottom: 2px solid #d2d2d2;
+    
+}
+
+#toc a {
+    color: #515151;
+    text-decoration: none;
+    display: block;
+    padding: 10px 20px;
+}
+
+#toc .toc-h2 a {
+    padding-left: 10px;
+}
+
+#toc .toc-h3 a {
+    padding-left: 30px;
+}
+
+#toc .toc-h4 a {
+    padding-left: 40px;
+}
+
+#toc .toc-active {
+    background: #cecece;
+    box-shadow: inset -5px 0px 10px -5px #d2d2d2;
+}
+#toc a:hover, #toc a:focus {
+    background: #cecece;
+    box-shadow: inset -5px 0px 10px -5px #d2d2d2;
+}

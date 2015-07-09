@@ -6,23 +6,23 @@ if ( !defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Pages Template
+ * /* Template Name: Documentation Page
  *
  *
- * @file           page.php
- * @package        Responsive
- * @author         Emil Uzelac
+ * @file           page_documentation.php
+ * @package        Responsive Child
+ * @author         Emil Uzelac/Caprenter
  * @copyright      2003 - 2014 CyberChimps
  * @license        license.txt
  * @version        Release: 1.0
- * @filesource     wp-content/themes/responsive/page.php
+ * @filesource     wp-content/themes/responsive-child/page_documentation.php
  * @link           http://codex.wordpress.org/Theme_Development#Pages_.28page.php.29
  * @since          available since Release 1.0
  */
 
 get_header(); ?>
 <div class="container">
-<div id="content" class="<?php echo esc_attr( implode( ' ', responsive_get_content_classes() ) ); ?>">
+<div id="content" class="<?php //echo esc_attr( implode( ' ', responsive_get_content_classes() ) ); ?>">
 
 	<?php if ( have_posts() ) : ?>
 
@@ -67,5 +67,5 @@ get_header(); ?>
 
 </div><!-- end of #content -->
 </div><!-- end of .container -->
-<?php get_sidebar(); ?>
+<?php //get_sidebar(); ?>
 <?php get_footer(); ?>

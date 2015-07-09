@@ -42,7 +42,7 @@ if ( !defined( 'ABSPATH' ) ) {
 		<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>"/>
 
 		<?php wp_head(); ?>
-
+    <?php if ( is_admin_bar_showing() ) { echo '<style>#toc { top: 92px; }</style>'; } ?>
 	</head>
 
 <body <?php body_class(); ?>>

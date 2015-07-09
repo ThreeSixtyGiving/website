@@ -12,6 +12,7 @@ add_action( 'init', 'register_my_menus' );
 
 /**
  * WordPress Widgets start right here.
+ * Add a new widget area for us to use
  */
 function my_responsive_widgets_init() {
 
@@ -26,5 +27,17 @@ function my_responsive_widgets_init() {
 					  ) );
 }
 add_action( 'widgets_init', 'my_responsive_widgets_init' );
+
+//Thanks: https://css-tricks.com/snippets/wordpress/if-page-is-parent-or-child/
+//Is this page a child of a parent page OR the parent page
+//Useful for our Table of Contents jquery plugin on /standard pages
+function is_tree($pid) {      // $pid = The ID of the page we're looking for pages underneath
+	global $post;         // load details about this page
+	if(is_page()&&($post->post_parent==$pid||is_page($pid))) 
+               return true;   // we're at the page or at a sub page
+	else 
+               return false;  // we're elsewhere
+};
+
 
 ?>
