@@ -42,6 +42,23 @@ body {
     text-rendering: optimizelegibility;
 }
 
+@font-face {
+    font-family: 'ostrich_sans_roundedmedium';
+    src: url('webfontkit/360-giviing-ostrich-rounded-webfont.eot');
+    src: url('webfontkit/360-giviing-ostrich-rounded-webfont.eot?#iefix') format('embedded-opentype'),
+         url('webfontkit/360-giviing-ostrich-rounded-webfont.woff2') format('woff2'),
+         url('webfontkit/360-giviing-ostrich-rounded-webfont.woff') format('woff'),
+         url('webfontkit/360-giviing-ostrich-rounded-webfont.ttf') format('truetype'),
+         url('webfontkit/360-giviing-ostrich-rounded-webfont.svg#ostrich_sans_roundedmedium') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+h1, h2, h3, h4, h5, h6, h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+  font-family: ostrich_sans_roundedmedium,sans-serif;
+}
+
 .container {
   max-width: 960px;
   margin: 0 auto;
@@ -79,6 +96,7 @@ body {
 
 .main-nav .menu {
   float:right;
+  font-family: ostrich_sans_roundedmedium,sans-serif;
 }
 
 .menu {
@@ -89,7 +107,7 @@ body {
 .menu a {
   border-left: none;
   color: #9b5814;
-  font-size: 1.2em;
+  font-size: 1.8em;
   text-shadow: none;
   text-transform: uppercase;
   height: 50px;
@@ -127,7 +145,7 @@ body {
   color: #9b5814;
   background: none;
   background: #e5831e !important;
-  font-size: 1em;
+  font-size: 1.4em;
 
 }
 
@@ -177,6 +195,7 @@ body {
   text-align:center;
   text-transform: uppercase;
   clear:both;
+  font-family: ostrich_sans_roundedmedium,sans-serif;
 }
 
 .banner .fit {
