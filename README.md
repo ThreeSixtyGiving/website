@@ -36,6 +36,18 @@ For code we should be making GitHub our master repo, which we synch with locally
 
 Update local master from GitHub, push to staging, check, then push from local to production.
 
+Setting up a local development environment
+++++++++++++++++++++++++++++++++++++++++++
+Follow the instructions here:
+http://wpengine.com/git/
+
+You will then need to add the GitHub repository as a remote:
+
+    git remote add origin git@github.com:ThreeSixtyGiving/website.git
+    
+Makes sure the code you have downloaded and the GitHub repository are 
+synchronised. Then you can start development.
+
 How do the docs work?
 ---------------------
 
