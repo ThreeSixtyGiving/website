@@ -50,7 +50,7 @@ get_header(); ?>
         </div><!-- end of .post-entry -->
             <div class="banner data">
               <div class="container">
-                <h1><?php the_field('featured_text_1'); ?></h1>
+                <h2><?php the_field('featured_text_1'); ?></h2>
                 <div class="grid col-300 fit first">
                     <a class="call-to-action" href="<?php the_field('call_to_action_1_links_to'); ?>"><?php the_field('call_to_action_1'); ?></a>
                 </div>
@@ -76,7 +76,7 @@ get_header(); ?>
             <!--End of Page content - now get Blog-->
             <div class="container">
               <div class="banner blog">
-                <h1>Blog</h1>
+                <h2>Blog</h2>
               </div>
             <?php $my_query = "showposts=3"; $my_query = new WP_Query($my_query); $i=0;?>
             <?php if ($my_query->have_posts()) : while ($my_query->have_posts()) : $my_query->the_post(); ?>
@@ -126,14 +126,33 @@ get_header(); ?>
     
               <div class="banner subscribe">
               <div class="container">
-                <h1>Subscribe to our mailing list</h1>
+                <!-- Begin MailChimp Signup Form -->
+                <div id="mc_embed_signup">
+                <form action="//threesixtygiving.us10.list-manage.com/subscribe/post?u=216b8b926250184f90c7198e8&amp;id=91870dde44" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                    <div id="mc_embed_signup_scroll">
+                    <h2>Subscribe to our mailing list</h2>
+                <div class="mc-field-group">
+                    <label for="mce-EMAIL">Email Address</label><br/>
+                    <input type="email" placeholder="Email Address" value="" name="EMAIL" class="email" id="mce-EMAIL"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
+                </div>
+                    <div id="mce-responses" class="clear">
+                        <div class="response" id="mce-error-response" style="display:none"></div>
+                        <div class="response" id="mce-success-response" style="display:none"></div>
+                    </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                    <div style="position: absolute; left: -5000px;"><input type="text" name="b_216b8b926250184f90c7198e8_91870dde44" tabindex="-1" value=""></div>
+                    
+                    </div>
+                </form>
+                </div>
+
+<!--End mc_embed_signup-->
               </div><!-- end of .container -->
             </div><!-- end of .banner subscribe -->
     
             <!--Logos section-->
             <div class="banner" style="height:200px">
               <div class="container">
-                <h1>Who's Involved</h1>
+                <h2>Who's Involved</h2>
                 
               </div><!-- end of .container -->
     </div><!-- end of .banner -->
@@ -143,7 +162,7 @@ get_header(); ?>
     
             <div class="banner involved">
               <div class="container">
-                <h1><?php the_field('featured_text_2'); ?></h1>
+                <h2><?php the_field('featured_text_2'); ?></h2>
                 <div class="grid col-300 fit first">
                     <a class="call-to-action" href="<?php the_field('action_4_links_to'); ?>"><?php the_field('call_to_action_4'); ?></a>
                 </div>

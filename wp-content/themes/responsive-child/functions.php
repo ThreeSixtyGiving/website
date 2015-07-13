@@ -40,4 +40,26 @@ function is_tree($pid) {      // $pid = The ID of the page we're looking for pag
 };
 
 
+function my_deregister_styles() {
+	//wp_deregister_style( 'mailchimp-for-wp-form' );
+  //wp_deregister_style( 'cpsh-shortcodes' );
+}
+
+add_action( 'wp_print_styles', 'my_deregister_styles' );
+
+function responsive_child_scripts() {
+	//wp_enqueue_style( 'mailchimp-for-wp-form', get_stylesheet_uri());
+  wp_deregister_style( 'cpsh-shortcodes' );
+  wp_deregister_style( 'mailchimp-for-wp-form' );
+  wp_deregister_style( 'responsive-child-style' );
+  wp_register_style( 'cpsh-shortcodes', plugins_url( 'column-shortcodes/assets/css/shortcodes.css' ) );
+  wp_register_style( 'mailchimp-for-wp-form', plugins_url( 'mailchimp-for-wp/assets/css/form.min.css'), array('cpsh-shortcodes')  );
+  wp_register_style( 'responsive-child-style', get_stylesheet_uri(), array('mailchimp-for-wp-form'));
+  wp_enqueue_style( 'cpsh-shortcodes');
+  wp_enqueue_style( 'mailchimp-for-wp-form');
+  wp_enqueue_style( 'responsive-child-style');
+}
+
+//$dependencies = array(
+add_action( 'wp_enqueue_scripts', 'responsive_child_scripts', '999' ); 
 ?>

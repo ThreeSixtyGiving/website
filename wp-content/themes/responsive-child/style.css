@@ -13,21 +13,21 @@ License URI: license.txt
 
 /* Colors
  * 
- * Orange: #ff9223
- * 
- * Brown: #9b5814
- * 
- * Blue: #32a5db
- * 
- * Dark Purple: #62003b
- * Purple: #a10060
+
  * 
  * another dark purple #3d1c55
  * bottom purplecolor: #662f8d
  * light purple #d0c0dd
- * 
- * footer black #333; 
  * footer grey text #b1b1b1;
+ * 
+ * /* Colors 
+ * 
+ * black: #333
+ * orange: #ff9222 | rgba(255, 146, 34, 1)
+ * purple: #662f8d | rgba(102, 47, 141, 1)
+ * burgundy: #a10061 | rgba(161, 0, 97, 1)
+ * blue: #32a5db | rgba(50, 165, 219, 1)
+ * 
 */
 
 @import url("../responsive/style.css");
@@ -36,10 +36,12 @@ License URI: license.txt
 body {
     background: #fff;
     color: #555;
-    font-family: Arial,Helvetica,sans-serif;
-    font-size: 14px;
-    line-height: 1.5em;
+    /*font-size: 14px;
+    line-height: 1.5em;*/
     text-rendering: optimizelegibility;
+    font-family: cardo, Arial,Helvetica,sans-serif;
+    font-size: 20px;
+    line-height: 27px;
 }
 
 @font-face {
@@ -73,7 +75,7 @@ h1, h2, h3, h4, h5, h6, h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 
 .nav-container {
   margin: 0;
-  background: #ff9223;
+  background: #ff9222;
   float: right;
   width: 100%;
   height: 60px;
@@ -84,13 +86,13 @@ h1, h2, h3, h4, h5, h6, h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
   clear: none;
   float: left;
   width: 70%;
-  background: #ff9223;
+  background: #ff9222;
 }
 
 .site-logo {
   float:left;
   width: 30%;
-  background: #ff9223;
+  background: #ff9222;
   height: 60px;
 }
 
@@ -100,22 +102,28 @@ h1, h2, h3, h4, h5, h6, h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 }
 
 .menu {
-    background-color: #ff9223;
+    background-color: #ff9222;
     background-image: none;
 }
 
 .menu a {
   border-left: none;
-  color: #9b5814;
+  color: #7e4514;
   font-size: 1.8em;
   text-shadow: none;
   text-transform: uppercase;
   height: 50px;
   padding-top:10px;
+  
+  /* From Claudio*/
+  font-size: 18px;
+  /*font-family: League Gothic;*/
+  /*padding: 23px 23px 13px 23px;*/
+  /*color: #7e4514 | rgba(0,0,0,0.4);*/
 }
 
 .menu a:hover {
-	color: #9b5814;
+	color: #7e4514;
 	background-color: #e5831e;
 	background-image: -webkit-gradient(linear, left top, left bottom, from(#808080), to(#363636));
 	background-image: -webkit-linear-gradient(top, #808080, #363636);
@@ -133,7 +141,7 @@ h1, h2, h3, h4, h5, h6, h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 
 .front-page .menu .current_page_item a {
     background: transparent none repeat scroll 0 0;
-    background-color: #ff9223;
+    background-color: #ff9222;
     filter: none;
 }
 
@@ -148,7 +156,7 @@ ul.menu > li:hover {
 
 .menu li li a {
   border: none;
-  color: #9b5814;
+  color: #7e4514;
   background: none;
   background: #e5831e !important;
   font-size: 1.4em;
@@ -156,7 +164,7 @@ ul.menu > li:hover {
 }
 
 .menu li li a:hover {
-	color: #9b5814;
+	color: #7e4514;
 	background: #e5831e !important;
 }
 
@@ -202,6 +210,7 @@ ul.menu > li:hover {
   text-transform: uppercase;
   clear:both;
   font-family: ostrich_sans_roundedmedium,sans-serif;
+  height: 190px;
 }
 
 .banner .fit {
@@ -217,10 +226,10 @@ ul.menu > li:hover {
 .data {
   background: #a10060; /*purple*/
   color: #e4b2cf;
-  height: 150px;
+  
 }
 
-.data h1, .subscribe h1, .involved h1 {
+.data h2, .subscribe h2, .involved h2 {
   padding-top: 25px;
 }
 
@@ -232,7 +241,7 @@ padding-left: 13%
  margin:40px 0;
 }
 
-.blog h1 {
+.blog h2 {
   color: #32a5db; /*blue*/
 }
 
@@ -260,16 +269,14 @@ padding-left: 13%
 }
 
 .subscribe {
-  background: #ff9223; /*orange*/
+  background: #ff9222; /*orange*/
   color: #ffdebb; /*light orange*/
-  height: 150px;
 }
 
 
 .involved {
   background: #662f8d; /*bottom purple*/
   color: #d0c0dd; /*light purple*/
-  height: 150px;
 }
 
 .involved .first {
@@ -280,17 +287,14 @@ padding-left: 25%
 .call-to-action {
   display:block;
   padding: 20px 40px;
+  font-weight: 900;
 }
 
-.data .call-to-action {
-  background: #62003b; /*dark purple*/
-  color: #a10060; /*purple*/
+a.call-to-action:hover {
+color: #fff;
+opacity: 0.7;
 }
 
-.involved .call-to-action {
-  background: #3d1c55; /*another dark purple*/
-  color: #662f8d; /*bottom purple*/
-}
 
 /*Footer*/
 
@@ -403,4 +407,59 @@ input[type="text"], input[type="password"], input[type="email"] {
 #toc a:hover, #toc a:focus {
     background: #cecece;
     box-shadow: inset -5px 0px 10px -5px #d2d2d2;
+}
+
+
+/*From Claudio*/
+.banner h2 {
+/*font-family: League Gothic;*/
+font-size: 40px;
+line-height: 48px;
+text-transform: uppercase;
+letter-spacing: .5px;
+}
+
+.banner h2 {
+
+opacity: .7;
+}
+
+
+.call-to-action {
+background-color: rgba(0,0,0,0.2);
+color: rgba(0,0,0,0.6);
+}
+
+
+
+.one_half {
+  width: 45%;
+  padding-right:5%;
+}
+
+.home .last_column {
+  clear:none;
+  width: 45%;
+  padding-right:0;
+  padding-left:5%;
+}
+
+.mc-field-group {
+margin-top: -40px;
+}
+
+#mc_embed_signup label {
+ color: #ff9222;
+ height:0;
+ 
+ }
+
+#mc_embed_signup input[type="submit"] {
+
+  padding: 7px 8px;
+
+}
+
+#mc_embed_signup input[type="email"] {
+    width: 400px;
 }
