@@ -106,8 +106,8 @@ get_header(); ?>
                         <?php the_post_thumbnail(); ?>
                       </a>
                     <?php endif; ?>
-                    <?php the_content( __( 'Read more &#8250;', 'responsive' ) ); ?>
-                    <?php wp_link_pages( array( 'before' => '<div class="pagination">' . __( 'Pages:', 'responsive' ), 'after' => '</div>' ) ); ?>
+                    <?php //the_content( __( 'Read more &#8250;', 'responsive' ) ); ?>
+                    <?php //wp_link_pages( array( 'before' => '<div class="pagination">' . __( 'Pages:', 'responsive' ), 'after' => '</div>' ) ); ?>
                   </div><!-- end of .post-entry -->
                   </div>
               <?php endif; //$i ?>
@@ -150,7 +150,7 @@ get_header(); ?>
             </div><!-- end of .banner subscribe -->
     
             <!--Logos section-->
-            <div class="banner" style="height:200px">
+            <div class="banner who" style="height:200px">
               <div class="container">
                 <h2>Who's Involved</h2>
                 <?php

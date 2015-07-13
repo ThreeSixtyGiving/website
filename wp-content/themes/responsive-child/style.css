@@ -211,7 +211,6 @@ ul.menu > li:hover {
   width:100%;
   margin:0 auto;
   text-align:center;
-  text-transform: uppercase;
   clear:both;
   font-family: ostrich_sans_roundedmedium,sans-serif;
   height: 190px;
@@ -244,6 +243,7 @@ ul.menu > li:hover {
 
 .data h2, .subscribe h2, .involved h2 {
   padding-top: 25px;
+  text-transform: uppercase;
 }
 
 .data .first {
@@ -251,16 +251,21 @@ padding-left: 13%
 }
 
 .blog {
- margin:40px 0;
-}
-
-.blog h2 {
-  color: #32a5db; /*blue*/
-}
-
-.blog-side {
+  margin: -35px 0 0px 0;
 
 }
+
+
+
+h2 a {
+  color: #a10061;
+  text-transform:lowercase;
+}
+
+.blog-main .post-entry {
+  padding-right: 50px;
+}
+
 
 .blog-side h2 {
   margin-top: 0.05em;
@@ -488,4 +493,20 @@ width:100%;
 
 .data-table td {
 vertical-align:top;
+}
+
+.home .comments-link {
+  display: none;
+}
+
+
+.blog h2 {
+  color: #32a5db; /*blue*/
+font-size: 5em;
+line-height: 90px;
+}
+
+.who h2 {
+  font-size: 5em;
+  line-height: 90px;
 }

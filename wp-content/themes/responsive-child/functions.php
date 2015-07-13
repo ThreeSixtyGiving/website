@@ -40,12 +40,7 @@ function is_tree($pid) {      // $pid = The ID of the page we're looking for pag
 };
 
 
-function my_deregister_styles() {
-	//wp_deregister_style( 'mailchimp-for-wp-form' );
-  //wp_deregister_style( 'cpsh-shortcodes' );
-}
-
-add_action( 'wp_print_styles', 'my_deregister_styles' );
+/*We do this to make sure our theme css gets loaded after the plugins*/
 
 function responsive_child_scripts() {
 	//wp_enqueue_style( 'mailchimp-for-wp-form', get_stylesheet_uri());
@@ -62,4 +57,28 @@ function responsive_child_scripts() {
 
 //$dependencies = array(
 add_action( 'wp_enqueue_scripts', 'responsive_child_scripts', '999' ); 
+
+
+
+/**
+ * This function prints post meta data.
+ *
+ * Ulrich Pogson Contribution
+ *
+ */
+
+
+function responsive_post_meta_data() {
+  printf( __( '<span class="%1$s">By </span>%2$s<span class="%3$s"> on </span>%4$s', 'responsive' ),
+      'meta-prep meta-prep-author posted',
+       esc_attr( get_the_author()),
+       'byline',
+      sprintf( '<time class="timestamp updated" datetime="%1$s">%2$s</time>',
+           esc_html( get_the_date('c')),
+           esc_html( get_the_date() )
+      )
+  );
+}
+
+
 ?>
