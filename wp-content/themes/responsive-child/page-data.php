@@ -30,7 +30,7 @@ if ( !defined( 'ABSPATH' ) ) {
 */ 
 get_header(); ?>
 <div class="container">
-<div id="content" class="<?php echo esc_attr( implode( ' ', responsive_get_content_classes() ) ); ?>">
+<div id="content" class="<?php //echo esc_attr( implode( ' ', responsive_get_content_classes() ) ); ?>">
   
 	<?php if ( have_posts() ) : ?>
 
@@ -73,6 +73,8 @@ get_header(); ?>
             
             //Confident we have some data??
             //Loop over all our CKAN 'group' files and extract data
+            //Build a table
+            echo '<table class="data-table"><thead><th>Logo</th><th>Organisation</th><th>Data</th><th>Last Updated</th></thead><tbody>';
             if ($handle = opendir($path)) {
                 while (false !== ($file = readdir($handle))) {
                     if ('.' === $file) continue;
@@ -82,10 +84,12 @@ get_header(); ?>
                     $data = json_decode($json);
                    // echo $file;
                     //print_r($results);
+                   
+                   
                     foreach ($data->result as $result) {
                       //print_r($package);
+                      $logo_file = "";
                       try {
-                          echo '<h2>' . $result->groups[0]->display_name . '</h2>';
                           //logo
                           //stored in a file called /logos/$file.$extension
                           //To get the extension
@@ -99,21 +103,36 @@ get_header(); ?>
                             $logo_file = get_stylesheet_directory_uri() . '/ckan/logos/' . $file . '.' . $extension;
                           }
                           //echo '<img src="' . $result->groups[0]->image_display_url . '" width=150 height=150 alt="' . $result->groups[0]->display_name .' logo" />';
-                          echo '<img src="' . $logo_file . '" width=150 height=150 alt="' . $result->groups[0]->display_name .' logo" />';
-                          echo '<p>Datasets: ' . $result->title . '</p>';
                           foreach ($result->resources as $resource) {
-                            echo '<ul>'; 
-                            echo '<li><a href="' . $resource->url . '">' . $resource->name . '(' . $resource->format . ')</a></li>';
-                            echo '</ul>';
+                          echo '<tr>'; 
+                          
+                          
+                          
+                          echo '<td class="logo-cell">';
+                            if (!empty($logo_file)) { echo '<img src="' . $logo_file . '" width=150 height=150 alt="' . $result->groups[0]->display_name .' logo" />'; }
+                          echo '</td>';
+                          echo '<td>' . $result->groups[0]->display_name . '</td>';
+                          echo '<td>' . $result->title . ':';
+                         
+                            //echo '<ul>'; 
+                            //echo '<li><a href="' . $resource->url . '">' . $resource->name . '(' . $resource->format . ')</a></li>';
+                            echo '<a href="' . $resource->url . '">' . $resource->name . '(' . $resource->format . ')</a>';
+                            //echo '</ul>';
+                            echo '</td>';
+                            echo '<td>' . $resource->revision_timestamp . '</td>';
+                          
+                          echo '</tr>';
                           }
                       } catch (Exception $e) {
                           // Catch exceptions here to prevent one url from breaking an entire publisher
                           print 'Caught exception in '.$file.': ' . $e->getMessage();
                       }
+                    
                     }
                     //echo $data->result->groups->display_name;
                 }
                 closedir($handle);
+                echo '</tbody></table>';
             }
           
           ?>

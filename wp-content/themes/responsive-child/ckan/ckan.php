@@ -49,7 +49,7 @@
  */
 
 function api_request($path, $data=null, $ckan_file=null) {
-    $api_root = "http://data.threesixtygiving.org/api/3/";
+    $api_root = "http://test-360giving.pantheon.io/api/3/";
 
     if ($data === null) $data_string = '{}';
     else $data_string = json_encode($data);
