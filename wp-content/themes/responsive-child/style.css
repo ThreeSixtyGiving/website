@@ -227,6 +227,15 @@ ul.menu > li:hover {
   font-weight: 900;
 }
 
+.banner .col-220 {
+  width: 170px;
+  min-height:150px;
+  max-height:150px;
+  overflow: hidden;
+  padding:10px;
+  border:1px solid #b1b1b1;
+}
+
 .data {
   background: #a10060; /*purple*/
   color: #e4b2cf;
