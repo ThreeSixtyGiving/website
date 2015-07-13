@@ -61,8 +61,7 @@ if ( !defined( 'ABSPATH' ) ) {
       <div class="container" class="hfeed">
       <div class="site-logo">
         <a href="<?php echo home_url( '/' ); ?>">
-          <!--<img src="<?php echo get_stylesheet_directory_uri(); ?>/360givinginwords.png" width=217 height=60 alt="ThreeSixtyGiving" />-->
-          360Giving
+          <img src="<?php echo get_stylesheet_directory_uri(); ?>/360givinginwords.png" width=196 height=50 alt="ThreeSixtyGiving" />
         </a>
       </div>
       <?php if ( has_nav_menu( 'top-menu', 'responsive' ) ) {
