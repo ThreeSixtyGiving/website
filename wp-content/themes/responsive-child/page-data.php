@@ -49,26 +49,27 @@ get_header(); ?>
 					<?php the_content( __( 'Read more &#8250;', 'responsive' ) ); ?>
           
           <?php
-            //Fetch and display the data from CKAN
+            //**Fetch and display the data from CKAN**//
+            //Set up the directories to store data
             $dir = ABSPATH . 'wp-content/themes/responsive-child/ckan';
             $path = $dir . "/ckan";
             
             //Check to see if we need to refresh the data
             //We check to see if one of the files is older than $cache_time
-            $filename = $path . '/arts-council-england';
+            $filename = $path . '/arts-council-england'; //obviously hard coding this is not very clever!
             $cache_time = 7200; // 2 hours
             //echo $filename;
            // echo date ("F d Y H:i:s.", filemtime($filename));
 
-              if (!file_exists($filename)) { //no data
-                  require_once $dir . '/ckan.php';
-                  echo 'Data fetched: ' . date ("F d Y H:i:s.", time());
-              } elseif (date("U",filectime($filename) <= time() - $cache_time)) { // data older than cache time
-                  require_once $dir . '/ckan.php';
-                  echo 'Data last checked: ' . date ("F d Y H:i:s.", filemtime($filename));
-              } else { // data is still fresh
-                  echo 'Data last checked: ' . date ("F d Y H:i:s.", filemtime($filename));
-              }
+            if (!file_exists($filename)) { //no data
+                require_once $dir . '/ckan.php'; //This file fetches the data from the CKAN install
+                echo 'Data fetched: ' . date ("F d Y H:i:s.", time());
+            } elseif (date("U",filectime($filename) <= time() - $cache_time)) { // data older than cache time
+                require_once $dir . '/ckan.php'; //This file fetches the data from the CKAN install
+                echo 'Data last checked: ' . date ("F d Y H:i:s.", filemtime($filename));
+            } else { // data is still fresh
+                echo 'Data last checked: ' . date ("F d Y H:i:s.", filemtime($filename));
+            }
 
             
             //Confident we have some data??
@@ -91,7 +92,7 @@ get_header(); ?>
                       $logo_file = "";
                       try {
                           //logo
-                          //stored in a file called /logos/$file.$extension
+                          //logo is stored in a file called /logos/$file.$extension
                           //To get the extension
                           if ($result->groups[0]->image_display_url) {
                             $logo_link = $result->groups[0]->image_display_url;
@@ -103,24 +104,18 @@ get_header(); ?>
                             $logo_file = get_stylesheet_directory_uri() . '/ckan/logos/' . $file . '.' . $extension;
                           }
                           //echo '<img src="' . $result->groups[0]->image_display_url . '" width=150 height=150 alt="' . $result->groups[0]->display_name .' logo" />';
+                          
+                          //Build the table row
                           foreach ($result->resources as $resource) {
                           echo '<tr>'; 
-                          
-                          
-                          
-                          echo '<td class="logo-cell">';
-                            if (!empty($logo_file)) { echo '<img src="' . $logo_file . '" width=150 height=150 alt="' . $result->groups[0]->display_name .' logo" />'; }
-                          echo '</td>';
-                          echo '<td>' . $result->groups[0]->display_name . '</td>';
-                          echo '<td>' . $result->title . ':';
-                         
-                            //echo '<ul>'; 
-                            //echo '<li><a href="' . $resource->url . '">' . $resource->name . '(' . $resource->format . ')</a></li>';
-                            echo '<a href="' . $resource->url . '">' . $resource->name . '(' . $resource->format . ')</a>';
-                            //echo '</ul>';
+                            echo '<td class="logo-cell">';
+                              if (!empty($logo_file)) { echo '<img src="' . $logo_file . '" width=150 height=150 alt="' . $result->groups[0]->display_name .' logo" />'; }
                             echo '</td>';
-                            echo '<td>' . $resource->revision_timestamp . '</td>';
-                          
+                            echo '<td>' . htmlspecialchars($result->groups[0]->display_name) . '</td>';
+                            echo '<td>' . htmlspecialchars($result->title) . ':';
+                              echo '<a href="' . $resource->url . '">' . htmlspecialchars($resource->name) . '(' . htmlspecialchars($resource->format) . ')</a>';
+                            echo '</td>';
+                            echo '<td>' . htmlspecialchars($resource->revision_timestamp) . '</td>';
                           echo '</tr>';
                           }
                       } catch (Exception $e) {
