@@ -276,6 +276,11 @@ h2 a {
 .blog-side p {
   margin: 0.05em 0;
 }
+
+.blog-side .post-meta {
+ font-size:0.9em;
+}
+
 .blog-main {
 
 }
@@ -548,3 +553,5 @@ border-bottom: none;
 h1.post-title {
 color: #a10061;
 }
+
+blog-side
