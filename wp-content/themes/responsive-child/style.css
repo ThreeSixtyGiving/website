@@ -390,6 +390,7 @@ input[type="text"], input[type="password"], input[type="email"] {
     width: 250px;
     padding-top: 20px;
     color: #515151;
+    font-size:0.6em;
 }
 
 #toc ul {
@@ -408,7 +409,7 @@ input[type="text"], input[type="password"], input[type="email"] {
     color: #515151;
     text-decoration: none;
     display: block;
-    padding: 10px 20px;
+    padding: 5px 20px;
 }
 
 #toc .toc-h2 a {
