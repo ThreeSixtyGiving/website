@@ -554,4 +554,9 @@ h1.post-title {
 color: #a10061;
 }
 
-blog-side
+.nav-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+} 

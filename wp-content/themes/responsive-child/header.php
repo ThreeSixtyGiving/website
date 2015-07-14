@@ -42,7 +42,8 @@ if ( !defined( 'ABSPATH' ) ) {
 		<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>"/>
     <link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/favicon.ico" />
 		<?php wp_head(); ?>
-    <?php if ( is_admin_bar_showing() ) { echo '<style>#toc { top: 92px; }</style>'; } ?>
+    <?php if ( is_admin_bar_showing() ) { echo '<style>#toc { top: 92px; } </style>'; } ?>
+    <?php if ( is_admin_bar_showing() ) { echo '<style>.nav-container { top: 32px; }  </style>'; } ?>
 	</head>
 
 <body <?php body_class(); ?>>
