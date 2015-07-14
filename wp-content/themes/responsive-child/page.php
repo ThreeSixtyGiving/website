@@ -22,7 +22,7 @@ if ( !defined( 'ABSPATH' ) ) {
 
 get_header(); ?>
 <div class="container">
-<div id="content" class="<?php echo esc_attr( implode( ' ', responsive_get_content_classes() ) ); ?>">
+<div id="content" class="<?php //echo esc_attr( implode( ' ', responsive_get_content_classes() ) ); ?>">
 
 	<?php if ( have_posts() ) : ?>
 
@@ -67,5 +67,5 @@ get_header(); ?>
 
 </div><!-- end of #content -->
 </div><!-- end of .container -->
-<?php get_sidebar(); ?>
+<?php //get_sidebar(); ?>
 <?php get_footer(); ?>
