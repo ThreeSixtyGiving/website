@@ -46,8 +46,8 @@ get_header(); ?>
             
             <?php the_content( __( 'Read more &#8250;', 'responsive' ) ); ?>
 
-          </div><!-- end of .container -->
-        </div><!-- end of .post-entry -->
+          </div><!-- end of .post-entry -->
+        </div><!-- end of .container -->
             <div class="banner data">
               <div class="container">
                 <h2><?php the_field('featured_text_1'); ?></h2>

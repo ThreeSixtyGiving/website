@@ -506,7 +506,29 @@ font-size: 5em;
 line-height: 90px;
 }
 
+.blog h2.post-title {
+  color: #32a5db;
+  font-size: 2em;
+  line-height: normal;
+  margin:0;
+}
+
 .who h2 {
   font-size: 5em;
   line-height: 90px;
+}
+
+
+#content-blog .post {
+border-bottom: 1px solid #b1b1b1;
+margin-bottom: 20px;
+}
+
+#content-blog .last-post {
+border-bottom: none;
+}
+
+.post-meta {
+  font-size: 1.2em;
+  font-style: italic;
 }

@@ -21,15 +21,20 @@ if ( !defined( 'ABSPATH' ) ) {
  */
 
 get_header(); ?>
-<div class="container">
-<div id="content" class="<?php echo esc_attr( implode( ' ', responsive_get_content_classes() ) ); ?>">
 
-	<?php get_template_part( 'loop-header', get_post_type() ); ?>
+<div id="content" class="<?php //echo esc_attr( implode( ' ', responsive_get_content_classes() ) ); ?>">
+
+	
 
 	<?php if ( have_posts() ) : ?>
 
 		<?php while( have_posts() ) : the_post(); ?>
-
+      <?php //if ( has_post_thumbnail() ) {
+             // the_post_thumbnail();
+             // } 
+          ?>
+      <div class="container">
+      <?php get_template_part( 'loop-header', get_post_type() ); ?>
 			<?php responsive_entry_before(); ?>
 			<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 				<?php responsive_entry_top(); ?>
@@ -37,6 +42,10 @@ get_header(); ?>
 				<?php get_template_part( 'post-meta', get_post_type() ); ?>
 
 				<div class="post-entry">
+          <?php if ( has_post_thumbnail() ) {
+              the_post_thumbnail();
+              } 
+          ?>
 					<?php the_content( __( 'Read more &#8250;', 'responsive' ) ); ?>
 
 					<?php if ( get_the_author_meta( 'description' ) != '' ) : ?>
@@ -81,7 +90,8 @@ get_header(); ?>
 	endif;
 	?>
 
-</div><!-- end of #content -->
 </div><!-- end of .container -->
+</div><!-- end of #content -->
+
 <?php //get_sidebar(); ?>
 <?php get_footer(); ?>
