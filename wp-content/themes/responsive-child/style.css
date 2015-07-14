@@ -431,21 +431,20 @@ input[type="text"], input[type="password"], input[type="email"] {
 /*From Claudio*/
 .banner h2 {
 /*font-family: League Gothic;*/
-font-size: 40px;
-line-height: 48px;
-text-transform: uppercase;
-letter-spacing: .5px;
+  font-size: 40px;
+  line-height: 48px;
+  text-transform: uppercase;
+  letter-spacing: .5px;
 }
 
 .banner h2 {
-
-opacity: .7;
+  opacity: .7;
 }
 
 
 .call-to-action {
-background-color: rgba(0,0,0,0.2);
-color: rgba(0,0,0,0.6);
+  background-color: rgba(0,0,0,0.2);
+  color: rgba(0,0,0,0.6);
 }
 
 
@@ -474,12 +473,23 @@ margin-top: -40px;
 
 #mc_embed_signup input[type="submit"] {
 
-  padding: 7px 8px;
-
+  padding: 8px 8px 7px 8px;
+  border:none;
+  background-color: #ffb365;
+  color: #fff;
+  background-image:none;
+  box-shadow: none;
+  text-shadow: none;
+  border-radius: 0;
+  background-color: rgba(0,0,0,0.2);
+  color: rgba(0,0,0,0.6);
 }
 
 #mc_embed_signup input[type="email"] {
     width: 400px;
+    background-color: #ffb365;
+    border:none;
+    border-radius: 0;
 }
 
 .logo-cell {
@@ -516,6 +526,8 @@ line-height: 90px;
 .who h2 {
   font-size: 5em;
   line-height: 90px;
+  color: #333;
+  opacity: 1;
 }
 
 
