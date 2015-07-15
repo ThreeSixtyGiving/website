@@ -43,7 +43,7 @@ function standard_shortcode( $atts ) {
   
   //Fetch the page from the git repository
   $dir = plugin_dir_path( __FILE__ );
-  $page = file_get_contents($dir .'/threesixtygiving.github.io/' . $a['page'] . '.md');
+  $page = file_get_contents($dir .'/standard/documentation/' . $a['page'] . '.md');
   
   //Turn it into html using the Paresdown library
   include $dir . '/parsedown/Parsedown.php';
