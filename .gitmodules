@@ -10,3 +10,6 @@
 [submodule "wp-content/plugins/threesixty_docs/standard"]
 	path = wp-content/plugins/threesixty_docs/standard
 	url = https://github.com/ThreeSixtyGiving/standard.git
+[submodule "wp-content/plugins/threesixty_docs/docson"]
+	path = wp-content/plugins/threesixty_docs/docson
+	url = https://github.com/lbovet/docson.git
