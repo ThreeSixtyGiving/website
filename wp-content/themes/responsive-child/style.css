@@ -392,8 +392,8 @@ input[type="text"], input[type="password"], input[type="email"] {
     position: fixed;
     background: #e5e5e5;
     box-shadow: inset -5px 0 5px 0px #d2d2d2;
-    width: 250px;
-    padding-top: 20px;
+    width: 190px;
+    padding-top: 0px;
     color: #515151;
     font-size:0.6em;
 }
@@ -414,7 +414,7 @@ input[type="text"], input[type="password"], input[type="email"] {
     color: #515151;
     text-decoration: none;
     display: block;
-    padding: 5px 20px;
+    padding: 0px 20px;
 }
 
 #toc .toc-h2 a {
