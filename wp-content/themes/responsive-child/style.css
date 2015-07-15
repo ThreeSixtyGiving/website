@@ -606,5 +606,24 @@ display:none;
 
 
 .home .read-more {
-  display:none;
+  padding: 20px 40px;
+  font-weight: 900;
+  clear: both;
+  border:none;
+  background-color: #32a5db;
+  background-image:none;
+  box-shadow: none;
+  text-shadow: none;
+  border-radius: 0;
+  width: 23%;
+}
+
+.home .read-more a {
+color: #000;
+opacity: 0.7;
+}
+
+.home .read-more a:hover {
+color: #fff;
+opacity: 0.7;
 }
