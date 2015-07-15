@@ -53,6 +53,9 @@ function responsive_child_scripts() {
   wp_enqueue_style( 'cpsh-shortcodes');
   wp_enqueue_style( 'mailchimp-for-wp-form');
   wp_enqueue_style( 'responsive-child-style');
+  wp_dequeue_script('responsive-scripts');
+  wp_deregister_script( 'responsive-scripts' );
+  wp_enqueue_script('custom-script', get_stylesheet_directory_uri() . '/js/my_responsive-scripts.min.js', array( 'jquery' ), '1.2.6', true );
 }
 
 //$dependencies = array(
