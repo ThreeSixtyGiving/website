@@ -164,12 +164,13 @@ ul.menu > li:hover {
   background: none;
   background: #e5831e !important;
   font-size: 1em;
-
+  font-stretch: normal;
 }
 
 .menu li li a:hover {
 	color: #7e4514;
 	background: #e5831e !important;
+  font-stretch: normal;
 }
 
 /* Front Page */
@@ -597,4 +598,11 @@ display:none;
 .post-edit {
   display: none;
   margin:0;
+}
+
+.post-entry span {
+  height: 90px;
+  margin-top: -90px;
+  display: block;
+  visibility: hidden;
 }
