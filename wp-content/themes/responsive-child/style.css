@@ -232,7 +232,7 @@ ul.menu > li:hover {
   max-height:150px;
   overflow: hidden;
   padding:10px;
-  border:1px solid #b1b1b1;
+  /*border:1px solid #b1b1b1;*/
 }
 
 .data {
@@ -375,6 +375,10 @@ input[type="text"], input[type="password"], input[type="email"] {
   box-shadow: none;
 }
 
+.top-widget {
+  margin-top:70px;
+}
+
 .top-widget #searchform {
   margin:10px 10px 0 10px;
 }
@@ -467,6 +471,7 @@ input[type="text"], input[type="password"], input[type="email"] {
   padding-left:5%;
 }
 
+/* Mail Chimp form overrides*/ 
 .mc-field-group {
 margin-top: -40px;
 }
@@ -498,6 +503,7 @@ margin-top: -40px;
     border-radius: 0;
 }
 
+/* Table on /data pages */
 .logo-cell {
 min-width: 150px;
 }
@@ -555,9 +561,40 @@ h1.post-title {
 color: #a10061;
 }
 
+/* Fixes top navigation so it's always visible on scroll */
 .nav-container {
   position: fixed;
   top: 0;
   left: 0;
   z-index: 9999;
 } 
+
+/* Removes meta data on pages... */
+.type-page .post-meta {
+display:none;
+}
+
+/*...and adds it back on for the blog posts on front page*/
+.home .post-meta {
+display:block;
+}
+
+/* Removes all breadcrumbs */
+.breadcrumb-list {
+display:none;
+}
+
+/* Shrinks size of powered by wordpress in footer */
+.powered {
+  font-size: 0.6em;
+}
+
+/*Fixes content to footer - removes margin*/
+#content {
+  margin-bottom: 0;
+}
+
+.post-edit {
+  display: none;
+  margin:0;
+}
