@@ -634,11 +634,14 @@ color: #fff;
 opacity: 0.7;
 }
 
-.page-template-page_documentation #wrapper .container {
-  max-width: 710px;
-  margin:0;
+#nav_menu-2 ul {
+list-style-type: none;
+padding-left:1em;
+padding-bottom: 5px;
 }
-
+#nav_menu-2 ul li {
+padding-bottom: 5px;
+}
 
 /* Responsive stuff */
 /* =Responsive (Mobile) Design
@@ -1008,3 +1011,5 @@ opacity: 0.7;
 		display: block;
 	}
 }
+
+
