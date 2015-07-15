@@ -7,3 +7,6 @@
 [submodule "wp-content/themes/responsive-child/js/toc"]
 	path = wp-content/themes/responsive-child/js/toc
 	url = https://github.com/jgallen23/toc.git
+[submodule "wp-content/plugins/threesixty_docs/standard"]
+	path = wp-content/plugins/threesixty_docs/standard
+	url = https://github.com/ThreeSixtyGiving/standard.git
