@@ -36,6 +36,18 @@ For code we should be making GitHub our master repo, which we synch with locally
 
 Update local master from GitHub, push to staging, check, then push from local to production.
 
+Locking the databases
+;;;;;;;;;;;;;;;;;;;;;
+At times you will need to grab the database from the staging/production server to do development work.
+At that time, any changes people make to the production/staging database will be potentially lost.
+Users need to be informed about not making changes
+For some changes, such as adding plugins, these can be done locally, and then configured on the staging/production sites
+
+Uploaded files
+;;;;;;;;;;;;;;
+These are not held in version control. To synch your local files with live/staging you will need
+SFTP access, and manually copy across.
+
 Setting up a local development environment
 ++++++++++++++++++++++++++++++++++++++++++
 Follow the instructions here:
