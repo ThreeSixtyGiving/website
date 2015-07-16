@@ -215,7 +215,7 @@ ul.menu > li:hover {
   clear:both;
   font-family: ostrich_sans_roundedmedium,sans-serif;
   min-height: 190px;
-  padding-bottom:10px;
+  padding-bottom:20px;
 }
 
 .banner .fit {
@@ -681,7 +681,16 @@ padding-bottom: 5px;
 	.front-page  .top-widget {
 		margin-top: 70px !important;
 	}
-
+  
+  .banner .fit {
+    margin: 0;
+    margin-bottom: 2.127659574468% !important;
+  }
+  
+  .banner .col-300 {
+    float: left;
+    margin-bottom:10px;
+  }
 }
 
 @media screen and (max-width: 650px) {
@@ -710,6 +719,7 @@ padding-bottom: 5px;
   
   .banner .col-300 {
     width: 100%;
+    float:none;
   }
   
   .banner .fit {
