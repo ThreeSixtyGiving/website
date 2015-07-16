@@ -148,12 +148,12 @@ get_header(); ?>
                 </form>
                 </div>
 
-<!--End mc_embed_signup-->
+              <!--End mc_embed_signup-->
               </div><!-- end of .container -->
             </div><!-- end of .banner subscribe -->
     
             <!--Logos section-->
-            <div class="banner who" style="height:200px">
+            <div class="banner who">
               <div class="container">
                 <h2>Who's Involved</h2>
                 <?php
