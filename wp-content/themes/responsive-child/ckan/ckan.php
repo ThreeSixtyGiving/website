@@ -28,6 +28,7 @@
  * For this script to work you may need to create the following directories
  * and make then writable: 
  * ./ckan
+ * ./ckan/resources
  * ./urls
  * ./data
  * ./logos
@@ -49,7 +50,7 @@
  */
 
 function api_request($path, $data=null, $ckan_file=null) {
-    $api_root = "http://test-360giving.pantheon.io/api/3/";
+    $api_root = "http://data.threesixtygiving.org/api/3/";
 
     if ($data === null) $data_string = '{}';
     else $data_string = json_encode($data);
@@ -108,10 +109,12 @@ foreach ($groups as $group) {
       $file = $dir . "/urls/" . $group;
       $logo_file = $dir . "/logos/" . $group;
       $ckan_file = $dir . "/ckan/" . $group;
+      $resources_dir = $dir . "/ckan/resources/";
     } else {
       $file = "urls/" . $group;
       $logo_file = "logos/" . $group;
       $ckan_file = "ckan/" . $group;
+      $resources_dir = "ckan/resources/";
     }
    // echo $group."\n";
     try {
@@ -133,6 +136,13 @@ foreach ($groups as $group) {
                   //print_r($extension); die;
                   file_put_contents($logo_file . '.' . $extension,file_get_contents($logo_link), LOCK_EX);
                 }
+                //Store resource info e.g. url of data file
+                foreach ($package->resources as $resource) {
+                  //echo $resource->id; die;
+                  //$ckan_file = $ckan_file . '/resources/';
+                  $result2 = api_request('action/resource_show?id=' . $resource->id, null, $resources_dir . $resource->id );
+                }
+                
             } catch (Exception $e) {
                 // Catch exceptions here to prevent one url from breaking an entire publisher
                 print 'Caught exception in '.$file.': ' . $e->getMessage();

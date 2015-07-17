@@ -75,7 +75,7 @@ get_header(); ?>
             //Confident we have some data??
             //Loop over all our CKAN 'group' files and extract data
             //Build a table
-            echo '<table class="data-table"><thead><th>Logo</th><th>Organisation</th><th>Data</th><th>Last Updated</th></thead><tbody>';
+            echo '<table class="data-table tablesorter"><thead><th class="sortless">Logo</th><th>Organisation</th><th>Data</th><th>Last Updated</th></thead><tbody>';
             if ($handle = opendir($path)) {
                 while (false !== ($file = readdir($handle))) {
                     if ('.' === $file) continue;
@@ -86,7 +86,7 @@ get_header(); ?>
                    // echo $file;
                     //print_r($results);
                    
-                   
+                  if (isset($data->result)) {
                     foreach ($data->result as $result) {
                       //print_r($package);
                       $logo_file = "";
@@ -107,13 +107,17 @@ get_header(); ?>
                           
                           //Build the table row
                           foreach ($result->resources as $resource) {
+                            $resource_json = file_get_contents($path . '/resources/' . $resource->id);
+                            $resource_data = json_decode($resource_json, true);
+                            //print_r($resource_data); die;
                           echo '<tr>'; 
                             echo '<td class="logo-cell">';
                               if (!empty($logo_file)) { echo '<img src="' . $logo_file . '" width=150 height=150 alt="' . $result->groups[0]->display_name .' logo" />'; }
                             echo '</td>';
                             echo '<td>' . htmlspecialchars($result->groups[0]->display_name) . '</td>';
-                            echo '<td>' . htmlspecialchars($result->title) . ':';
-                              echo '<a href="' . $resource->url . '">' . htmlspecialchars($resource->name) . '(' . htmlspecialchars($resource->format) . ')</a>';
+                            echo '<td>' . htmlspecialchars($result->title) . ': <br>';
+                              //echo '<a href="' . $resource->url . '">' . htmlspecialchars($resource->name) . ' (' . htmlspecialchars($resource->format) . ')</a>';
+                              echo '<a href="' . $resource_data['result']['url'] . '">' . htmlspecialchars($resource->name) . ' (' . htmlspecialchars($resource->format) . ')</a>';
                             echo '</td>';
                             echo '<td>' . htmlspecialchars($resource->revision_timestamp) . '</td>';
                           echo '</tr>';
@@ -125,6 +129,7 @@ get_header(); ?>
                     
                     }
                     //echo $data->result->groups->display_name;
+                  }//end if
                 }
                 closedir($handle);
                 echo '</tbody></table>';
