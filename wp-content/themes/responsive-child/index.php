@@ -162,15 +162,18 @@ get_header(); ?>
                 $dir = ABSPATH . 'wp-content/themes/responsive-child/ckan';
                 $path = $dir . "/logos";
                 
-                if ($handle = opendir($path)) {
-                while (false !== ($file = readdir($handle))) {
-                    if ('.' === $file) continue;
-                    if ('..' === $file) continue;
+                $files = preg_grep('/^([^.])/', scandir($path)); 
+
+                foreach ($files as $file) {
+                //if ($handle = opendir($path)) {
+                //while (false !== ($file = scandir($handle))) {
+                   // if ('.' === $file) continue;
+                    //if ('..' === $file) continue;
                     
                     echo '<div class="grid col-220">';
                     echo '<img src="' . get_stylesheet_directory_uri() . '/ckan/logos/' . $file . '" alt="" width=150 height=150 />';
                     echo '</div>';
-                  }
+                  
                 }
                 ?>
               </div><!-- end of .container -->
