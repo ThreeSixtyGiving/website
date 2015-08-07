@@ -13,9 +13,9 @@ def browser(request):
 
 @pytest.fixture(scope="module")
 def server_url():
-    #return "http://www.threesixtygiving.org/"
+    return "http://www.threesixtygiving.org/"
     #return "http://opendataservic.staging.wpengine.com/"
-    return "http://opendataservic.wpengine.com/"
+    #return "http://opendataservic.wpengine.com/"
 
 
 def test_index_page(server_url,browser):
@@ -32,6 +32,13 @@ def test_identifiers_page(server_url,browser):
     assert '360 Giving' not in browser.find_element_by_tag_name('body').text
 
 
+def test_cove_link(server_url,browser):
+  browser.get(server_url + 'standard/reference/')
+  href = browser.find_element_by_xpath("//*[@id='post-35']/div[1]/p[6]/a")
+  href = href.get_attribute("href")
+  assert "http://cove.opendataservices.coop/360/" in href
+  
+  
 @pytest.mark.parametrize(('logo'), [
     ('heritage-lottery-fund'),
     ('heritage-lottery-fund.jpg'),
