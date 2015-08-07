@@ -821,3 +821,15 @@ padding-bottom: 5px;
     padding-left: 0;
 	}
 }
+
+
+/*Bug Fixes*/
+/* Issue: https://github.com/ThreeSixtyGiving/website/issues/50 */
+ 
+.post-entry span.tooltip {
+  height: initial;
+  margin-top: 0;
+  display: inline;
+  visibility: visible;
+  cursor: help;
+}
