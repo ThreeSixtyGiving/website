@@ -60,6 +60,16 @@ You will then need to add the GitHub repository as a remote:
 Makes sure the code you have downloaded and the GitHub repository are 
 synchronised. Then you can start development.
 
+Tests
++++++
+Tests that use pytest and selenium are kept in the `/tests` directory
+Run them from the wordpress root with: `py.test`
+
+You can set the URL of the test website, so you can test locally, test
+staging, or test the live site.
+
+When adding features or fixing bugs, please create and run tests.
+
 How do the docs work?
 ---------------------
 
