@@ -114,6 +114,11 @@ Our page simply use this URL as the img link.
 We could look to pull and store the logos locally - but we need to think about how to refresh them over time.
 (We may want to display some logos on the front page)
 
+Currently, they display in a random order;
+Are pulled from DKAN via associated datasets (so publishers without data don't get pulled);
+There is no limit on how many will be shown;
+The size and quality is not great;
+
 
 How do the banners work?
 ------------------------
