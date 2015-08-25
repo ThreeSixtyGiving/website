@@ -4,6 +4,15 @@ For the public presence of 360 Giving
 
 This takes the files from a WPEngine account, managed using git, and places them here for collaborative development.
 
+Editor Notes
+------------
+
+Editors can make edits to the live site. This can include uploading files, altering text, and most configuration changes in the admin panel
+
+They should NOT alter anything that potentially changes code e.g.
+Update plugins, themes or Wordpress core
+
+Editors should NOT push staging changes to live via the WPEngine interface without checking with developers first.
 
 Developer Notes
 ---------------
@@ -17,24 +26,27 @@ wp-config is git ignored.
 To update akismet locally via the admin interface I had problems setting permissions
 
 Development Workflow
-++++++++++++++++++++++
-With git we can set up repositories to push to production or staging
-We CANNOT make changes in production/staging and then pull them locally
+++++++++++++++++++++
+All development should take place on local machines.
+
+With git we can set up repositories to push to production or staging at WPEngine, 
+BUT we CANNOT make changes in production/staging and then pull them locally
 THEREFORE all development must done locally.
 
-In order to collaborate, we will need to use e.g. GitHub
+In order to collaborate on development, we use GitHub
 
-Obviously, content and configuration changes can still be made on the live site, so we still have the wordpress/drupal problem of keeping the database in synch.
+On GitHub we have a master and live branch. We use master for development and live is the branch that gets deployed to WPEngine.
+WPEnginge has a staging and a production branch. We can push anything we like to staging, but should only push our GitHub live branch to production.
 
-And when we add plugins, themes, etc these cause changes to the database.
+Obviously, content and configuration changes can still be made on the live site, so we still have the Wordpress problem of keeping the database in synch.
+
+When setting up your local environment therefore it is important to get the correct branch checked out locally, and to get a copy of the 
+correct database to be working with. This may mean getting a copy of the live/production database or the staging database.
+
+Remember that when we add plugins, themes, etc these cause changes to the database.
 
 We have the added complication of keeping staging and production synched at wpengine.
 
-
-So we need to know which database we are woking with (staging or production)
-For code we should be making GitHub our master repo, which we synch with locally, then we push changes back to git hub, and when ready we would:
-
-Update local master from GitHub, push to staging, check, then push from local to production.
 
 Locking the databases
 ;;;;;;;;;;;;;;;;;;;;;
@@ -74,12 +86,14 @@ How do the docs work?
 ---------------------
 
 We have created a new plugin: threesixty_docs to handle the documentation side of the website.
-This contains 2 git submodules:
-Our documents: threesixtygiving.github.io
-A markdown to HTML parser: parsedown
+This contains 3 git submodules:
+
+* A markdown to HTML parser: parsedown
+* Our documents from the Standard repo: standard
+* Docson - Give Docson a JSON schema and it will generate beautiful documentation: docson
 
 The SSOT of the documentation is at:
-https://github.com/ThreeSixtyGiving/threesixtygiving.github.io
+https://github.com/ThreeSixtyGiving/standard
 and so we clone this repository into the plugin. 
 
 In Wordpress we then use short codes of the form (standard page="<name>") to fetch the correct document to display, pass it through a markdown to HTML parser, and display it on the website.
@@ -95,9 +109,13 @@ To do this we have not used a plug in, but just adapted our theme.
 We use a child theme of the Responsive Theme.
 The code to run the CKAN work is in /ckan
 Within that directory we have to manually set up the following subdirectories and make sure they are writable:
-ckan - saves json data for each 'group' call to ckan
-urls  - saves json data for each 'package' call to ckan
-data - not used but could store raw 360 data pulled from CKAN
+
+* ckan - saves json data for each 'group' call to ckan
+* urls  - saves json data for each 'package' call to ckan
+* logos - saves the logos of data producers
+* data - not used but could store raw 360 data pulled from CKAN
+
+NB: These diretories are added to .gitignore so do not show in the repository.
 
 We have created a dedicated template page called page-data.php. This will be displayed if there is a Wordpress page with the slug 'data'.
 
@@ -110,9 +128,20 @@ There is a 2 hour cache in place. Filetime is checked and if data is over two ho
 Logos
 +++++
 The DKAN call gives us the DKAN URL for the logos.
-Our page simply use this URL as the img link.
-We could look to pull and store the logos locally - but we need to think about how to refresh them over time.
-(We may want to display some logos on the front page)
+We use this to fetch and store the image from DKAN (in /wp-content/themes/responsive-child/ckan/logos).
+Our page loads the logos we have stored.
+
+To show a new logo
+;;;;;;;;;;;;;;;;;;
+Make sure the logo has been added to the DKAN site.
+Wait for 2 hours and it will show.
+
+To remove a logo
+;;;;;;;;;;;;;;;;
+
+| Remove the logo from the DKAN site  
+| Ask a developer to remove it from the logos directory.
+| Refresh the WPEngine cache
 
 Currently, they display in a random order;
 Are pulled from DKAN via associated datasets (so publishers without data don't get pulled);

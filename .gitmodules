@@ -1,6 +1,3 @@
-[submodule "wp-content/plugins/threesixty_docs/threesixtygiving.github.io"]
-	path = wp-content/plugins/threesixty_docs/threesixtygiving.github.io
-	url = https://github.com/ThreeSixtyGiving/threesixtygiving.github.io.git
 [submodule "wp-content/plugins/threesixty_docs/parsedown"]
 	path = wp-content/plugins/threesixty_docs/parsedown
 	url = https://github.com/erusev/parsedown.git
