@@ -32,6 +32,13 @@ def test_identifiers_page(server_url,browser):
     assert '360 Giving' not in browser.find_element_by_tag_name('body').text
 
 
+def test_standard_documentation_page(server_url,browser):
+    browser.get(server_url + 'standard/reference/')
+    assert 'Recipient Org:County' in browser.find_element_by_tag_name('body').text
+    assert 'Recipient Org:Country' in browser.find_element_by_tag_name('body').text
+    assert 'Recipient Org:Description' in browser.find_element_by_tag_name('body').text
+    assert 'Recipient Org:Web Address' in browser.find_element_by_tag_name('body').text
+
 def test_cove_link(server_url,browser):
   browser.get(server_url + 'standard/reference/')
   href = browser.find_element_by_xpath("//*[@id='post-35']/div[1]/p[6]/a")
