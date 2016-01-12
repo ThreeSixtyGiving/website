@@ -20,12 +20,12 @@ function list_datasets($atts, $content=null) {
         foreach($dataset_list as $dataset) {
             print '<tr>';
             if($dataset->publisher->logo != "") {
-                print '<td class="logo-cell"><img src="'.$dataset->publisher->logo.'" width="150" height="150", alt="'.$dataset->publisher->name.' logo"/></td>';
+                print '<td class="logo-cell"><img src="'. esc_url( $dataset->publisher->logo) .'" width="150" height="150", alt="'. esc_html( $dataset->publisher->name ) .' logo"/></td>';
             } else {
                 print '<td class="logo-cell">&nbsp;</td>';
             }
-            print '<td class="logo-cell">'.$dataset->publisher->name.'</td>';
-            print '<td class="logo-cell">'.$dataset->publisher->name.':<br/><a href="'.$dataset->distribution[0]->downloadURL.'">'.$dataset->distribution[0]->title.'</a></td>';
+            print '<td class="logo-cell">'. esc_html( $dataset->publisher->name) .'</td>';
+            print '<td class="logo-cell">'. esc_html( $dataset->publisher->name) .':<br/><a href="'. esc_url( $dataset->distribution[0]->downloadURL ) .'">'. esc_html( $dataset->distribution[0]->title ) .'</a></td>';
             print '</tr>';
         }
         print '</tbody></table>';
