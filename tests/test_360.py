@@ -24,7 +24,12 @@ def test_index_page(server_url,browser):
     href = browser.find_element_by_xpath("//*[@id='post-17']/div[1]/div/div[3]/p[1]/a[1]")
     href = href.get_attribute("href")
     assert "http://www.threesixtygiving.org/get-involved/publish-your-data/" in href
-    
+
+
+def test_index_page(server_url,browser):
+    browser.get(server_url)
+    assert "This site uses cookies: Find out more." in browser.find_element_by_tag_name('body').text
+
 
 def test_identifiers_page(server_url,browser):
     browser.get(server_url + 'standard/identifiers/')
@@ -39,11 +44,15 @@ def test_standard_documentation_page(server_url,browser):
     assert 'Recipient Org:Description' in browser.find_element_by_tag_name('body').text
     assert 'Recipient Org:Web Address' in browser.find_element_by_tag_name('body').text
 
+
 def test_cove_link(server_url,browser):
   browser.get(server_url + 'standard/reference/')
   href = browser.find_element_by_xpath("//*[@id='post-35']/div[1]/p[6]/a")
   href = href.get_attribute("href")
   assert "http://cove.opendataservices.coop/360/" in href
+
+
+
   
   
 @pytest.mark.parametrize(('logo'), [
