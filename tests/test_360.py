@@ -13,9 +13,9 @@ def browser(request):
 
 @pytest.fixture(scope="module")
 def server_url():
-    return "http://www.threesixtygiving.org/"
+    #return "http://www.threesixtygiving.org/"
     #return "http://opendataservic.staging.wpengine.com/"
-    #return "http://opendataservic.wpengine.com/"
+    return "http://opendataservic.wpengine.com/"
 
 
 def test_index_page(server_url,browser):
@@ -26,9 +26,10 @@ def test_index_page(server_url,browser):
     assert "http://www.threesixtygiving.org/get-involved/publish-your-data/" in href
 
 
-def test_index_page(server_url,browser):
+def test_cookie_message(server_url,browser):
     browser.get(server_url)
     assert "This site uses cookies: Find out more." in browser.find_element_by_tag_name('body').text
+    assert "COOKIE POLICY" not in browser.find_element_by_tag_name('body').text
 
 
 def test_identifiers_page(server_url,browser):
@@ -52,7 +53,18 @@ def test_cove_link(server_url,browser):
   assert "http://cove.opendataservices.coop/360/" in href
 
 
+def test_charitycommission_link(server_url,browser):
+  browser.get(server_url + 'standard/identifiers/')
+  href = browser.find_element_by_xpath("//*[@id='post-7']/div[1]/ol[2]/li[2]/p/a[1]")
+  href = href.get_attribute("href")
+  assert "http://www.charitycommission.gov.uk/" in href
+  
 
+def test_contactus_link(server_url,browser):
+  browser.get(server_url + 'standard/identifiers/')
+  href = browser.find_element_by_xpath("//*[@id='post-7']/div[1]/ol[2]/li[3]/p/a[2]")
+  href = href.get_attribute("href")
+  assert "/contact/" in href
   
   
 @pytest.mark.parametrize(('logo'), [
