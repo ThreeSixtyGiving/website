@@ -44,6 +44,8 @@ def test_standard_documentation_page(server_url,browser):
     assert 'Recipient Org:Country' in browser.find_element_by_tag_name('body').text
     assert 'Recipient Org:Description' in browser.find_element_by_tag_name('body').text
     assert 'Recipient Org:Web Address' in browser.find_element_by_tag_name('body').text
+    assert '360Giving' in browser.find_element_by_tag_name('body').text
+    assert '360 Giving' not in browser.find_element_by_tag_name('body').text
 
 
 def test_cove_link(server_url,browser):
