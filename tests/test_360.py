@@ -36,6 +36,8 @@ def test_identifiers_page(server_url,browser):
     browser.get(server_url + 'standard/identifiers/')
     assert '360Giving' in browser.find_element_by_tag_name('body').text
     assert '360 Giving' not in browser.find_element_by_tag_name('body').text
+    #Bug #112
+    assert 'As soon as a step gives you an identifier, you can stop there and use the given identifier' in browser.find_element_by_tag_name('body').text
 
 
 def test_standard_documentation_page(server_url,browser):
