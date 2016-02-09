@@ -51,6 +51,9 @@ def test_standard_documentation_page(server_url,browser):
     #Bug #102
     assert 'Use the three-letter currency code from ISO 4217 eg: GBP' in browser.find_element_by_tag_name('body').text
     assert 'Use the three-digit currency code from ISO 4217' not in browser.find_element_by_tag_name('body').text
+    #Bug #71
+    assert '360 Bridge tool' not in browser.find_element_by_tag_name('body').text
+    
 
 
 def test_standard_documentation_pop_out_page(server_url,browser):
