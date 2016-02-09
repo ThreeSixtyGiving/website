@@ -48,6 +48,14 @@ def test_standard_documentation_page(server_url,browser):
     assert 'Recipient Org:Web Address' in browser.find_element_by_tag_name('body').text
     assert '360Giving' in browser.find_element_by_tag_name('body').text
     assert '360 Giving' not in browser.find_element_by_tag_name('body').text
+    #Bug #102
+    assert 'Use the three-letter currency code from ISO 4217 eg: GBP' in browser.find_element_by_tag_name('body').text
+    assert 'Use the three-digit currency code from ISO 4217' not in browser.find_element_by_tag_name('body').text
+
+
+def test_standard_documentation_pop_out_page(server_url,browser):
+    browser.get(server_url + 'wp-content/plugins/threesixty_docs/docson/index.html#/wp-content/plugins/threesixty_docs/standard/schema/360-giving-schema.json$$expand')
+    assert 'The currency used in grant amounts and transactions using an ISO 3-letter code. Use GBP for Pounds Sterling.' in browser.find_element_by_tag_name('body').text
 
 
 def test_cove_link(server_url,browser):
