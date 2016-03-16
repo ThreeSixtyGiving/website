@@ -24,8 +24,8 @@ def test_index_page(server_url,browser):
     href = browser.find_element_by_xpath("//*[@id='post-17']/div[1]/div/div[3]/p[1]/a[1]")
     href = href.get_attribute("href")
     assert "http://www.threesixtygiving.org/get-involved/publish-your-data/" in href
-    assert "News" in browser.find_element_by_id ("news")
-    assert "Blog" not in browser.find_element_by_id ("news")
+    assert "NEWS" in browser.find_element_by_id("news").text
+    assert "BLOG" not in browser.find_element_by_id("news").text
 
 
 def test_cookie_message(server_url,browser):
