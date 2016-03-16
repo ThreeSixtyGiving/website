@@ -74,9 +74,9 @@ get_header(); ?>
 	endif;
 	?>
             <!--End of Page content - now get Blog-->
-            <div class="container">
+            <div class="container" id="news">
               <div class="banner blog">
-                <h2>Blog</h2>
+                <h2>News</h2>
               </div>
             <?php $my_query = "showposts=3"; $my_query = new WP_Query($my_query); $i=0;?>
             <?php if ($my_query->have_posts()) : while ($my_query->have_posts()) : $my_query->the_post(); ?>
