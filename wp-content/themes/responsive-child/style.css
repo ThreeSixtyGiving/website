@@ -651,6 +651,17 @@ padding-bottom: 5px;
   padding: 0 25px;
   }
 
+
+/*April 2016 Changes*/
+
+a.anchor {
+    padding-top: 100px;
+    margin-top: -100px;
+    display: inline-block;
+}
+
+/* end April 2016 changes*/
+
 /* Responsive stuff */
 /* =Responsive (Mobile) Design
 -------------------------------------------------------------- */
