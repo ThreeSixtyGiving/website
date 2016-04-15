@@ -16,17 +16,37 @@ function list_datasets($atts, $content=null) {
                 set_transient( 'dcat-json-data', $datasets,60*60);
         }
         $dataset_list = json_decode(wp_remote_retrieve_body($datasets));
-        $html =  '<table class="data-table tablesorter"><thead><tr><th class="sortless {sorter: false}">Logo</th><th class="header headerSortUp">Organisation</th><th class="header">Data</th></tr></thead><tbody>';
+        $publishers = array();
         foreach($dataset_list as $dataset) {
-            $html .= '<tr>';
-            if($dataset->publisher->logo != "") {
-                $html .= '<td class="logo-cell"><img src="'. esc_url( $dataset->publisher->logo) .'" width="150" height="150", alt="'. esc_html( $dataset->publisher->name ) .' logo"/></td>';
-            } else {
-                $html .= '<td class="logo-cell">&nbsp;</td>';
+          $publishers[] = $dataset->publisher->name;
+        }
+        $publishers  = array_unique($publishers);
+        sort($publishers);
+        $html = "";          
+        $html .=  '<table class="data-table tablesorter"><thead><tr><th class="sortless {sorter: false}">Logo</th><th class="header headerSortUp">Organisation</th><th class="header">Data</th></tr></thead><tbody>';
+        foreach ($publishers as $publisher) {
+          $count = 0;
+          foreach($dataset_list as $dataset) {
+            if ($dataset->publisher->name == $publisher) {
+              $count ++;
+              if ($count == 1) {
+                  $html .= '<tr>';
+                  if($dataset->publisher->logo != "") {
+                      $html .= '<td class="logo-cell"><img src="'. esc_url( $dataset->publisher->logo) .'" width="100" height="100", alt="'. esc_html( $dataset->publisher->name ) .' logo"/></td>';
+                  } else {
+                      $html .= '<td class="logo-cell">&nbsp;</td>';
+                  }
+                  $html .= '<td>'. esc_html( $dataset->publisher->name) .'</td>';
+              
+              $html .= '<td>';
+              }
+              
+              $html .= '<a href="'. esc_url( $dataset->distribution[0]->downloadURL ) .'">'. esc_html( $dataset->distribution[0]->title ) .'</a><br/>';
             }
-            $html .= '<td class="logo-cell">'. esc_html( $dataset->publisher->name) .'</td>';
-            $html .= '<td class="logo-cell">'. esc_html( $dataset->publisher->name) .':<br/><a href="'. esc_url( $dataset->distribution[0]->downloadURL ) .'">'. esc_html( $dataset->distribution[0]->title ) .'</a></td>';
-            $html .= '</tr>';
+              
+          }
+          $html .='</td>';
+          $html .= '</tr>';
         }
         $html .= '</tbody></table>';
         
