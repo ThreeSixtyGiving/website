@@ -660,6 +660,28 @@ a.anchor {
     display: inline-block;
 }
 
+/*http://opendataservic.staging.wpengine.com/about/
+ * but also affects all lists
+*/
+ul, ol {
+    margin: -1em 1.5em -1em 0;
+    padding-left: 2.0em;
+}
+
+/*http://opendataservic.staging.wpengine.com/standard/*/
+.one_half {
+    width: 45%;
+    padding-right: 2%;
+    padding-left: 2%;
+}
+
+/*http://opendataservic.staging.wpengine.com/get-involved/data/*/
+.data-table td.logo-cell {
+    min-width: 100px;
+    height: 100px;
+    vertical-align: middle;
+}
+
 /* end April 2016 changes*/
 
 /* Responsive stuff */
