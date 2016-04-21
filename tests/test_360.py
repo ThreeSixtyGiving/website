@@ -115,3 +115,4 @@ def test_index_page_logos(server_url,browser,logo):
 def test_news_page(server_url,browser):
   browser.get(server_url + 'category/news')
   assert "Blog Archives" not in browser.find_element_by_tag_name('body').text
+  assert "News & Updates" in browser.find_element_by_tag_name('h1').text
