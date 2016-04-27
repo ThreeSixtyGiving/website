@@ -116,3 +116,9 @@ def test_news_page(server_url,browser):
   browser.get(server_url + 'category/news')
   assert "Blog Archives" not in browser.find_element_by_tag_name('body').text
   assert "News & Updates" in browser.find_element_by_tag_name('h1').text
+
+
+def test_redirect(server_url,browser):
+  browser.get(server_url + '/news')
+  redirect = browser.current_url
+  assert "/news/" in redirect
