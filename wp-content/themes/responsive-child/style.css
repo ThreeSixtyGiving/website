@@ -407,9 +407,7 @@ input[type="text"], input[type="password"], input[type="email"] {
 }
 
 #toc li {
-    
-    border-bottom: 2px solid #d2d2d2;
-    
+    border-bottom: 2px solid #d2d2d2;   
 }
 
 #toc a {
@@ -438,6 +436,14 @@ input[type="text"], input[type="password"], input[type="email"] {
 #toc a:hover, #toc a:focus {
     background: #cecece;
     box-shadow: inset -5px 0px 10px -5px #d2d2d2;
+}
+
+.page-id-35 #toc {
+    font-size:0.5em;
+}
+
+.page-id-35 #toc li {
+    height: 25px;
 }
 
 
