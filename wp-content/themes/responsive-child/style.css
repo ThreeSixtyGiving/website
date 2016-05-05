@@ -407,9 +407,7 @@ input[type="text"], input[type="password"], input[type="email"] {
 }
 
 #toc li {
-    
-    border-bottom: 2px solid #d2d2d2;
-    
+    border-bottom: 2px solid #d2d2d2;   
 }
 
 #toc a {
@@ -438,6 +436,14 @@ input[type="text"], input[type="password"], input[type="email"] {
 #toc a:hover, #toc a:focus {
     background: #cecece;
     box-shadow: inset -5px 0px 10px -5px #d2d2d2;
+}
+
+.page-id-35 #toc {
+    font-size:0.5em;
+}
+
+.page-id-35 #toc li {
+    height: 25px;
 }
 
 
@@ -650,6 +656,40 @@ padding-bottom: 5px;
   margin: 0 auto;
   padding: 0 25px;
   }
+
+
+/*April 2016 Changes*/
+
+a.anchor {
+    padding-top: 100px;
+    margin-top: -100px;
+    display: inline-block;
+}
+
+/*http://opendataservic.staging.wpengine.com/about/
+ * but also affects all lists
+*/
+ul, ol {
+    margin: -1em 1.5em -1em 0;
+    padding-left: 2.0em;
+}
+
+/*http://opendataservic.staging.wpengine.com/standard/*/
+.one_half {
+    width: 45%;
+    padding-right: 2%;
+    padding-left: 2%;
+}
+
+/*http://opendataservic.staging.wpengine.com/get-involved/data/*/
+.data-table td.logo-cell {
+    min-width: 100px;
+    height: 100px;
+    vertical-align: middle;
+}
+
+/* end April 2016 changes*/
+
 
 /* Responsive stuff */
 /* =Responsive (Mobile) Design

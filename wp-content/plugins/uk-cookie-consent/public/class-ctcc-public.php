@@ -12,45 +12,32 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Plugin public class
  **/
 if ( ! class_exists( 'CTCC_Public' ) ) { // Don't initialise if there's already a class activated
-
 	class CTCC_Public {
-
-		public function __construct() {
-			//
-		}
-		
-		/*
-		 * Initialize the class and start calling our hooks and filters
-		 * @since 2.0.0
-		 */
-		public function init() {
-			add_action ( 'wp_enqueue_scripts', array ( $this, 'enqueue_scripts' ) );
-			add_action ( 'wp_head', array ( $this, 'add_css' ) );
-			add_action ( 'wp_footer', array ( $this, 'add_js' ) );
-			add_action ( 'wp_footer', array ( $this, 'add_notification_bar' ), 1000 );
-		}
-		
+		public function __construct() {
+			//
+		}
+				/*		 * Initialize the class and start calling our hooks and filters		 * @since 2.0.0		 */		public function init() {			add_action ( 'wp_enqueue_scripts', array ( $this, 'enqueue_scripts' ) );			add_action ( 'wp_head', array ( $this, 'add_css' ) );			add_action ( 'wp_footer', array ( $this, 'add_js' ), 1000 );			add_action ( 'wp_footer', array ( $this, 'add_notification_bar' ), 1000 );		}
 		/*
 		 * Enqueue styles and scripts
 		 * @since 2.0.0
 		 */
-		public function enqueue_scripts() {
-			$ctcc_options_settings = get_option ( 'ctcc_options_settings' );
-			$options = get_option ( 'ctcc_styles_settings' );
-			if ( $options['enqueue_styles'] ) {
-				wp_enqueue_style ( 'cookie-consent-style', CTCC_PLUGIN_URL . 'assets/css/style.css', '2.0.0' );
-			}
-			wp_enqueue_script ( 'cookie-consent', CTCC_PLUGIN_URL . 'assets/js/uk-cookie-consent-js.js', array ( 'jquery' ), '2.0.0', true );
-			wp_localize_script (
-				'cookie-consent',
-				'ctcc_vars',
-				array (
-					'expiry' 	=> $ctcc_options_settings['cookie_expiry'],
-					'method' 	=> isset ( $ctcc_options_settings['first_page'] ),
-					'version'	=> $ctcc_options_settings['cookie_version'],
-				)
-			);
-		}
+		public function enqueue_scripts() {
+			$ctcc_options_settings = get_option ( 'ctcc_options_settings' );
+			$options = get_option ( 'ctcc_styles_settings' );
+			if ( $options['enqueue_styles'] ) {
+				wp_enqueue_style ( 'cookie-consent-style', CTCC_PLUGIN_URL . 'assets/css/style.css', '2.0.0' );
+			}
+			wp_enqueue_script ( 'cookie-consent', CTCC_PLUGIN_URL . 'assets/js/uk-cookie-consent-js.js', array ( 'jquery' ), '2.0.0', true );
+			wp_localize_script (
+				'cookie-consent',
+				'ctcc_vars',
+				array (
+					'expiry' 	=> $ctcc_options_settings['cookie_expiry'],
+					'method' 	=> isset ( $ctcc_options_settings['first_page'] ),
+					'version'	=> $ctcc_options_settings['cookie_version'],
+				)
+			);
+		}
 		
 		/*
 		 * Add some CSS to the header
