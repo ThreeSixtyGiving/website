@@ -3,19 +3,42 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver import ActionChains
+from selenium.webdriver.support import expected_conditions as EC
+
+
 @pytest.fixture(scope="module")
 def browser(request):
     browser = webdriver.Firefox()
-    browser.implicitly_wait(3)
+    browser.implicitly_wait(1)
     request.addfinalizer(lambda: browser.quit())
     return browser
 
 
 @pytest.fixture(scope="module")
 def server_url():
-    #return "http://www.threesixtygiving.org/"
+    return "http://www.threesixtygiving.org/"
     #return "http://opendataservic.staging.wpengine.com/"
-    return "http://opendataservic.wpengine.com/"
+    #return "http://opendataservic.wpengine.com/"
+
+
+@pytest.mark.parametrize(('menu_text','sub_menu_text'), [
+    ('Standard','Reference'),
+    ('Standard','Identifiers'),
+    ('Standard','Data Protection'),
+    ('Standard','Licensing'),
+    ('Standard','Register')
+    ])
+def test_drop_down_menus(server_url, browser, menu_text, sub_menu_text):
+    browser.get(server_url)
+    wait = WebDriverWait(browser, 1)
+
+    menu = wait.until(EC.visibility_of_element_located((By.XPATH, "//ul[@id='menu-main-navigation']/li/a[text()='{0}']".format(menu_text))))
+    ActionChains(browser).move_to_element(menu).perform()
+
+    sub_menu = wait.until(EC.visibility_of_element_located((By.XPATH, "//li/a[text()='{0}']".format(sub_menu_text))))
+    ActionChains(browser).move_to_element(sub_menu).click().perform()
 
 
 def test_index_page(server_url,browser):
