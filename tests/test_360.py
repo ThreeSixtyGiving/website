@@ -1,3 +1,4 @@
+import os
 import pytest
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
@@ -16,11 +17,18 @@ def browser(request):
     return browser
 
 
+'''
+Some Possible servers
+live - http://www.threesixtygiving.org/ 
+staging - http://opendataservic.staging.wpengine.com/
+local test - http://opendataservic.wpengine.com/
+'''    
 @pytest.fixture(scope="module")
-def server_url():
-    return "http://www.threesixtygiving.org/"
-    #return "http://opendataservic.staging.wpengine.com/"
-    #return "http://opendataservic.wpengine.com/"
+def server_url(request):
+    if 'CUSTOM_SERVER_URL' in os.environ:
+        return os.environ['CUSTOM_SERVER_URL']
+    else:
+        return "http://www.threesixtygiving.org/"
 
 
 @pytest.mark.parametrize(('menu_text','sub_menu_text'), [
@@ -132,6 +140,17 @@ def test_contactus_link(server_url,browser):
   href = browser.find_element_by_xpath("//*[@id='post-7']/div[1]/ol[2]/li[3]/p/a[2]")
   href = href.get_attribute("href")
   assert "/contact/" in href
+  
+
+@pytest.mark.parametrize(('path'), [
+    ('standard/reference/'),
+    ('standard/identifiers/'),
+    ('standard/data-protection/'),
+    ('standard/licensing/')
+    ])
+def test_tocs_exist(server_url,browser,path):
+  browser.get(server_url + path)
+  browser.find_element_by_id("toc")
   
   
 @pytest.mark.parametrize(('logo'), [
