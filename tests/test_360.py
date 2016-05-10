@@ -1,21 +1,52 @@
+import os
 import pytest
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver import ActionChains
+from selenium.webdriver.support import expected_conditions as EC
+
+
 @pytest.fixture(scope="module")
 def browser(request):
     browser = webdriver.Firefox()
-    browser.implicitly_wait(3)
+    browser.implicitly_wait(1)
     request.addfinalizer(lambda: browser.quit())
     return browser
 
 
+'''
+Some Possible servers
+live - http://www.threesixtygiving.org/ 
+staging - http://opendataservic.staging.wpengine.com/
+local test - http://opendataservic.wpengine.com/
+'''    
 @pytest.fixture(scope="module")
-def server_url():
-    #return "http://www.threesixtygiving.org/"
-    #return "http://opendataservic.staging.wpengine.com/"
-    return "http://opendataservic.wpengine.com/"
+def server_url(request):
+    if 'CUSTOM_SERVER_URL' in os.environ:
+        return os.environ['CUSTOM_SERVER_URL']
+    else:
+        return "http://www.threesixtygiving.org/"
+
+
+@pytest.mark.parametrize(('menu_text','sub_menu_text'), [
+    ('Standard','Reference'),
+    ('Standard','Identifiers'),
+    ('Standard','Data Protection'),
+    ('Standard','Licensing'),
+    ('Standard','Register')
+    ])
+def test_drop_down_menus(server_url, browser, menu_text, sub_menu_text):
+    browser.get(server_url)
+    wait = WebDriverWait(browser, 1)
+
+    menu = wait.until(EC.visibility_of_element_located((By.XPATH, "//ul[@id='menu-main-navigation']/li/a[text()='{0}']".format(menu_text))))
+    ActionChains(browser).move_to_element(menu).perform()
+
+    sub_menu = wait.until(EC.visibility_of_element_located((By.XPATH, "//li/a[text()='{0}']".format(sub_menu_text))))
+    ActionChains(browser).move_to_element(sub_menu).click().perform()
 
 
 def test_index_page(server_url,browser):
@@ -109,6 +140,17 @@ def test_contactus_link(server_url,browser):
   href = browser.find_element_by_xpath("//*[@id='post-7']/div[1]/ol[2]/li[3]/p/a[2]")
   href = href.get_attribute("href")
   assert "/contact/" in href
+  
+
+@pytest.mark.parametrize(('path'), [
+    ('standard/reference/'),
+    ('standard/identifiers/'),
+    ('standard/data-protection/'),
+    ('standard/licensing/')
+    ])
+def test_tocs_exist(server_url,browser,path):
+  browser.get(server_url + path)
+  browser.find_element_by_id("toc")
   
   
 @pytest.mark.parametrize(('logo'), [
