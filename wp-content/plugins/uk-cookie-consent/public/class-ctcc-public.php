@@ -24,7 +24,7 @@ if ( ! class_exists( 'CTCC_Public' ) ) { // Don't initialise if there's already 
 		public function enqueue_scripts() {
 			$ctcc_options_settings = get_option ( 'ctcc_options_settings' );
 			$options = get_option ( 'ctcc_styles_settings' );
-			if ( $options['enqueue_styles'] ) {
+			if ( isset ( $options['enqueue_styles'] ) ) {
 				wp_enqueue_style ( 'cookie-consent-style', CTCC_PLUGIN_URL . 'assets/css/style.css', '2.0.0' );
 			}
 			wp_enqueue_script ( 'cookie-consent', CTCC_PLUGIN_URL . 'assets/js/uk-cookie-consent-js.js', array ( 'jquery' ), '2.0.0', true );
@@ -44,44 +44,42 @@ if ( ! class_exists( 'CTCC_Public' ) ) { // Don't initialise if there's already 
 		 * @since 2.0.0
 		 */
 		public function add_css() {
-			
-			$options = get_option ( 'ctcc_options_settings' );
-			$ctcc_styles_settings = get_option ( 'ctcc_styles_settings' );
-			
-			$position_css = 'position: fixed;
-				left: 0;
-				top: 0;
-				width: 100%;';
+			$options = get_option ( 'ctcc_options_settings' );
+			$ctcc_styles_settings = get_option ( 'ctcc_styles_settings' );
+			$position_css = 'position: fixed;
+				left: 0;
+				top: 0;
+				width: 100%;';
 			// Figure out the bar position
 			if ( $ctcc_styles_settings['position'] == 'top-bar' ) {
-				$position_css = 'position: fixed;
-				left: 0;
-				top: 0;
+				$position_css = 'position: fixed;
+				left: 0;
+				top: 0;
 				width: 100%;';
 			} else if ( $ctcc_styles_settings['position'] == 'bottom-bar' ) {
-				$position_css = 'position: fixed;
-				left: 0;
-				bottom: 0;
+				$position_css = 'position: fixed;
+				left: 0;
+				bottom: 0;
 				width: 100%;';
 			} else if ( $ctcc_styles_settings['position'] == 'top-right-block' ) {
-				$position_css = 'position: fixed;
-				right: 20px;
-				top: 6%;
+				$position_css = 'position: fixed;
+				right: 20px;
+				top: 6%;
 				width: 300px;';
 			} else if ( $ctcc_styles_settings['position'] == 'top-left-block' ) {
-				$position_css = 'position: fixed;
-				left: 20px;
-				top: 6%;
+				$position_css = 'position: fixed;
+				left: 20px;
+				top: 6%;
 				width: 300px;';
 			} else if ( $ctcc_styles_settings['position'] == 'bottom-left-block' ) {
-				$position_css = 'position: fixed;
-				left: 20px;
-				bottom: 6%;
+				$position_css = 'position: fixed;
+				left: 20px;
+				bottom: 6%;
 				width: 300px;';
 			} else if ( $ctcc_styles_settings['position'] == 'bottom-right-block' ) {
-				$position_css = 'position: fixed;
-				right: 20px;
-				bottom: 6%;
+				$position_css = 'position: fixed;
+				right: 20px;
+				bottom: 6%;
 				width: 300px;';
 			}
 			// Get our styles
@@ -98,40 +96,36 @@ if ( ! class_exists( 'CTCC_Public' ) ) { // Don't initialise if there's already 
 			}
 			// Build our CSS
 			$css = '<style id="ctcc-css" type="text/css" media="screen">';
-			$css .= '
-			#catapult-cookie-bar {
-				box-sizing: border-box;
-				max-height: 0;
-				opacity: 0;
-				z-index: 99999;
-				overflow: hidden;
-				color: ' . $text_color . ';
-				' . $position_css . '
-				background-color: ' . $bg_color . ';
-			}
-			#catapult-cookie-bar a {
-				color: ' . $link_color . ';
-			}
-			button#catapultCookie {
-				background:' . $button_bg . ';
-				color: ' . $button_color . ';
-				' . $button_style . '
-			}
-			#catapult-cookie-bar h3 {
-				color: ' . $text_color . ';
-			}
-			.has-cookie-bar #catapult-cookie-bar {
-				opacity: 1;
-				max-height: 999px;
-				min-height: 30px;
+			$css .= '
+			#catapult-cookie-bar {
+				box-sizing: border-box;
+				max-height: 0;
+				opacity: 0;
+				z-index: 99999;
+				overflow: hidden;
+				color: ' . $text_color . ';
+				' . $position_css . '
+				background-color: ' . $bg_color . ';
+			}
+			#catapult-cookie-bar a {
+				color: ' . $link_color . ';
+			}
+			button#catapultCookie {
+				background:' . $button_bg . ';
+				color: ' . $button_color . ';
+				' . $button_style . '
+			}
+			#catapult-cookie-bar h3 {
+				color: ' . $text_color . ';
+			}
+			.has-cookie-bar #catapult-cookie-bar {
+				opacity: 1;
+				max-height: 999px;
+				min-height: 30px;
 			}';
-			
 			$css .= '</style>';
-
 			echo $css;
-			
 			// Add it to the header
-		
 		}
 		
 		/*
@@ -153,34 +147,33 @@ if ( ! class_exists( 'CTCC_Public' ) ) { // Don't initialise if there's already 
 				jQuery(document).ready(function($){
 					<?php if ( isset ( $_GET['cookie'] ) ) { ?>
 						catapultDeleteCookie('catAccCookies');
-					<?php } ?>
-					if(!catapultReadCookie("catAccCookies")){ // If the cookie has not been set then show the bar
-						$("html").addClass("has-cookie-bar");
-						$("html").addClass("cookie-bar-<?php echo $ctcc_styles_settings['position']; ?>");
-						$("html").addClass("cookie-bar-<?php echo $type; ?>");
-						<?php // Move the HTML down if the bar is at the top
-						if ( $ctcc_styles_settings['position'] == 'top-bar' ) {
-						?>
-							// Wait for the animation on the html to end before recalculating the required top margin
-							$("html").on('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(e) {
-								// code to execute after transition ends
-								var barHeight = $('#catapult-cookie-bar').outerHeight();
-								$("html").css("margin-top",barHeight);
-								$("body.admin-bar").css("margin-top",barHeight-32); // Push the body down if the admin bar is active
-							});
-						<?php } ?>
+					<?php } ?>
+					if(!catapultReadCookie("catAccCookies")){ // If the cookie has not been set then show the bar
+						$("html").addClass("has-cookie-bar");
+						$("html").addClass("cookie-bar-<?php echo $ctcc_styles_settings['position']; ?>");
+						$("html").addClass("cookie-bar-<?php echo $type; ?>");
+						<?php // Move the HTML down if the bar is at the top
+						if ( $ctcc_styles_settings['position'] == 'top-bar' ) {
+						?>
+							// Wait for the animation on the html to end before recalculating the required top margin
+							$("html").on('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(e) {
+								// code to execute after transition ends
+								var barHeight = $('#catapult-cookie-bar').outerHeight();
+								$("html").css("margin-top",barHeight);
+								$("body.admin-bar").css("margin-top",barHeight-32); // Push the body down if the admin bar is active
+							});
+						<?php } ?>
 					}
-					
-					<?php  if ( $options['closure'] == 'timed' ) {
-						// Add some script if it's on a timer
-						$duration = absint($options['duration']) * 1000; ?>
-						setTimeout(ctccCloseNotification, <?php echo $duration; ?>);
+					<?php  if ( $options['closure'] == 'timed' ) {
+						// Add some script if it's on a timer
+						$duration = absint($options['duration']) * 1000; ?>
+						setTimeout(ctccCloseNotification, <?php echo $duration; ?>);
 					<?php  } ?>
-					<?php  if ( ! empty ( $options['first_page'] ) ) {
-						// Add some script if the notification only displays on the first page ?>
-						ctccFirstPage();
-					<?php  } ?>
-				});
+					<?php  if ( ! empty ( $options['first_page'] ) ) {
+						// Add some script if the notification only displays on the first page ?>
+						ctccFirstPage();
+					<?php  } ?>
+				});
 			</script>
 			
 		<?php }
