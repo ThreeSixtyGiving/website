@@ -161,9 +161,10 @@ def test_contactus_link(server_url,browser):
     ('standard/data-protection/'),
     ('standard/licensing/')
     ])
-def test_tocs_exist(server_url,browser,path):
+def test_documentation_pages(server_url,browser,path):
   browser.get(server_url + path)
-  browser.find_element_by_id("toc")
+  browser.find_element_by_id("toc") #Should have a table of contents
+  browser.find_element_by_class_name("page-template-page_documentation") #Should use a documentation template
   
   
 @pytest.mark.parametrize(('logo'), [
