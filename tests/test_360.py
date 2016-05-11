@@ -117,6 +117,19 @@ def test_standard_documentation_pop_out_page(server_url,browser):
     assert 'The currency used in grant amounts and transactions using an ISO 3-letter code. Use GBP for Pounds Sterling.' in browser.find_element_by_xpath('//*[@id="doc"]/div[1]/div[3]/div[5]/div[1]/div[3]/p').text
 
 
+#This checks the right path is in place, but not that the file exists
+#Use a link-ckecker to establish that
+@pytest.mark.parametrize(('link_text','path'), [
+    ("Directors' Terms of Reference", "/wp-content/uploads/360Giving-Directors-TORs.docx"),
+    ("disclosure policy", "/wp-content/uploads/360Giving-Disclosure-Policy.docx")
+    ])
+def test_cove_link(server_url, browser, link_text, path):
+  browser.get(server_url + 'about/the-team')
+  href = browser.find_elements_by_link_text(xpath)
+  href = href.get_attribute("href")
+  assert path in href
+  
+
 @pytest.mark.parametrize(('xpath'), [
     ("//*[@id='post-35']/div[1]/p[5]/a"),
     ("//*[@id='post-35']/div[1]/p[43]/a")
