@@ -1,21 +1,52 @@
+import os
 import pytest
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver import ActionChains
+from selenium.webdriver.support import expected_conditions as EC
+
+
 @pytest.fixture(scope="module")
 def browser(request):
     browser = webdriver.Firefox()
-    browser.implicitly_wait(3)
+    browser.implicitly_wait(1)
     request.addfinalizer(lambda: browser.quit())
     return browser
 
 
+'''
+Some Possible servers
+live - http://www.threesixtygiving.org/ 
+staging - http://opendataservic.staging.wpengine.com/
+local test - http://opendataservic.wpengine.com/
+'''    
 @pytest.fixture(scope="module")
-def server_url():
-    #return "http://www.threesixtygiving.org/"
-    #return "http://opendataservic.staging.wpengine.com/"
-    return "http://opendataservic.wpengine.com/"
+def server_url(request):
+    if 'CUSTOM_SERVER_URL' in os.environ:
+        return os.environ['CUSTOM_SERVER_URL']
+    else:
+        return "http://www.threesixtygiving.org/"
+
+
+@pytest.mark.parametrize(('menu_text','sub_menu_text'), [
+    ('Standard','Reference'),
+    ('Standard','Identifiers'),
+    ('Standard','Data Protection'),
+    ('Standard','Licensing'),
+    ('Standard','Register')
+    ])
+def test_drop_down_menus(server_url, browser, menu_text, sub_menu_text):
+    browser.get(server_url)
+    wait = WebDriverWait(browser, 1)
+
+    menu = wait.until(EC.visibility_of_element_located((By.XPATH, "//ul[@id='menu-main-navigation']/li/a[text()='{0}']".format(menu_text))))
+    ActionChains(browser).move_to_element(menu).perform()
+
+    sub_menu = wait.until(EC.visibility_of_element_located((By.XPATH, "//li/a[text()='{0}']".format(sub_menu_text))))
+    ActionChains(browser).move_to_element(sub_menu).click().perform()
 
 
 def test_index_page(server_url,browser):
@@ -34,23 +65,39 @@ def test_cookie_message(server_url,browser):
     assert "COOKIE POLICY" not in browser.find_element_by_tag_name('body').text
 
 
+@pytest.mark.parametrize(('text'), [
+    ('360Giving'),
+    ('As soon as a step gives you an identifier, you can stop there and use the given identifier') #Bug #112
+    ])
+def test_identifiers_page(server_url,browser,text):
+    browser.get(server_url + 'standard/identifiers/')
+    assert text in browser.find_element_by_tag_name('body').text
+
+
 def test_identifiers_page(server_url,browser):
     browser.get(server_url + 'standard/identifiers/')
-    assert '360Giving' in browser.find_element_by_tag_name('body').text
     assert '360 Giving' not in browser.find_element_by_tag_name('body').text
-    #Bug #112
-    assert 'As soon as a step gives you an identifier, you can stop there and use the given identifier' in browser.find_element_by_tag_name('body').text
+    
+
+@pytest.mark.parametrize(('text'), [
+    ('360 Giving'),
+    ('360 Bridge tool') #Bug #71
+    ])
+def test_standard_documentation_page(server_url,browser,text):
+    browser.get(server_url + 'standard/reference/')
+    assert text not in browser.find_element_by_tag_name('body').text
+
+
+def test_standard_documentation_page(server_url,browser,text):
+    browser.get(server_url + 'standard/reference/')
+    #Bug #102
+    assert 'Use the three-digit currency code from ISO 4217' not in browser.find_element_by_xpath("//*[@id='post-35']/div[1]/table[1]").text 
 
 
 def test_standard_documentation_page(server_url,browser):
     browser.get(server_url + 'standard/reference/')
     assert '360Giving' in browser.find_element_by_tag_name('body').text
-    assert '360 Giving' not in browser.find_element_by_tag_name('body').text
-    #Bug #102
-    assert 'Use the three-digit currency code from ISO 4217' not in browser.find_element_by_xpath("//*[@id='post-35']/div[1]/table[1]").text 
-    #Bug #71
-    assert '360 Bridge tool' not in browser.find_element_by_tag_name('body').text
-    
+
 
 @pytest.mark.parametrize(('text'), [
     ('Recipient Org:County'),
@@ -65,14 +112,44 @@ def test_standard_documentation_grants_table(server_url,browser,text):
   assert text in table.text
   
 
+@pytest.mark.parametrize(('text'), [
+    ('Recipient Org:County'),
+    ('Recipient Org:Country'),
+    ('Recipient Org:Description'),
+    ('Recipient Org:Web Address'),
+    ('Use the three-letter currency code from ISO 4217 eg: GBP')  #Bug #102
+    ])
+def test_standard_documentation_grants_table(server_url,browser,text):
+  browser.get(server_url + 'standard/reference/')
+  table = browser.find_element_by_xpath("//*[@id='post-35']/div[1]/table[1]")
+  assert text in table.text
+    
+
 def test_standard_documentation_pop_out_page(server_url,browser):
     browser.get(server_url + 'wp-content/plugins/threesixty_docs/docson/index.html#/wp-content/plugins/threesixty_docs/standard/schema/360-giving-schema.json$$expand')
     assert 'The currency used in grant amounts and transactions using an ISO 3-letter code. Use GBP for Pounds Sterling.' in browser.find_element_by_xpath('//*[@id="doc"]/div[1]/div[3]/div[5]/div[1]/div[3]/p').text
 
 
-def test_cove_link(server_url,browser):
+#This checks the right path is in place, but not that the file exists
+#Use a link-ckecker to establish that
+@pytest.mark.parametrize(('link_text','path'), [
+    ("Directors' Terms of Reference", "/wp-content/uploads/360Giving-Directors-TORs.docx"),
+    ("disclosure policy", "/wp-content/uploads/360Giving-Disclosure-Policy.docx")
+    ])
+def test_cove_link(server_url, browser, link_text, path):
+  browser.get(server_url + 'about/the-team')
+  href = browser.find_elements_by_link_text(xpath)
+  href = href.get_attribute("href")
+  assert path in href
+  
+
+@pytest.mark.parametrize(('xpath'), [
+    ("//*[@id='post-35']/div[1]/p[5]/a"),
+    ("//*[@id='post-35']/div[1]/p[43]/a")
+    ])
+def test_cove_link(server_url, browser, xpath):
   browser.get(server_url + 'standard/reference/')
-  href = browser.find_element_by_xpath("//*[@id='post-35']/div[1]/p[6]/a")
+  href = browser.find_element_by_xpath(xpath)
   href = href.get_attribute("href")
   assert "http://cove.opendataservices.coop/360/" in href
 
@@ -89,6 +166,18 @@ def test_contactus_link(server_url,browser):
   href = browser.find_element_by_xpath("//*[@id='post-7']/div[1]/ol[2]/li[3]/p/a[2]")
   href = href.get_attribute("href")
   assert "/contact/" in href
+  
+
+@pytest.mark.parametrize(('path'), [
+    ('standard/reference/'),
+    ('standard/identifiers/'),
+    ('standard/data-protection/'),
+    ('standard/licensing/')
+    ])
+def test_documentation_pages(server_url,browser,path):
+  browser.get(server_url + path)
+  browser.find_element_by_id("toc") #Should have a table of contents
+  browser.find_element_by_class_name("page-template-page_documentation") #Should use a documentation template
   
   
 @pytest.mark.parametrize(('logo'), [
@@ -112,6 +201,9 @@ def test_index_page_logos(server_url,browser,logo):
   assert string not in src
 
 
+'''
+#On Staging site we have news and blogs separate
+>>>>>>> master
 def test_news_page(server_url,browser):
   browser.get(server_url + 'category/news')
   assert "Blog Archives" not in browser.find_element_by_tag_name('body').text
@@ -122,3 +214,7 @@ def test_redirect(server_url,browser):
   browser.get(server_url + '/news')
   redirect = browser.current_url
   assert "/news/" in redirect
+<<<<<<< HEAD
+=======
+'''
+
