@@ -412,7 +412,7 @@ input[type="text"], input[type="password"], input[type="email"] {
 .top-widget {
     z-index: 2000;
     text-align: left;
-    width: 45%;
+    width: 50%;
 }
 
 .top-widget #searchform {

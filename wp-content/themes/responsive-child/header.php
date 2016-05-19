@@ -94,6 +94,9 @@ if ( !defined( 'ABSPATH' ) ) {
         <a href="https://twitter.com/360giving" title="@360Giving Twitter">
           <img src="<?php echo get_stylesheet_directory_uri(); ?>/glyphicons-social-32-twitter.png" width="" height="" alt="Home"  />
         </a>
+        <a href="https://github.com/ThreeSixtyGiving" title="360Giving GitHub">
+          <img src="<?php echo get_stylesheet_directory_uri(); ?>/glyphicons-social-22-github.png" width="" height="" alt="Home"  />
+        </a>
       </div>
       </div><!--container-->
     </div><!--nav-container-->
