@@ -96,7 +96,7 @@ h1, h2, h3, h4, h5, h6, h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
   float:left;
   width: 20px;
   background: #ff9222;
-  padding-top:15px;
+  padding:15px 10px 0 0;
 }
 
 .site-logo img {
@@ -193,11 +193,11 @@ ul.menu > li:hover {
      clear:both;
      width:320px;
      height:150px;
-     margin: 60px 0 20px 0;
+     margin: 0 0 20px 0;
 }
 
 .home .one_half {
-  margin: 101px 0 20px 0;
+  margin: 41px 0 20px 0;
   Width:60%;
 }
 
@@ -215,6 +215,7 @@ ul.menu > li:hover {
   -webkit-border-radius: none;
   -moz-border-radius: none;
   border-radius: none;
+  margin-top:60px;
 }
 
 .banner {
