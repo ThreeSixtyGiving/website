@@ -43,27 +43,7 @@ $responsive_options = responsive_get_options();
 
 		<div class="grid col-940">
 
-			<div class="grid col-220">
-				<?php if ( has_nav_menu( 'footer-menu', 'responsive' ) ) {
-					wp_nav_menu( array(
-						'container'      => '',
-						'fallback_cb'    => false,
-						'menu_class'     => 'footer-menu',
-						'theme_location' => 'footer-menu'
-					) );
-				} ?>
-			</div><!-- end of col-220 -->
-      <div class="grid col-220">
-				<?php if ( has_nav_menu( 'second_footer', 'responsive' ) ) {
-					wp_nav_menu( array(
-						'container'      => '',
-						'fallback_cb'    => false,
-						'menu_class'     => 'footer-menu',
-						'theme_location' => 'second_footer'
-					) );
-				} ?>
-
-			</div><!-- end of col-220 -->
+			
 
 			<div class="grid col-380 fit">
 				<?php echo responsive_get_social_icons() ?>
@@ -85,8 +65,32 @@ $responsive_options = responsive_get_options();
     <!--<div class="grid col-300 scroll-top"><a href="#scroll-top" title="<?php esc_attr_e( 'scroll to top', 'responsive' ); ?>"><?php _e( '&uarr;', 'responsive' ); ?></a></div>-->
 
 		<div class="grid col-940 copyright">
-     
 			<p class="footer-info">360Giving is a company limited by guarantee (Company Number 9668396) and a registered charity (Charity Number 1164883)</p>
+		</div><!-- end of .copyright -->
+    
+    <div class="grid col-940">
+				<?php if ( has_nav_menu( 'footer-menu', 'responsive' ) ) {
+					wp_nav_menu( array(
+						'container'      => '',
+						'fallback_cb'    => false,
+						'menu_class'     => 'footer-menu',
+						'theme_location' => 'footer-menu'
+					) );
+				} ?>
+			</div><!-- end of col-220 -->
+      <div class="grid col-940">
+				<?php if ( has_nav_menu( 'second_footer', 'responsive' ) ) {
+					wp_nav_menu( array(
+						'container'      => '',
+						'fallback_cb'    => false,
+						'menu_class'     => 'footer-menu',
+						'theme_location' => 'second_footer'
+					) );
+				} ?>
+
+			</div><!-- end of col-220 -->
+      
+      <div class="grid col-940">
       <p class="footer-info small">This site uses icons from <a href="http://glyphicons.com/">GLYPHICONS.com</a> which are released under the <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 Unported (CC BY 3.0)</a> license.</p>
 		</div><!-- end of .copyright -->
 

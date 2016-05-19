@@ -374,7 +374,9 @@ opacity: 0.9;
 }
 
 .footer-menu li {
-  display: list-item;
+  display: inline;
+  padding-right:20px;
+  font-size: 0.8em;
 }
 
 .footer-menu li a {
