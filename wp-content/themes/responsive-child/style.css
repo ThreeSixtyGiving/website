@@ -132,6 +132,10 @@ opacity: 0.6;
   /*font-family: League Gothic;*/
   /*padding: 23px 23px 13px 23px;*/
   /*color: #7e4514 | rgba(0,0,0,0.4);*/
+  
+  /*April*/
+  font-size: 22px;
+  padding: 10px 15px 0 15px;
 }
 
 .menu a:hover {

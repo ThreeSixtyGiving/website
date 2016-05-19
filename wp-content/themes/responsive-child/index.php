@@ -159,17 +159,7 @@ get_header(); ?>
     
     
     
-            <div class="banner involved">
-              <div class="container">
-                <h2><?php the_field('featured_text_2'); ?></h2>
-                <div class="grid col-300 fit first">
-                    <a class="call-to-action" href="<?php the_field('action_4_links_to'); ?>"><?php the_field('call_to_action_4'); ?></a>
-                </div>
-                <div class="grid col-300 fit">
-                    <a class="call-to-action" href="<?php the_field('action_5_links_to'); ?>"><?php the_field('call_to_action_5'); ?></a>
-                </div>
-              </div><!-- end of .container -->
-            </div><!-- end of .banner subscribe -->
+            
             
             
         <div class="post-entry">
