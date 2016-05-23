@@ -23,9 +23,10 @@ function list_datasets($atts, $content=null) {
         $publishers  = array_unique($publishers);
         sort($publishers);
         $html = "";          
-        $html .=  '<table class="data-table tablesorter"><thead><tr><th class="sortless {sorter: false}">Logo</th><th class="header headerSortUp">Organisation</th><th class="header">Data</th></tr></thead><tbody>';
+        $html .=  '<table class="data-table tablesorter"><thead><tr><th class="sortless {sorter: false}">Logo</th><th class="header headerSortUp">Organisation</th><th class="header">Data</th><th class="header">License</th></tr></thead><tbody>';
         foreach ($publishers as $publisher) {
           $count = 0;
+          $license = "";
           foreach($dataset_list as $dataset) {
             if ($dataset->publisher->name == $publisher) {
               $count ++;
@@ -37,7 +38,17 @@ function list_datasets($atts, $content=null) {
                       $html .= '<td class="logo-cell">&nbsp;</td>';
                   }
                   $html .= '<td>'. esc_html( $dataset->publisher->name) .'</td>';
-              
+                  if ($dataset->license && $dataset->license != Null) {
+                    if ($dataset->license_name && $dataset->license_name != Null) {
+                      $licence_name = esc_html($dataset->license_name);
+                    } else {
+                      $licence_name = esc_html($dataset->license);
+                    }
+                    
+                    $license .='<a href="'. esc_html($dataset->license) . '">' . $licence_name . '</a>';
+                  } else {
+                    $license = "This licence is pending. Please contact the organisation directly to confirm any restrictions on using their 360Giving data";
+                  }
               $html .= '<td>';
               }
               
@@ -46,6 +57,7 @@ function list_datasets($atts, $content=null) {
               
           }
           $html .='</td>';
+          $html .='<td>'. $license .'</td>';
           $html .= '</tr>';
         }
         $html .= '</tbody></table>';
