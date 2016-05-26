@@ -578,8 +578,9 @@ vertical-align:top;
 
 .blog h2 {
   color: #32a5db; /*blue*/
-font-size: 5em;
-line-height: 90px;
+  color: #333;
+  font-size: 5em;
+  line-height: 90px;
 }
 
 .blog h2.post-title {
@@ -594,6 +595,7 @@ line-height: 90px;
   line-height: 90px;
   color: #333;
   opacity: 1;
+  margin-bottom: 0px;
 }
 
 
@@ -666,7 +668,7 @@ display:none;
   font-weight: 900;
   clear: both;
   border:none;
-  background-color: #32a5db;
+  background-color: #a10060;
   background-image:none;
   box-shadow: none;
   text-shadow: none;
@@ -675,8 +677,7 @@ display:none;
 }
 
 .home .read-more a {
-color: #000;
-opacity: 0.7;
+color: #fff;
 }
 
 .post-entry span {
@@ -687,7 +688,7 @@ opacity: 0.7;
 }
 .home .read-more a:hover {
 color: #fff;
-opacity: 0.7;
+opacity: 0.9;
 }
 
 #nav_menu-2 ul {

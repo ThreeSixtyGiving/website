@@ -48,32 +48,46 @@ get_header(); ?>
 
           </div><!-- end of .post-entry -->
         </div><!-- end of .container -->
-            <div class="banner data">
+        
+        
+        <div class="banner data">
+          <div class="container">
+            <h2><?php the_field('featured_text_1'); ?></h2>
+            <div class="grid col-300 fit first">
+                <a class="call-to-action" href="<?php the_field('call_to_action_1_links_to'); ?>"><?php the_field('call_to_action_1'); ?></a>
+            </div>
+            <div class="grid col-300 fit">
+                <a class="call-to-action" href="<?php the_field('call_to_action_2_links_to'); ?>"><?php the_field('call_to_action_2'); ?></a>
+            </div>
+            <div class="grid col-300 fit">
+                <a class="call-to-action" href="<?php the_field('call_to_action_3_links_to'); ?>"><?php the_field('call_to_action_3'); ?></a>
+            </div>
+          </div><!-- end of .container -->
+        </div><!-- end of .banner data -->
+  
+  <?php
+      endwhile;
+
+      get_template_part( 'loop-nav', get_post_type() );
+
+    else :
+
+      get_template_part( 'loop-no-posts', get_post_type() );
+
+    endif;
+  ?>
+  <!--End of Page content - now get Blog-->
+  
+  
+  <!--Logos section-->
+            <div class="banner who">
               <div class="container">
-                <h2><?php the_field('featured_text_1'); ?></h2>
-                <div class="grid col-300 fit first">
-                    <a class="call-to-action" href="<?php the_field('call_to_action_1_links_to'); ?>"><?php the_field('call_to_action_1'); ?></a>
-                </div>
-                <div class="grid col-300 fit">
-                    <a class="call-to-action" href="<?php the_field('call_to_action_2_links_to'); ?>"><?php the_field('call_to_action_2'); ?></a>
-                </div>
-                <div class="grid col-300 fit">
-                    <a class="call-to-action" href="<?php the_field('call_to_action_3_links_to'); ?>"><?php the_field('call_to_action_3'); ?></a>
-                </div>
+                <h2>Who's Publishing</h2>
+                <?php echo do_shortcode("[metaslider id=269]"); ?>
               </div><!-- end of .container -->
-            </div><!-- end of .banner data -->
-        <?php
-		endwhile;
-
-		get_template_part( 'loop-nav', get_post_type() );
-
-	else :
-
-		get_template_part( 'loop-no-posts', get_post_type() );
-
-	endif;
-	?>
-            <!--End of Page content - now get Blog-->
+            </div><!-- end of .banner -->
+    
+  <!--Blogs/News Section-->        
             <div class="container" id="news">
               <div class="banner blog">
                 <h2>News</h2>
@@ -121,46 +135,11 @@ get_header(); ?>
           
           
 
-         <!--End of blog, now get page content again--> 
- 	<?php if ( have_posts() ) : ?>
+    <!--End of blog, now get page content again--> 
+    <?php if ( have_posts() ) : ?>
 
 		<?php while( have_posts() ) : the_post(); ?> 
     
-    
-    
-    
-            <!--Logos section-->
-            <div class="banner who">
-              <div class="container">
-                <h2>Who's Involved</h2>
-                <?php
-                //**Fetch and display the logos pulled and stored from CKAN**//
-                //Where are the logso?
-                $dir = ABSPATH . 'wp-content/themes/responsive-child/ckan';
-                $path = $dir . "/logos";
-                
-                $files = preg_grep('/^([^.])/', scandir($path)); 
-
-                foreach ($files as $file) {
-                //if ($handle = opendir($path)) {
-                //while (false !== ($file = scandir($handle))) {
-                   // if ('.' === $file) continue;
-                    //if ('..' === $file) continue;
-                    
-                    echo '<div class="grid col-220">';
-                    echo '<img src="' . get_stylesheet_directory_uri() . '/ckan/logos/' . $file . '" alt="" width=150 height=150 />';
-                    echo '</div>';
-                  
-                }
-                ?>
-              </div><!-- end of .container -->
-    </div><!-- end of .banner -->
-    
-    
-    
-    
-            
-            
             
         <div class="post-entry">
           <div class="container">
