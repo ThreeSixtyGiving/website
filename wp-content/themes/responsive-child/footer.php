@@ -54,7 +54,7 @@ $responsive_options = responsive_get_options();
         <img src="<?php echo get_stylesheet_directory_uri(); ?>/360logo_invert.png" height="80" width="196">
       </div>
       <div class="grid col-620">
-        <p class="footer-info">We provide support for grantmakers to publish their grants data openly, to understand their data, and to use the data to create online tools that make grant-making more effective.</p>
+        <p class="footer-info">We provide support for grantmakers to publish their grants data openly, to understand their data, and to use the data to create online tools that make grantmaking more effective.</p>
       </div>
       </div>
 
