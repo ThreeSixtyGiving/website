@@ -32,6 +32,18 @@ def server_url(request):
 
 
 @pytest.mark.parametrize(('menu_text','sub_menu_text'), [
+    ('About','News'),
+    ('About','The team'),
+    ('About','Governance'),
+    ('About','The need for data'),
+    ('About','Vacancies'),
+    ('Data','Publish Data'),
+    ('Data','Find Data'),
+    ('Data','Data Sharing'),
+    ('Data','Case Studies'),
+    ('Support','Resources'),
+    ('Support','FAQs'),
+    ('Support','Data Quality'),
     ('Standard','Reference'),
     ('Standard','Identifiers'),
     ('Standard','Data Protection'),
@@ -52,9 +64,9 @@ def test_drop_down_menus(server_url, browser, menu_text, sub_menu_text):
 def test_index_page(server_url,browser):
     browser.get(server_url)
     assert "360Giving | The more we know, the better grants we can make" in browser.title
-    href = browser.find_element_by_xpath("//*[@id='post-17']/div[1]/div/div[3]/p[1]/a[1]")
+    href = browser.find_element_by_xpath('//*[@id="post-17"]/div[2]/div/div[1]/a')
     href = href.get_attribute("href")
-    assert "http://www.threesixtygiving.org/get-involved/publish-your-data/" in href
+    assert server_url + "data" in href
     assert "NEWS" in browser.find_element_by_id("news").text
     assert "BLOG" not in browser.find_element_by_id("news").text
 
@@ -179,7 +191,7 @@ def test_documentation_pages(server_url,browser,path):
   browser.find_element_by_id("toc") #Should have a table of contents
   browser.find_element_by_class_name("page-template-page_documentation") #Should use a documentation template
   
-  
+''' 
 @pytest.mark.parametrize(('logo'), [
     ('heritage-lottery-fund'),
     ('heritage-lottery-fund.jpg'),
@@ -199,6 +211,12 @@ def test_index_page_logos(server_url,browser,logo):
   path = "http://opendataservic.wpengine.com/wp-content/themes/responsive-child/ckan/logos/"
   string = path + logo
   assert string not in src
+'''
+
+
+def test_index_page_slider(server_url,browser):
+  browser.get(server_url)
+  browser.find_element_by_class_name("metaslider")
 
 
 def test_data_table(server_url,browser):
@@ -209,7 +227,7 @@ def test_data_table(server_url,browser):
         ('Data'),
         ('License')
     ])
-    browser.get(server_url + 'get-involved/data')
+    browser.get(server_url + 'data/find-data/')
     table_headers = browser.find_elements_by_tag_name('th')
     table_headers_text = set([ x.text for x in table_headers ])
     assert expected_headers == table_headers_text
