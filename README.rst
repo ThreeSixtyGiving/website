@@ -4,9 +4,9 @@ For the public presence of 360 Giving
 
 This takes the files from a WPEngine account, managed using git, and places them here for collaborative development.
 
+
 Editor Notes
 ------------
-
 Editors can make edits to the live site. This can include uploading files, altering text, and most configuration changes in the admin panel
 
 They should NOT alter anything that potentially changes code e.g.
@@ -14,16 +14,30 @@ Update plugins, themes or Wordpress core
 
 Editors should NOT push staging changes to live via the WPEngine interface without checking with developers first.
 
+
 Developer Notes
 ---------------
-Although there is a Markdown plugin as part of Jetpack - we are not using it. It converts Markdown written into posts into HTML as the page is saved. The HTML is saved to the database and served up on page load. I could not find an easy way to hook into this behaviour. Instead we use a php markdown to html library.
+The documentation of the standard is maintained in a GitHub repository.
+That repository is included as a git submodule.
+A plugin turns the markdown pages into web pages. Although there is a Markdown plugin as part of Jetpack - we are not using it, because it converts Markdown written into posts into HTML as the page is saved. The HTML is saved to the database and served up on page load. I could not find an easy way to hook into this behaviour. Instead we use a php markdown to html library.
+See: wp-content/plugins/threesixty_docs
 
+Jetpack
 Need to add:
 define( 'JETPACK_DEV_DEBUG', true);
 to wp-config.php for local development with JetPack - it tries to get you to sign up to wordpress.com otherwise and cannot do that from a local environment.
 wp-config is git ignored.
 
 To update akismet locally via the admin interface I had problems setting permissions
+
+When working locally, you will also need a copy of the staging database. If you use a different testing URL you may find `wp-cli` is a useful tool for rewriting the links in the database. Usage
+
+`php wp-cli.phar search-replace 'http://example.com/' 'http://example2.com/' --skip-columns=guid`
+
+You may also need to add the following to wp-config.php
+
+  define('WP_HOME','http://example.com/');
+  define('WP_SITEURL','http://example.com/');
 
 Development Workflow
 ++++++++++++++++++++
@@ -47,7 +61,6 @@ Remember that when we add plugins, themes, etc these cause changes to the databa
 
 We have the added complication of keeping staging and production synched at wpengine.
 
-
 Locking the databases
 ;;;;;;;;;;;;;;;;;;;;;
 At times you will need to grab the database from the staging/production server to do development work.
@@ -59,6 +72,7 @@ Uploaded files
 ;;;;;;;;;;;;;;
 These are not held in version control. To synch your local files with live/staging you will need
 SFTP access, and manually copy across.
+
 
 Setting up a local development environment
 ++++++++++++++++++++++++++++++++++++++++++
@@ -82,9 +96,9 @@ staging, or test the live site.
 
 When adding features or fixing bugs, please create and run tests.
 
+
 How do the docs work?
 ---------------------
-
 We have created a new plugin: threesixty_docs to handle the documentation side of the website.
 This contains 3 git submodules:
 
@@ -103,50 +117,36 @@ e.g. to display the identifiers.md document: (standard page="identifiers")
 
 We construct Wordpress pages under /standard
 
-How does the data from DKAN work?
----------------------------------
-To do this we have not used a plug in, but just adapted our theme.
-We use a child theme of the Responsive Theme.
-The code to run the CKAN work is in /ckan
-Within that directory we have to manually set up the following subdirectories and make sure they are writable:
 
-* ckan - saves json data for each 'group' call to ckan
-* urls  - saves json data for each 'package' call to ckan
-* logos - saves the logos of data producers
-* data - not used but could store raw 360 data pulled from CKAN
-
-NB: These diretories are added to .gitignore so do not show in the repository.
+How does the data on the Find Data page work?
+---------------------------------------------
+We have a custom plugin: threesixty_salesforce_data that fetches data from a JSON output.
 
 We have created a dedicated template page called page-data.php. This will be displayed if there is a Wordpress page with the slug 'data'.
 
-Once called this page performs the DKAN lookup, stores the data it fetches and displays some of it to screen.
+Once called this page performs works with the plugin, stores the data it fetches and displays some of it to screen.
 
-There is a 2 hour cache in place. Filetime is checked and if data is over two hours old it is all called again. This causes a delay in page load, but we could potentially mitigate this by running a cron job.
-(We can also look into using wp-cache options)
-(Potential there should be cleverer ways of not pulling data if it has not changed at DKAN)
+There is a 1 hour cache in place. This uses wordpress transients. To bypass the cache you need to remove the transients from the database.
+
 
 Logos
-+++++
-The DKAN call gives us the DKAN URL for the logos.
-We use this to fetch and store the image from DKAN (in /wp-content/themes/responsive-child/ckan/logos).
-Our page loads the logos we have stored.
+-----
+On the front page a custom slider is used to display the logos.
+Each needs to be uploaded individually. This can all be done via the user interface.
+We name logos <something>_slider to show they are to be used for the slider
+Otherwise we just use a name.
+
+Logos on the Find Data page are stored on the site, but the plugin is used to call them.
 
 To show a new logo
-;;;;;;;;;;;;;;;;;;
-Make sure the logo has been added to the DKAN site.
-Wait for 2 hours and it will show.
+++++++++++++++++++
+Make sure the logo has been added to the Wordpress site.
+make sure the URL of the logo is in the Salesforce backend
 
 To remove a logo
-;;;;;;;;;;;;;;;;
-
-| Remove the logo from the DKAN site  
-| Ask a developer to remove it from the logos directory.
-| Refresh the WPEngine cache
-
-Currently, they display in a random order;
-Are pulled from DKAN via associated datasets (so publishers without data don't get pulled);
-There is no limit on how many will be shown;
-The size and quality is not great;
+++++++++++++++++
+| Remove the logo URL from Salesforce  
+| You could also remove the logo directly from Salesforce.
 
 
 How do the banners work?
