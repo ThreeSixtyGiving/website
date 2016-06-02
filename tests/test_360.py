@@ -66,7 +66,7 @@ def test_index_page(server_url,browser):
     assert "360Giving | The more we know, the better grants we can make" in browser.title
     href = browser.find_element_by_xpath('//*[@id="post-17"]/div[2]/div/div[1]/a')
     href = href.get_attribute("href")
-    assert server_url + "data" in href
+    assert '{}data'.format(server_url) in href
     assert "NEWS" in browser.find_element_by_id("news").text
     assert "BLOG" not in browser.find_element_by_id("news").text
 
