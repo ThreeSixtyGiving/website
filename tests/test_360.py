@@ -8,6 +8,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver import ActionChains
 from selenium.webdriver.support import expected_conditions as EC
 
+from selenium.common.exceptions import NoSuchElementException
 
 @pytest.fixture(scope="module")
 def browser(request):
@@ -231,8 +232,22 @@ def test_data_table(server_url,browser):
     table_headers = browser.find_elements_by_tag_name('th')
     table_headers_text = set([ x.text for x in table_headers ])
     assert expected_headers == table_headers_text
+
+
+def test_page_h1(server_url,browser):
+    browser.get(server_url + 'data/find-data/')
+    h1 = browser.find_element_by_tag_name("h1")
+    # h1 should not have any links within it
+    with pytest.raises(NoSuchElementException):
+        h1.find_element_by_tag_name("a")
+    '''try: 
+        h1.find_element_by_tag_name("a")
+        assert False
+    except NoSuchElementException:
+        assert True
+    '''
     
-    
+
 '''
 #On Staging site we have news and blogs separate
 >>>>>>> master
