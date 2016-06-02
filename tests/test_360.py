@@ -32,6 +32,18 @@ def server_url(request):
 
 
 @pytest.mark.parametrize(('menu_text','sub_menu_text'), [
+    ('About','News'),
+    ('About','The team'),
+    ('About','Governance'),
+    ('About','The need for data'),
+    ('About','Vacancies'),
+    ('Data','Publish Data'),
+    ('Data','Find Data'),
+    ('Data','Data Sharing'),
+    ('Data','Case Studies'),
+    ('Support','Resources'),
+    ('Support','FAQs'),
+    ('Support','Data Quality'),
     ('Standard','Reference'),
     ('Standard','Identifiers'),
     ('Standard','Data Protection'),
@@ -52,9 +64,9 @@ def test_drop_down_menus(server_url, browser, menu_text, sub_menu_text):
 def test_index_page(server_url,browser):
     browser.get(server_url)
     assert "360Giving | The more we know, the better grants we can make" in browser.title
-    href = browser.find_element_by_xpath("//*[@id='post-17']/div[1]/div/div[3]/p[1]/a[1]")
+    href = browser.find_element_by_xpath('//*[@id="post-17"]/div[2]/div/div[1]/a')
     href = href.get_attribute("href")
-    assert "http://www.threesixtygiving.org/get-involved/publish-your-data/" in href
+    assert server_url + "data" in href
     assert "NEWS" in browser.find_element_by_id("news").text
     assert "BLOG" not in browser.find_element_by_id("news").text
 
@@ -98,6 +110,19 @@ def test_standard_documentation_page(server_url,browser):
     browser.get(server_url + 'standard/reference/')
     assert '360Giving' in browser.find_element_by_tag_name('body').text
 
+
+@pytest.mark.parametrize(('text'), [
+    ('Recipient Org:County'),
+    ('Recipient Org:Country'),
+    ('Recipient Org:Description'),
+    ('Recipient Org:Web Address'),
+    ('Use the three-letter currency code from ISO 4217 eg: GBP')  #Bug #102
+    ])
+def test_standard_documentation_grants_table(server_url,browser,text):
+  browser.get(server_url + 'standard/reference/')
+  table = browser.find_element_by_xpath("//*[@id='post-35']/div[1]/table[1]")
+  assert text in table.text
+  
 
 @pytest.mark.parametrize(('text'), [
     ('Recipient Org:County'),
@@ -166,7 +191,7 @@ def test_documentation_pages(server_url,browser,path):
   browser.find_element_by_id("toc") #Should have a table of contents
   browser.find_element_by_class_name("page-template-page_documentation") #Should use a documentation template
   
-  
+''' 
 @pytest.mark.parametrize(('logo'), [
     ('heritage-lottery-fund'),
     ('heritage-lottery-fund.jpg'),
@@ -186,9 +211,31 @@ def test_index_page_logos(server_url,browser,logo):
   path = "http://opendataservic.wpengine.com/wp-content/themes/responsive-child/ckan/logos/"
   string = path + logo
   assert string not in src
+'''
 
+
+def test_index_page_slider(server_url,browser):
+  browser.get(server_url)
+  browser.find_element_by_class_name("metaslider")
+
+
+def test_data_table(server_url,browser):
+    #Table headers
+    expected_headers = set([
+        ('Logo'),
+        ('Organisation'),
+        ('Data'),
+        ('License')
+    ])
+    browser.get(server_url + 'data/find-data/')
+    table_headers = browser.find_elements_by_tag_name('th')
+    table_headers_text = set([ x.text for x in table_headers ])
+    assert expected_headers == table_headers_text
+    
+    
 '''
 #On Staging site we have news and blogs separate
+>>>>>>> master
 def test_news_page(server_url,browser):
   browser.get(server_url + 'category/news')
   assert "Blog Archives" not in browser.find_element_by_tag_name('body').text
@@ -199,4 +246,7 @@ def test_redirect(server_url,browser):
   browser.get(server_url + '/news')
   redirect = browser.current_url
   assert "/news/" in redirect
+<<<<<<< HEAD
+=======
 '''
+

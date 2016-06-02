@@ -61,6 +61,15 @@ h1, h2, h3, h4, h5, h6, h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
   font-family: ostrich_sans_roundedmedium,sans-serif;
 }
 
+h2 {
+    font-size: 1.9em;
+}
+
+h3 {
+    font-size: 1.6em;
+}
+
+
 .container {
   max-width: 960px;
   margin: 0 auto;
@@ -88,20 +97,28 @@ h1, h2, h3, h4, h5, h6, h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 .main-nav {
   clear: none;
   float: left;
-  width: 70%;
+  width: 45%;
   background: #ff9222;
 }
 
 .site-logo {
   float:left;
-  width: 30%;
+  width: 20px;
   background: #ff9222;
-  height: 50px;
-  padding-top:5px;
+  padding:15px 10px 0 0;
+}
+
+.site-logo img {
+opacity: 0.6;
+}
+
+.site-logo a {
+    color: #7e4514;
+    font-weight: 400;
+    text-decoration: none;
 }
 
 .main-nav .menu {
-  float:right;
   font-family: ostrich_sans_roundedmedium,sans-serif;
 }
 
@@ -124,6 +141,10 @@ h1, h2, h3, h4, h5, h6, h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
   /*font-family: League Gothic;*/
   /*padding: 23px 23px 13px 23px;*/
   /*color: #7e4514 | rgba(0,0,0,0.4);*/
+  
+  /*April*/
+  font-size: 22px;
+  padding: 10px 15px 0 15px;
 }
 
 .menu a:hover {
@@ -165,6 +186,8 @@ ul.menu > li:hover {
   background: #e5831e !important;
   font-size: 1em;
   font-stretch: normal;
+  height: 30px;
+  line-height:26px;
 }
 
 .menu li li a:hover {
@@ -180,22 +203,20 @@ ul.menu > li:hover {
 }
 
 .main-logo {
-     position:relative;
      clear:both;
-     width:460px;
-     height:250px;
-     z-index:15;
-     top:50%;
-     left:50%;
-     margin:-40px 0 20px -150px;
+     width:320px;
+     height:150px;
+     margin: 0 0 20px 0;
 }
 
 .home .one_half {
-  clear:both;
+  margin: 41px 0 20px 0;
+  Width:60%;
 }
 
 .home .last_column {
   clear:none;
+  display:none;
 }
 
  #wrapper {
@@ -207,6 +228,7 @@ ul.menu > li:hover {
   -webkit-border-radius: none;
   -moz-border-radius: none;
   border-radius: none;
+  margin-top:60px;
 }
 
 .banner {
@@ -241,6 +263,7 @@ ul.menu > li:hover {
 .data {
   background: #a10060; /*purple*/
   color: #e4b2cf;
+  color: #fff;
   
 }
 
@@ -303,6 +326,7 @@ h2 a {
 .involved {
   background: #662f8d; /*bottom purple*/
   color: #d0c0dd; /*light purple*/
+  color: #fff;
 }
 
 .involved .first {
@@ -316,16 +340,20 @@ padding-left: 25%
   font-weight: 900;
 }
 
+a.call-to-action {
+color: #fff;
+}
+
 a.call-to-action:hover {
 color: #fff;
-opacity: 0.7;
+opacity: 0.9;
 }
 
 
 /*Footer*/
 
 #footer {
-  font-size: 1em;
+  font-size: 0.8em;
   line-height: 1em;
   background: #333; /*footer black*/
   color: #b1b1b1; /*footer grey text*/
@@ -335,9 +363,20 @@ opacity: 0.7;
   clear: both;
   max-width: 100%;
   margin: 0 auto;
-  padding: 80px 25px 0 25px;
+  padding: 0 25px 0 25px;
+}
+.footer-info {
+ margin-top: 16px;
 }
 
+.footer-info.small {
+  font-size:0.8em;
+}
+ 
+#shared-footer {
+  clear:both;
+}
+ 
 #footer-wrapper {
   margin: 0 auto;
   padding: 0 25px;
@@ -349,7 +388,9 @@ opacity: 0.7;
 }
 
 .footer-menu li {
-  display: list-item;
+  display: inline;
+  padding-right:20px;
+  font-size: 0.8em;
 }
 
 .footer-menu li a {
@@ -360,6 +401,10 @@ opacity: 0.7;
 
 #footer a:hover {
   color: #b1b1b1;
+}
+
+#footer-wrapper .grid.col-940.copyright {
+    margin-top: -40px;
 }
 
 .widget-wrapper {
@@ -379,14 +424,31 @@ input[type="text"], input[type="password"], input[type="email"] {
 }
 
 .top-widget {
-  margin-top:70px;
+    z-index: 2000;
+    width: 45%;
 }
 
 .top-widget #searchform {
-  margin:10px 10px 0 10px;
+  margin:16px 60px 0 0;
+}
+
+input#s.field {
+  height:30px;
+}
+
+.top-widget input[type="text"] {
+  width:220px;
 }
 
 
+#social {
+  float:right;
+  width:100px;
+  z-index: 3000;
+  margin-top: -30px;
+  opacity: 0.6;
+  text-align:right;
+}
 #toc {
     top: 60px;
     left: 0px;
@@ -456,9 +518,7 @@ input[type="text"], input[type="password"], input[type="email"] {
   letter-spacing: .5px;
 }
 
-.banner h2 {
-  opacity: .7;
-}
+
 
 
 .call-to-action {
@@ -530,8 +590,9 @@ vertical-align:top;
 
 .blog h2 {
   color: #32a5db; /*blue*/
-font-size: 5em;
-line-height: 90px;
+  color: #333;
+  font-size: 5em;
+  line-height: 90px;
 }
 
 .blog h2.post-title {
@@ -546,6 +607,7 @@ line-height: 90px;
   line-height: 90px;
   color: #333;
   opacity: 1;
+  margin-bottom: 0px;
 }
 
 
@@ -618,7 +680,7 @@ display:none;
   font-weight: 900;
   clear: both;
   border:none;
-  background-color: #32a5db;
+  background-color: #a10060;
   background-image:none;
   box-shadow: none;
   text-shadow: none;
@@ -627,8 +689,7 @@ display:none;
 }
 
 .home .read-more a {
-color: #000;
-opacity: 0.7;
+color: #fff;
 }
 
 .post-entry span {
@@ -639,7 +700,7 @@ opacity: 0.7;
 }
 .home .read-more a:hover {
 color: #fff;
-opacity: 0.7;
+opacity: 0.9;
 }
 
 #nav_menu-2 ul {

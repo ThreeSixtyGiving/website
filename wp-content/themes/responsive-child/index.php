@@ -42,38 +42,52 @@ get_header(); ?>
               </a>
             <?php endif; ?>
             
-            <div class="main-logo grid col-460"><img src="wp-content/themes/responsive-child/360Giving-logo.png" width=403 height=205 alt="360Giving Logo" /></div>
+            <div class="main-logo grid col-460"><img src="wp-content/themes/responsive-child/360Giving-logo.png" width=300 height=150 alt="360Giving Logo" /></div>
             
             <?php the_content( __( 'Read more &#8250;', 'responsive' ) ); ?>
 
           </div><!-- end of .post-entry -->
         </div><!-- end of .container -->
-            <div class="banner data">
+        
+        
+        <div class="banner data">
+          <div class="container">
+            <h2><?php the_field('featured_text_1'); ?></h2>
+            <div class="grid col-300 fit first">
+                <a class="call-to-action" href="<?php the_field('call_to_action_1_links_to'); ?>"><?php the_field('call_to_action_1'); ?></a>
+            </div>
+            <div class="grid col-300 fit">
+                <a class="call-to-action" href="<?php the_field('call_to_action_2_links_to'); ?>"><?php the_field('call_to_action_2'); ?></a>
+            </div>
+            <div class="grid col-300 fit">
+                <a class="call-to-action" href="<?php the_field('call_to_action_3_links_to'); ?>"><?php the_field('call_to_action_3'); ?></a>
+            </div>
+          </div><!-- end of .container -->
+        </div><!-- end of .banner data -->
+  
+  <?php
+      endwhile;
+
+      get_template_part( 'loop-nav', get_post_type() );
+
+    else :
+
+      get_template_part( 'loop-no-posts', get_post_type() );
+
+    endif;
+  ?>
+  <!--End of Page content - now get Blog-->
+  
+  
+  <!--Logos section-->
+            <div class="banner who">
               <div class="container">
-                <h2><?php the_field('featured_text_1'); ?></h2>
-                <div class="grid col-300 fit first">
-                    <a class="call-to-action" href="<?php the_field('call_to_action_1_links_to'); ?>"><?php the_field('call_to_action_1'); ?></a>
-                </div>
-                <div class="grid col-300 fit">
-                    <a class="call-to-action" href="<?php the_field('call_to_action_2_links_to'); ?>"><?php the_field('call_to_action_2'); ?></a>
-                </div>
-                <div class="grid col-300 fit">
-                    <a class="call-to-action" href="<?php the_field('call_to_action_3_links_to'); ?>"><?php the_field('call_to_action_3'); ?></a>
-                </div>
+                <h2>Who's Publishing</h2>
+                <?php echo do_shortcode("[metaslider id=269]"); ?>
               </div><!-- end of .container -->
-            </div><!-- end of .banner data -->
-        <?php
-		endwhile;
-
-		get_template_part( 'loop-nav', get_post_type() );
-
-	else :
-
-		get_template_part( 'loop-no-posts', get_post_type() );
-
-	endif;
-	?>
-            <!--End of Page content - now get Blog-->
+            </div><!-- end of .banner -->
+    
+  <!--Blogs/News Section-->        
             <div class="container" id="news">
               <div class="banner blog">
                 <h2>News</h2>
@@ -121,79 +135,11 @@ get_header(); ?>
           
           
 
-         <!--End of blog, now get page content again--> 
- 	<?php if ( have_posts() ) : ?>
+    <!--End of blog, now get page content again--> 
+    <?php if ( have_posts() ) : ?>
 
 		<?php while( have_posts() ) : the_post(); ?> 
     
-    
-              <div class="banner subscribe">
-              <div class="container">
-                <!-- Begin MailChimp Signup Form -->
-                <div id="mc_embed_signup">
-                <form action="//threesixtygiving.us10.list-manage.com/subscribe/post?u=216b8b926250184f90c7198e8&amp;id=91870dde44" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-                    <div id="mc_embed_signup_scroll">
-                    <h2>Subscribe to our mailing list</h2>
-                <div class="mc-field-group">
-                    <label for="mce-EMAIL">Email Address</label><br/>
-                    <input type="email" placeholder="Email Address" value="" name="EMAIL" class="email" id="mce-EMAIL"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
-                </div>
-                    <div id="mce-responses" class="clear">
-                        <div class="response" id="mce-error-response" style="display:none"></div>
-                        <div class="response" id="mce-success-response" style="display:none"></div>
-                    </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-                    <div style="position: absolute; left: -5000px;"><input type="text" name="b_216b8b926250184f90c7198e8_91870dde44" tabindex="-1" value=""></div>
-                    
-                    </div>
-                </form>
-                </div>
-
-              <!--End mc_embed_signup-->
-              </div><!-- end of .container -->
-            </div><!-- end of .banner subscribe -->
-    
-            <!--Logos section-->
-            <div class="banner who">
-              <div class="container">
-                <h2>Who's Involved</h2>
-                <?php
-                //**Fetch and display the logos pulled and stored from CKAN**//
-                //Where are the logso?
-                $dir = ABSPATH . 'wp-content/themes/responsive-child/ckan';
-                $path = $dir . "/logos";
-                
-                $files = preg_grep('/^([^.])/', scandir($path)); 
-
-                foreach ($files as $file) {
-                //if ($handle = opendir($path)) {
-                //while (false !== ($file = scandir($handle))) {
-                   // if ('.' === $file) continue;
-                    //if ('..' === $file) continue;
-                    
-                    echo '<div class="grid col-220">';
-                    echo '<img src="' . get_stylesheet_directory_uri() . '/ckan/logos/' . $file . '" alt="" width=150 height=150 />';
-                    echo '</div>';
-                  
-                }
-                ?>
-              </div><!-- end of .container -->
-    </div><!-- end of .banner -->
-    
-    
-    
-    
-            <div class="banner involved">
-              <div class="container">
-                <h2><?php the_field('featured_text_2'); ?></h2>
-                <div class="grid col-300 fit first">
-                    <a class="call-to-action" href="<?php the_field('action_4_links_to'); ?>"><?php the_field('call_to_action_4'); ?></a>
-                </div>
-                <div class="grid col-300 fit">
-                    <a class="call-to-action" href="<?php the_field('action_5_links_to'); ?>"><?php the_field('call_to_action_5'); ?></a>
-                </div>
-              </div><!-- end of .container -->
-            </div><!-- end of .banner subscribe -->
-            
             
         <div class="post-entry">
           <div class="container">

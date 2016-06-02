@@ -38,10 +38,37 @@ $responsive_options = responsive_get_options();
 	<div id="footer-wrapper" class="container">
 
 		<?php get_sidebar( 'footer' ); ?>
+    
+    
 
 		<div class="grid col-940">
 
-			<div class="grid col-220">
+			
+
+			<div class="grid col-380 fit">
+				<?php echo responsive_get_social_icons() ?>
+			</div><!-- end of col-380 fit -->
+      
+      <div id="shared-footer">
+      <div class="grid col-220">
+        <img src="<?php echo get_stylesheet_directory_uri(); ?>/360logo_invert.png" height="80" width="196">
+      </div>
+      <div class="grid col-620">
+        <p class="footer-info">We provide support for grantmakers to publish their grants data openly, to understand their data, and to use the data to create online tools that make grantmaking more effective.</p>
+      </div>
+      </div>
+
+
+		</div><!-- end of col-940 -->
+		<?php get_sidebar( 'colophon' ); ?>
+
+    <!--<div class="grid col-300 scroll-top"><a href="#scroll-top" title="<?php esc_attr_e( 'scroll to top', 'responsive' ); ?>"><?php _e( '&uarr;', 'responsive' ); ?></a></div>-->
+
+		<div class="grid col-940 copyright">
+			<p class="footer-info">360Giving is a company limited by guarantee (Company Number 9668396) and a registered charity (Charity Number 1164883)</p>
+		</div><!-- end of .copyright -->
+    
+    <div class="grid col-940">
 				<?php if ( has_nav_menu( 'footer-menu', 'responsive' ) ) {
 					wp_nav_menu( array(
 						'container'      => '',
@@ -51,7 +78,7 @@ $responsive_options = responsive_get_options();
 					) );
 				} ?>
 			</div><!-- end of col-220 -->
-      <div class="grid col-220">
+      <div class="grid col-940">
 				<?php if ( has_nav_menu( 'second_footer', 'responsive' ) ) {
 					wp_nav_menu( array(
 						'container'      => '',
@@ -62,21 +89,12 @@ $responsive_options = responsive_get_options();
 				} ?>
 
 			</div><!-- end of col-220 -->
-
-			<div class="grid col-380 fit">
-				<?php echo responsive_get_social_icons() ?>
-			</div><!-- end of col-380 fit -->
-
-		</div><!-- end of col-940 -->
-		<?php get_sidebar( 'colophon' ); ?>
-
-		<div class="grid col-300 copyright">
-			<?php esc_attr_e( '&copy;', 'responsive' ); ?> <?php echo date( 'Y' ); ?><a href="<?php echo home_url( '/' ) ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
-				<?php bloginfo( 'name' ); ?>
-			</a>
+      
+      <div class="grid col-940">
+      <p class="footer-info small">This site uses icons from <a href="http://glyphicons.com/">GLYPHICONS.com</a> which are released under the <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 Unported (CC BY 3.0)</a> license.</p>
 		</div><!-- end of .copyright -->
 
-		<div class="grid col-300 scroll-top"><a href="#scroll-top" title="<?php esc_attr_e( 'scroll to top', 'responsive' ); ?>"><?php _e( '&uarr;', 'responsive' ); ?></a></div>
+		
 
 		<div class="grid col-300 fit powered">
 			<a href="<?php echo esc_url( 'http://cyberchimps.com/responsive-theme/' ); ?>" title="<?php esc_attr_e( 'Responsive Theme', 'responsive' ); ?>">

@@ -41,6 +41,7 @@ if ( !defined( 'ABSPATH' ) ) {
 		<link rel="profile" href="http://gmpg.org/xfn/11"/>
 		<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>"/>
     <link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/favicon.ico" />
+
 		<?php wp_head(); ?>
     <?php if ( is_admin_bar_showing() ) { echo '<style>#toc { top: 92px; } </style>'; } ?>
     <?php if ( is_admin_bar_showing() ) { echo '<style>.nav-container { top: 32px; }  </style>'; } ?>
@@ -61,8 +62,8 @@ if ( !defined( 'ABSPATH' ) ) {
     <div class="nav-container">
       <div class="container" class="hfeed">
       <div class="site-logo">
-        <a href="<?php echo home_url( '/' ); ?>">
-          <img src="<?php echo get_stylesheet_directory_uri(); ?>/360givinginwords.png" width=196 height=50 alt="ThreeSixtyGiving" />
+        <a href="<?php echo home_url( '/' ); ?>" title="Home">
+          <img src="<?php echo get_stylesheet_directory_uri(); ?>/glyphicons-21-home.png" width="" height="" alt="Home"  />
         </a>
       </div>
       <?php if ( has_nav_menu( 'top-menu', 'responsive' ) ) {
@@ -88,6 +89,15 @@ if ( !defined( 'ABSPATH' ) ) {
           'theme_location' => 'sub-header-menu'
         ) );
       } ?>
+      <?php get_sidebar( 'top' ); ?>
+      <div id="social">
+        <a href="https://twitter.com/360giving" title="@360Giving Twitter">
+          <img src="<?php echo get_stylesheet_directory_uri(); ?>/glyphicons-social-32-twitter.png" width="" height="" alt="Home"  />
+        </a>
+        <a href="https://github.com/ThreeSixtyGiving" title="360Giving GitHub">
+          <img src="<?php echo get_stylesheet_directory_uri(); ?>/glyphicons-social-22-github.png" width="" height="" alt="Home"  />
+        </a>
+      </div>
       </div><!--container-->
     </div><!--nav-container-->
 		<?php responsive_in_header(); // header hook ?>
@@ -110,7 +120,7 @@ if ( !defined( 'ABSPATH' ) ) {
 		<?php endif; // header image was removed (again) ?>
 -->
     <div class="container">
-      <?php get_sidebar( 'top' ); ?>
+      
 
 
       <?php responsive_header_bottom(); // after header content hook ?>
