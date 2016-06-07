@@ -11,6 +11,10 @@ wp-content/themes/responsive-child/ckan/ckan/*
 wp-content/themes/responsive-child/ckan/urls/*
 wp-content/themes/responsive-child/ckan/data/*
 wp-content/themes/responsive-child/ckan/logos/*
+wp-content/themes/responsive-child/glyphicons*
+wp-content/plugins/*.zip
+tests/_pycache_/
+wp-cli.phar
 
 # wordpress specific
 wp-config.php
