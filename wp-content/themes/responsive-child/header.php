@@ -66,6 +66,7 @@ if ( !defined( 'ABSPATH' ) ) {
           <img src="<?php echo get_stylesheet_directory_uri(); ?>/glyphicons-21-home.png" width="" height="" alt="Home"  />
         </a>
       </div>
+      
       <?php if ( has_nav_menu( 'top-menu', 'responsive' ) ) {
         wp_nav_menu( array(
           'container'      => '',
@@ -89,7 +90,7 @@ if ( !defined( 'ABSPATH' ) ) {
           'theme_location' => 'sub-header-menu'
         ) );
       } ?>
-      <?php get_sidebar( 'top' ); ?>
+      
       <div id="social">
         <a href="https://twitter.com/360giving" title="@360Giving Twitter">
           <img src="<?php echo get_stylesheet_directory_uri(); ?>/glyphicons-social-32-twitter.png" width="" height="" alt="Home"  />
@@ -98,6 +99,8 @@ if ( !defined( 'ABSPATH' ) ) {
           <img src="<?php echo get_stylesheet_directory_uri(); ?>/glyphicons-social-22-github.png" width="" height="" alt="Home"  />
         </a>
       </div>
+      <?php get_sidebar( 'top' ); ?>
+      
       </div><!--container-->
     </div><!--nav-container-->
 		<?php responsive_in_header(); // header hook ?>

@@ -64,20 +64,23 @@ $responsive_options = responsive_get_options();
 
     <!--<div class="grid col-300 scroll-top"><a href="#scroll-top" title="<?php esc_attr_e( 'scroll to top', 'responsive' ); ?>"><?php _e( '&uarr;', 'responsive' ); ?></a></div>-->
 
-		<div class="grid col-940 copyright">
-			<p class="footer-info">360Giving is a company limited by guarantee (Company Number 9668396) and a registered charity (Charity Number 1164883)</p>
+		<div class="grid col-940">
+			<p class="copyright">360Giving is a company limited by guarantee (Company Number 9668396) and a registered charity (Charity Number 1164883)</p>
 		</div><!-- end of .copyright -->
     
-    <div class="grid col-940">
-				<?php if ( has_nav_menu( 'footer-menu', 'responsive' ) ) {
+				<?php if ( has_nav_menu( 'footer-menu', 'responsive' ) ) { ?>
+         <div class="grid col-940">
+        <?php
 					wp_nav_menu( array(
 						'container'      => '',
 						'fallback_cb'    => false,
 						'menu_class'     => 'footer-menu',
 						'theme_location' => 'footer-menu'
 					) );
-				} ?>
-			</div><!-- end of col-220 -->
+				?>
+        </div><!-- end of col-220 -->
+        <?php } ?>
+        
       <div class="grid col-940">
 				<?php if ( has_nav_menu( 'second_footer', 'responsive' ) ) {
 					wp_nav_menu( array(
