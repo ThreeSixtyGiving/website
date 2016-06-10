@@ -12,7 +12,7 @@ function list_datasets($atts, $content=null) {
 
         $datasets = get_transient( 'dcat-json-data' );
         if ( false === $datasets ) {
-                $datasets = wp_remote_get("http://threesixtygiving.force.com/datastore/");
+                $datasets = wp_remote_get("http://data.threesixtygiving.org/data.json");
                 set_transient( 'dcat-json-data', $datasets,60*60);
         }
         $dataset_list = json_decode(wp_remote_retrieve_body($datasets));
