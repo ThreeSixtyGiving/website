@@ -47,7 +47,7 @@ function list_datasets($atts, $content=null) {
                     
                     $license .='<a href="'. esc_html($dataset->license) . '">' . $licence_name . '</a>';
                   } else {
-                    $license = "This licence is pending. Please contact the organisation directly to confirm any restrictions on using their 360Giving data";
+                    $license = "This license is pending. Please contact the organisation directly to confirm any restrictions on using their 360Giving data.";
                   }
               $html .= '<td>';
               }
