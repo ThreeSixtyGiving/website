@@ -8,9 +8,12 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException
 
 
+BROWSER = os.environ.get('BROWSER', 'Firefox')
+
+
 @pytest.fixture(scope="module")
 def browser(request):
-    browser = webdriver.Chrome('/home/david/Apps/chromedriver')
+    browser = getattr(webdriver, BROWSER)()
     browser.implicitly_wait(1)
     request.addfinalizer(lambda: browser.quit())
     return browser
@@ -135,7 +138,7 @@ def test_standard_documentation_pop_out_page(server_url, browser):
 # Use a link-ckecker to establish that
 @pytest.mark.parametrize(('link_text', 'path'), [
     ("Directors’ Terms of Reference", "/wp-content/uploads/360Giving-Directors-TORs_FINAL.pdf"),
-    ("disclosure policy", "/wp-content/uploads/360Giving-Disclosure-Policy.pdf")
+    ("disclosure policy", "/wp-content/uploads/360GivingDisclosurePolicy.pdf")
     ])
 def test_documents_link(server_url, browser, link_text, path):
     browser.get(server_url + 'about/governance')
