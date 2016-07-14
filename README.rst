@@ -136,6 +136,8 @@ Each needs to be uploaded individually. This can all be done via the user interf
 We name logos <something>_slider to show they are to be used for the slider
 Otherwise we just use a name.
 
+The slider is managed by the Meta Slider plug-in - accesible via the left hand menu in WP-Admin.  When a new logo for the slider needs to be added, click ``Add Slide`` and then add the URL to the logo uploaded - this will have a URL in the ``uploads`` folder
+
 Logos on the Find Data page are stored on the site, but the plugin is used to call them.
 
 To show a new logo
