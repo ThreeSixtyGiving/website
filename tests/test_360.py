@@ -160,9 +160,9 @@ def test_cove_link(server_url, browser, xpath):
 
 def test_charitycommission_link(server_url, browser):
     browser.get(server_url + 'standard/identifiers/')
-    href = browser.find_element_by_xpath("//*[@id='post-7']/div[1]/ol[2]/li[2]/p/a[1]")
+    href = browser.find_element_by_xpath("//*[@id='post-7']/div[1]/p[23]/a[1]")
     href = href.get_attribute("href")
-    assert "http://www.charitycommission.gov.uk/" in href
+    assert "https://www.gov.uk/government/organisations/charity-commission" in href
 
 
 def test_contactus_link(server_url, browser):
