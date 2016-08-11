@@ -121,7 +121,7 @@ def test_standard_documentation_page(server_url, browser):
     ('Recipient Org:Country'),
     ('Recipient Org:Description'),
     ('Recipient Org:Web Address'),
-    ('Use the three-letter currency code from ISO 4217 eg: GBP')  # Bug #102
+    ('Use the three-letter currency code from ISO 4217 eg: Use GBP for Pounds Sterling.')  # Bug #102 and Bug #135
     ])
 def test_standard_documentation_grants_table(server_url, browser, text):
     browser.get(server_url + 'standard/reference/')
@@ -131,8 +131,8 @@ def test_standard_documentation_grants_table(server_url, browser, text):
 
 def test_standard_documentation_pop_out_page(server_url, browser):
     browser.get(server_url + 'wp-content/plugins/threesixty_docs/docson/index.html#/wp-content/plugins/threesixty_docs/standard/schema/360-giving-schema.json$$expand')
-    assert 'The currency used in grant amounts and transactions using an ISO 3-letter code. Use GBP for Pounds Sterling.' in browser.find_element_by_xpath('//*[@id="doc"]/div[1]/div[3]/div[5]/div[1]/div[3]/p').text
-
+    assert 'The currency used in amounts. Use the three-letter currency code from ISO 4217 eg: Use GBP for Pounds Sterling.' in browser.find_element_by_xpath('//*[@id="doc"]/div[1]/div[3]/div[5]/div[2]/div/div[1]/div[1]/div/div[2]/p').text
+    
 
 # This checks the right path is in place, but not that the file exists
 # Use a link-ckecker to establish that
