@@ -84,7 +84,8 @@ def test_cookie_message(server_url, browser):
 @pytest.mark.parametrize(('text', 'tag_name'), [
     ('360Giving', 'body'),
     ('As soon as a step gives you an identifier, you can stop there and use the given identifier', 'body'),  # Bug #112
-    ('If you have an educational establishment', 'body')
+    ('If you have an educational establishment', 'body'),
+    ('Schools, universities and other educational establishments', 'body')
     ])
 def test_identifiers_page(server_url, browser, text, tag_name):
     browser.get(server_url + 'standard/identifiers/')
@@ -239,3 +240,12 @@ def test_page_h1(server_url, browser):
     except NoSuchElementException:
         assert True
     '''
+
+
+@pytest.mark.parametrize(('text'), [
+    ('(Document by Jamison Wieser from the Noun Project)'),
+    ('(JSON File by useiconic.com from the Noun Project)')
+    ])
+def test_noun_project_credit(server_url, browser, text):
+    browser.get(server_url + 'standard/')
+    assert text in browser.find_element_by_class_name("post-entry").text
