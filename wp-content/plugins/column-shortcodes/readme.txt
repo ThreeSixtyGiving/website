@@ -1,10 +1,10 @@
 === Column Shortcodes ===
-Contributors: codepress, tschutter, davidmosterd
+Contributors: codepress, tschutter, davidmosterd, dungengronovius
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZDZRSYLQ4Z76J
 Tags: columns, column, shortcodes, shortcode, divider, layout, posts, editor, wp-admin, admin, codepress, wordpress
 Requires at least: 3.1
-Tested up to: 4.1
-Stable tag: 0.6.6
+Tested up to: 4.6.1
+Stable tag: 0.6.9
 
 Adds shortcodes to easily create columns in your posts or pages.
 
@@ -258,6 +258,15 @@ You will find a .po file in the languages folder which you can use. You can send
 4. Example post with the use of column shortcodes
 
 == Changelog ==
+
+= 0.6.9 =
+* [Fixed] Rollback of the auto paragraphs. Too much conflicts with other shortcodes
+
+= 0.6.8 =
+* [Fixed] use wpautop() to wrap content in paragraphs when needed
+
+= 0.6.7 =
+* [Fixed] Paragraphs are added to the columns
 
 = 0.6.6 =
 * [Fixed] Swapped images for 5/6 columns
