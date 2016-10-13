@@ -42,8 +42,8 @@ def server_url(request):
     ('About', 'The need for data'),
     ('About', 'Vacancies'),
     ('Data', 'Publish Data'),
-    ('Data', 'Find Data'),
-    ('Data', 'Data Sharing'),
+    ('Data', 'Find data'),
+    # ('Data', 'Data Sharing'),
     # ('Data', 'Case Studies'),
     ('Support', 'Resources'),
     ('Support', 'FAQs'),
@@ -222,7 +222,7 @@ def test_data_table(server_url, browser):
         ('Data'),
         ('License')
     ])
-    browser.get(server_url + 'data/find-data/')
+    browser.get(server_url + 'data/data-registry/')
     table_headers = browser.find_elements_by_tag_name('th')
     table_headers_text = set([x.text for x in table_headers])
     assert expected_headers == table_headers_text
