@@ -115,6 +115,7 @@ def test_standard_documentation_page_not_xpath(server_url, browser):
 def test_standard_documentation_page(server_url, browser):
     browser.get(server_url + 'standard/reference/')
     assert '360Giving' in browser.find_element_by_tag_name('body').text
+    assert 'When the applicant' in browser.find_element_by_xpath("//*[@id='post-35']/div[1]/p[19]").text  # introduced in https://github.com/ThreeSixtyGiving/standard/commit/7c37a3b5c6172601afda3d57011033f95fd7ab0f
 
 
 @pytest.mark.parametrize(('text'), [
