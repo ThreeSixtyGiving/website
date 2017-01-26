@@ -3,7 +3,7 @@
 Plugin Name: Cookie Consent
 Plugin URI: http://catapultthemes.com/cookie-consent/
 Description: The only cookie consent plugin you'll ever need.
-Version: 2.1.5
+Version: 2.3.0
 Author: Catapult_Themes
 Author URI: http://catapultthemes.com/
 Text Domain: uk-cookie-consent
@@ -19,15 +19,27 @@ if ( ! defined( 'ABSPATH' ) ) {
 if ( ! defined( 'CTCC_PLUGIN_URL' ) ) {
 	define( 'CTCC_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 }
+
 if ( is_admin() ) {
 	require_once dirname( __FILE__ ) . '/admin/class-ctcc-admin.php';
 	$CTCC_Admin = new CTCC_Admin();
 	$CTCC_Admin -> init();
+	
+	$options = get_option( 'ctcc_options_settings' );
+	// Add the metafield if enabled
+	if( ! empty( $options['enable_metafield'] ) ) {
+		require_once dirname( __FILE__ ) . '/admin/class-ctcc-metafield.php';
+		$CTCC_Metafield = new CTCC_Metafield();
+		$CTCC_Metafield -> init();
+	}
+} else {
+	require_once dirname( __FILE__ ) . '/public/class-ctcc-public.php';
+	$CTCC_Public = new CTCC_Public();
+	$CTCC_Public -> init();
 }
-require_once dirname( __FILE__ ) . '/public/class-ctcc-public.php';
-$CTCC_Public = new CTCC_Public();
-$CTCC_Public -> init();
 require_once dirname( __FILE__ ) . '/public/customizer.php';
+
+
 function ctcc_load_plugin_textdomain() {
     load_plugin_textdomain( 'uk-cookie-consent', FALSE, basename( dirname( __FILE__ ) ) . '/languages/' );
 }

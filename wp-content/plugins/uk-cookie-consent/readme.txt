@@ -1,29 +1,32 @@
 === Cookie Consent ===
 Contributors: Catapult_Themes, husobj, jraczynski
 Donate Link: https://paypal.com
-Tags: cookie law, cookies, EU, implied consent, uk cookie consent, compliance, eu cookie law, eu privacy directive, privacy, privacy directive, consent, cookie, cookie compliance, cookie law, eu cookie, notice, notification, notify, cookie notice, cookie notification, cookie notify, wpml, cookie bar, cookie notification bar
+Tags: cookie law, cookies, eu cookie law, eu privacy directive, cookie compliance, cookie law, cookie notice, cookie notification, wpml, geo ip
 Requires at least: 4.3
-Tested up to: 4.6.1
-Stable tag: 2.1.5
+Tested up to: 4.7.1
+Stable tag: 2.3.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 The only cookie consent plugin you'll ever need.
 
 == Description ==
-Cookie Consent 2.0 is a major rewrite of the popular Cookie Consent plugin. We've retained all the features that originally made the plugin so popular, such as speed of set-up, but added new features based on feedback and requests.
+Cookie Consent is one of the simplest and most popular cookie notification plugins out there. It's been actively developed and supported since 2012 and has over 100 5 star reviews.
 
-= Activation =
-One of the most popular aspects of the plugin is its simplicity of use. The new version is no different - simply install and activate the plugin to automatically add the cookie consent notification bar without any need to configure it. On activation, the plugin creates and populates a page on your site with information about your cookie policy and automatically links to the page from the notification bar. So if you're using the default settings, it's a matter of seconds to get up and running.
+> <strong>New in 2.3.0:</strong><br>Geo IP support - choose which continents to display notifications (requires GeoIP Detect plugin to be installed)
+> <strong>New in 2.2.0:</strong><br>Easily select pages or posts where the cookie notification doesn't display. You now have complete control over which pages display a notification and which don't.<br>Close on scroll - optionally choose scrolling as closure method.
 
-= New Features =
-We've extended the options with the plugin and in version 2.0, we've added many new features, including:
-* Choice of dismissal method - either on click by the user or timed
+= Simple set up =
+One of the most popular aspects of the plugin is its simplicity of use - simply install and activate the plugin to automatically add the cookie consent notification bar. There is no need to configure it. On activation, the plugin creates and populates a page on your site with information about your cookie policy and automatically links to the page from the notification bar. So if you're using the default settings, it's a matter of seconds to get up and running.
+
+= Features =
+* Choice of dismissal method - on click, on scroll, or timed
 * Choice of dismissal element - either button or 'x' close
 * Option to show the notification on the first page only - subsequent pages visited by the user will not display the message
+* Option to exclude selected pages and posts from displaying the notification
 * Choice of position - either top or bottom bar, or floating in one of the corners of the screen
-* Better translation support
-* Better responsive support
-* More customization options - including the ability to update styles from within the customizer
+* Translation support
+* Responsive
+* Customization options - including the ability to update styles from within the customizer
 * Inherits your theme styles where possible
 * The option to use an absolute or external URL to link to for further information
 * Set the cookie duration
@@ -67,6 +70,38 @@ You will find more details of the regulations on the [Information Commissioner's
 5. Example settings page
 
 == Changelog ==
+
+= 2.3.0 =
+* Added: GeoIP support (suggested by jeffrobbins)
+
+= 2.2.5 =
+* Fixed: dismissed notification bar obscuring content
+
+= 2.2.4 =
+* Fixed: correct escaping for more info URL
+
+= 2.2.3 =
+* Updated: stable tag
+
+= 2.2.2 =
+* Fixed: text domain in class-ctcc-metafield (spotted by mmmisiek)
+
+= 2.2.1 =
+* Updated: better escaping (suggested by djpaul)
+
+= 2.2.0 =
+* Added: optionally exclude pages and posts from displaying the cookie notification (suggested by jeffrobbins)
+* Added: close notification on scroll option (suggested by jeffrobbins)
+* Added: class name for more info link
+* Fixed: x-close responsive margin
+* Updated: allow shortcodes in notification text
+* Updated: better settings sanitization
+
+= 2.1.7 =
+* Updated: admin styles
+
+= 2.1.6 =
+* Updated: wpml-config.xml file (thanks to vukvukovich)
 
 = 2.1.5 =
 * Fixed: added missing Italian translation files
