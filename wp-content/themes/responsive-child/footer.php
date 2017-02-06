@@ -63,10 +63,6 @@ $responsive_options = responsive_get_options();
 		<?php get_sidebar( 'colophon' ); ?>
 
     <!--<div class="grid col-300 scroll-top"><a href="#scroll-top" title="<?php esc_attr_e( 'scroll to top', 'responsive' ); ?>"><?php _e( '&uarr;', 'responsive' ); ?></a></div>-->
-
-		<div class="grid col-940">
-			<p class="copyright">360Giving is a company limited by guarantee (Company Number 9668396) and a registered charity (Charity Number 1164883)</p>
-		</div><!-- end of .copyright -->
     
 				<?php if ( has_nav_menu( 'footer-menu', 'responsive' ) ) { ?>
          <div class="grid col-940">
@@ -94,7 +90,8 @@ $responsive_options = responsive_get_options();
 			</div><!-- end of col-220 -->
       
       <div class="grid col-940">
-      <p class="footer-info small">This site uses icons from <a href="http://glyphicons.com/">GLYPHICONS.com</a> which are released under the <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 Unported (CC BY 3.0)</a> license.</p>
+      <p class="footer-info small">360Giving is a company limited by guarantee (Company Number 9668396) and a registered charity (Charity Number 1164883)<br/>
+      This site uses icons from <a href="http://glyphicons.com/">GLYPHICONS.com</a> which are released under the <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 Unported (CC BY 3.0)</a> license.</p>
 		</div><!-- end of .copyright -->
 
 		
