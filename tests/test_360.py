@@ -37,17 +37,19 @@ def server_url(request):
 
 @pytest.mark.parametrize(('menu_text', 'sub_menu_text'), [
     ('About', 'News'),
-    ('About', 'The team'),
-    ('About', 'Funding and Governance'),
-    ('About', 'The need for data'),
+    #('About', 'The team'),
+    ('About', 'Who we are'),
+    #('About', 'Funding and Governance'),
+    ('About', 'Our funding and governance'),
+    #('About', 'The need for data'),
     ('About', 'Vacancies'),
     ('Data', 'Publish Data'),
     ('Data', 'Find data'),
     # ('Data', 'Data Sharing'),
     # ('Data', 'Case Studies'),
     ('Support', 'Resources'),
-    ('Support', 'FAQs'),
-    ('Support', 'Data Quality'),
+    #('Support', 'FAQs'),
+    #('Support', 'Data Quality'),
     ('Standard', 'Reference'),
     ('Standard', 'Identifiers'),
     ('Standard', 'Data Protection'),
@@ -151,7 +153,7 @@ def test_documents_link(server_url, browser, link_text, path):
 
 @pytest.mark.parametrize(('xpath'), [
     ("//*[@id='post-35']/div[1]/p[5]/a"),
-    ("//*[@id='post-35']/div[1]/p[43]/a")
+    ("//*[@id='post-35']/div[1]/p[54]/a")
     ])
 def test_cove_link(server_url, browser, xpath):
     browser.get(server_url + 'standard/reference/')
@@ -186,6 +188,12 @@ def test_documentation_pages(server_url, browser, path):
     # Should use a documentation template
     browser.find_element_by_class_name("page-template-page_documentation")
 
+
+# https://github.com/ThreeSixtyGiving/standard/pull/178/
+def test_licensing_page(server_url, browser):
+    browser.get(server_url + 'standard/licensing/')
+    assert 'Finally, anything shared or adapted has to be licensed as CC BY 4.0.' not in browser.find_element_by_tag_name('body').text
+    
 
 '''
 @pytest.mark.parametrize(('logo'), [
