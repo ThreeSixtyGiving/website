@@ -568,7 +568,7 @@ if ( ! class_exists ( 'CTCC_Admin' ) ) {
 						<option value='<?php echo $page -> ID; ?>' <?php selected( $ctcc_content_settings['more_info_page'], $page -> ID ); ?>><?php echo $page -> post_title; ?></option>
 					<?php } ?>
 				</select>
-				<p class="description"><?php _e( 'The page containing further information about your cookie policy', 'discussion-board' ); ?></p>
+				<p class="description"><?php _e( 'The page containing further information about your cookie policy', 'uk-cookie-consent' ); ?></p>
 			<?php }
 		}
 
@@ -699,19 +699,23 @@ if ( ! class_exists ( 'CTCC_Admin' ) ) {
 		}
 		
 		public function settings_section_callback() {
-			echo '<p>' .__( 'Basic settings', 'uk-cookie-consent' ) . '</p>';
+			echo '<p>' . __( 'Basic settings', 'uk-cookie-consent' ) . '</p>';
+			echo '<p><a href="http://iubenda.refr.cc/JKNZ55D" target="_blank">' . __( 'Create your own privacy policy here') . '</a></p>';
 		}
 		
 		public function content_settings_section_callback() { 
 			echo '<p>' .__( 'Update the content displayed to the user', 'uk-cookie-consent' ) . '</p>';
+			echo '<p><a href="http://iubenda.refr.cc/JKNZ55D" target="_blank">' . __( 'Create your own privacy policy here') . '</a></p>';
 		}
 				
 		public function styles_settings_section_callback() { 
 			echo '<p>' .__( 'Change the styles here if you like - but it\'s better in the Customizer', 'uk-cookie-consent' ) . '</p>';
+			echo '<p><a href="http://iubenda.refr.cc/JKNZ55D" target="_blank">' . __( 'Create your own privacy policy here') . '</a></p>';
 		}
 		
 		public function pages_settings_section_callback() { 
 			echo '<p>' . __( 'Use this section to set exclusion rules for pages and posts.', 'uk-cookie-consent' ) . '</p>';
+			echo '<p><a href="http://iubenda.refr.cc/JKNZ55D" target="_blank">' . __( 'Create your own privacy policy here') . '</a></p>';
 		}
 		
 		public function options_page() {
