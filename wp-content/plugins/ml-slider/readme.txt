@@ -1,20 +1,20 @@
 === Plugin Name ===
-Contributors: matchalabs
+Contributors: matchalabs, DavidAnderson
 Tags: wordpress slideshow,seo,slideshow,slider,widget,wordpress slider,image slider,flexslider,flex slider,nivoslider,nivo slider,responsive,responsive slides,coinslider,coin slider,slideshow,carousel,responsive slider,vertical slides
-Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=CQ84KC4X8YKW8
+Donate link: https://david.dw-perspective.org.uk/donate
 Requires at least: 3.5
-Tested up to: 4.7
-Stable tag: 3.4.1
+Tested up to: 4.8
+Stable tag: 3.5.1
 License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 Easy to use WordPress slider plugin. Create SEO optimised responsive slideshows with Nivo Slider, Flex Slider, Coin Slider and Responsive Slides.
 
 == Description ==
 
-http://www.youtube.com/watch?v=o0f3uAvL6Ic
+https://www.youtube.com/watch?v=o0f3uAvL6Ic
 
-The most popular WordPress slider plugin. Creating slideshows with [Meta Slider](http://www.metaslider.com/) is fast and easy. Simply select images from your WordPress Media Library, drag and drop them into place, set slide captions, links and SEO fields all from one page. You can choose from 4 different slideshow types (Flex Slider, Nivo Slider, Responsive Slides & Coin Slider) and use the provided shortcode or template include to easily embed slideshows in your blog.
+The most popular WordPress slider plugin. Creating slideshows with [Meta Slider](https://www.metaslider.com/) is fast and easy. Simply select images from your WordPress Media Library, drag and drop them into place, set slide captions, links and SEO fields all from one page. You can choose from 4 different slideshow types (Flex Slider, Nivo Slider, Responsive Slides & Coin Slider) and use the provided shortcode or template include to easily embed slideshows in your blog.
 
 **Includes**
 
@@ -41,7 +41,7 @@ The most popular WordPress slider plugin. Creating slideshows with [Meta Slider]
 * Extensive Developer API (hooks & filters)
 * Fast - only the minimum JavaScript/CSS is included on your page
 * Free basic support (covering installation issues and theme/plugin conflicts)
-* Lightbox support with the [Meta Slider Lightbox](http://wordpress.org/plugins/ml-slider-lightbox/) addon
+* Lightbox support with the [Meta Slider Lightbox](https://wordpress.org/plugins/ml-slider-lightbox/) addon
 
 Upgrade to [Meta Slider Pro](https://www.metaslider.com/upgrade) to add support for:
 
@@ -86,7 +86,7 @@ https://www.metaslider.com/documentation/
 
 Video Guide:
 
-http://www.youtube.com/watch?v=gSsWgd66Jjk
+https://www.youtube.com/watch?v=gSsWgd66Jjk
 
 Text Guide:
 
@@ -111,7 +111,7 @@ https://www.metaslider.com/documentation/theme-integration/
 
 Check out the troubleshooting page here:
 
-http://www.metaslider.com/documentation/troubleshooting/
+https://www.metaslider.com/documentation/troubleshooting/
 
 = Meta Slider is cropping my images in the wrong place - what can I do? =
 
@@ -127,6 +127,12 @@ See https://www.metaslider.com/documentation/image-cropping/
 6. Administration panel - selecting slides
 
 == Changelog ==
+
+= 3.5.1 [01/05/17] =
+
+* Fix: Pre-populate caption and alt text fields for new image slides (based on original media file data)
+* Fix: When a media file is deleted from the media library, also remove it from the slideshow
+* Fix: Update _wp_attachment_metadata when creating new image sizes
 
 = 3.5 [13/03/17] =
 
