@@ -146,10 +146,11 @@ The template for  the blog becomes home.php - this is standard Wordpress practic
 
 
 Sept 2017: the docs are no longer active in the Wordpress/public site - please ignore the following:
+---------------------
 
 How do the docs work?
 ---------------------
-~~We have created a new plugin: threesixty_docs to handle the documentation side of the website.
+We have created a new plugin: threesixty_docs to handle the documentation side of the website.
 This contains 3 git submodules:
 
 * A markdown to HTML parser: parsedown
