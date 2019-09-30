@@ -97,7 +97,7 @@ h3 {
 .main-nav {
   clear: none;
   float: left;
-  width: 50%;
+  width: 55%;
   background: #ff9222;
 }
 
@@ -105,7 +105,7 @@ h3 {
   float:left;
   width: 20px;
   background: #ff9222;
-  padding:15px 10px 0 0;
+  padding:15px 5px 0 0;
 }
 
 .site-logo img {
@@ -426,7 +426,7 @@ input[type="text"], input[type="password"], input[type="email"] {
 
 .top-widget {
     z-index: 2000;
-    width: 35%;
+    width: 28%;
     clear:none;
 }
 
@@ -790,7 +790,7 @@ ul, ol {
   }
   
   .main-nav {
-    width: 50%;
+    width: 55%;
   }
   
   #social {
