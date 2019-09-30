@@ -1,0 +1,36 @@
+<div class="row">
+	<div class="col-md-6">
+		<div class="form-group">
+			<label>Your Name <span class="required">*</span></label>
+			[text* your-name class:form-control placeholder "Your Name"]
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="form-group">
+			<label>Phone Number <span class="required">*</span></label>
+			[text* your-phone class:form-control placeholder "Phone Number"]
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-6">
+		<div class="form-group">
+			<label>Email Address <span class="required">*</span></label>
+			[email* your-email class:form-control placeholder "Email Address"]
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="form-group">
+			<label>Subject <span class="required">*</span></label>
+			[text* your-subject class:form-control placeholder "Message Subject"]
+		</div>
+	</div>
+</div>
+
+<div class="form-group">
+	<label>Message <span class="required">*</span></label>
+	[textarea* your-message class:form-control placeholder "Your Message"]
+</div>
+
+[submit class:btn class:btn-primary class:btn-lg "Send Message"]
