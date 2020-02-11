@@ -1,7 +1,7 @@
 <?php
 
 // Exit if accessed directly
-if ( !defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
@@ -11,42 +11,23 @@ if ( !defined( 'ABSPATH' ) ) {
 function responsive_upgrade_bar() {
 	?>
 
-	<div class="upgrade-callout">
-		<p><img src="<?php echo get_template_directory_uri(); ?>/core/includes/theme-options/images/chimp.png" alt="CyberChimps"/>
-			<?php printf( __( 'Welcome to %1$s! Upgrade to %2$s today.', 'responsive' ),
-						  'Responsive',
-						  ' <a href="http://cyberchimps.com/store/responsivepro/" target="_blank" title="Responsive Pro">Responsive Pro</a> '
-			); ?>
+	<!--  <div class="upgrade-callout">
+		<p class="responsivepro-offer"><img src="<?php echo get_template_directory_uri(); ?>/core/includes/theme-options/images/chimp.png" alt="CyberChimps"/>
+			<?php
+			printf(
+				__( '%1$s Such Free Themes By CyberChimps</span>', 'responsive' ),
+				' <a href="https://cyberchimps.com/10-free-responsive-wordpress-themes/?utm_source=orgwpresponsive" target="_blank" title="CyberChimps Free Themes">Get More</a> '
+			);
+			?>
 		</p>
+		 <p class="responsivepro-offer">Get 30% off on Responsive Pro using Coupon Code RESPONSIVE30</p> -->
 
-		<div class="social-container">
-			<div class="social">
-				<a href="https://twitter.com/cyberchimps" class="twitter-follow-button" data-show-count="false" data-size="small">Follow @cyberchimps</a>
-				<script>!function (d, s, id) {
-						var js, fjs = d.getElementsByTagName(s)[0];
-						if (!d.getElementById(id)) {
-							js = d.createElement(s);
-							js.id = id;
-							js.src = "//platform.twitter.com/widgets.js";
-							fjs.parentNode.insertBefore(js, fjs);
-						}
-					}(document, "script", "twitter-wjs");</script>
-			</div>
-			<div class="social">
-				<iframe
-					src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fcyberchimps.com%2F&amp;send=false&amp;layout=button_count&amp;width=200&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21"
-					scrolling="no" frameborder="0"
-					style="border:none; overflow:hidden; width:200px; height:21px;" allowTransparency="true"></iframe>
-			</div>
-		</div>
-		
-	
-	</div>
+	<!--</div>-->
 	<div class="updated">
-		<p><strong><?php _e('<a href="http://cyberchimps.com/store/responsivepro/" target="_blank" title="Responsive Pro">Responsive Pro</a> allows you to create Sliders using 13 Dynamic Sources like YouTube, Vimeo, Pinterest and more.
-Upgrade to <a href="http://cyberchimps.com/store/responsivepro/" target="_blank" title="Responsive Pro">Responsive Pro</a> Today.','responsive'); ?></strong></p>
+		<p><?php esc_html_e( 'Looking for More Features?', 'responsive' ); ?></p>
+		<p><?php esc_html_e( 'Check out <a href="https://cyberchimps.com/store/responsivepro/?utm_source=responsive2pro" target="_blank" title="Responsive Pro">Responsive Pro</a> & <a href="https://cyberchimps.com/product-category/upgradefromresponsive/?utm_source=responsive2pro" target="_blank" title="Responsive Pro">Premium Child Themes</a> for your Responsive Theme.', 'responsive' ); ?></p>
 	</div>
-<?php
+	<?php
 }
 
 add_action( 'responsive_theme_options', 'responsive_upgrade_bar', 1 );
@@ -61,93 +42,29 @@ function responsive_theme_support() {
 		<div class="info-box notice">
 
 			<a class="button" href="<?php echo esc_url( 'http://cyberchimps.com/guides/r-free/' ); ?>" title="<?php esc_attr_e( 'Instructions', 'responsive' ); ?>" target="_blank">
-				<?php _e( 'Instructions', 'responsive' ); ?></a>
+				<?php esc_html_e( 'Instructions', 'responsive' ); ?></a>
 
-			<a class="button button-primary" href="<?php echo esc_url( 'http://cyberchimps.com/forum/free/responsive/' ); ?>" title="<?php esc_attr_e( 'Help', 'responsive' ); ?>" target="_blank">
-				<?php _e( 'Help', 'responsive' ); ?></a>
+			<a class="button" href="<?php echo esc_url( 'http://cyberchimps.com/forum/free/responsive/' ); ?>" title="<?php esc_attr_e( 'Help', 'responsive' ); ?>" target="_blank">
+				<?php esc_html_e( 'Help', 'responsive' ); ?></a>
 
-			<a class="button" href="<?php echo esc_url( 'https://webtranslateit.com/en/projects/3598-Responsive-Theme' ); ?>" title="<?php esc_attr_e( 'Translate', 'responsive' ); ?>" target="_blank">
-				<?php _e( 'Translate', 'responsive' ); ?></a>
 
-			<a class="button" href="<?php echo esc_url( 'http://cyberchimps.com/showcase/' ); ?>" title="<?php esc_attr_e( 'Showcase', 'responsive' ); ?>" target="_blank">
-				<?php _e( 'Showcase', 'responsive' ); ?></a>
+			<a class="button button-primary" href="<?php echo esc_url( 'https://wordpress.org/support/theme/responsive/reviews/#new-post/' ); ?>" title="<?php esc_attr_e( 'Leave a star rating', 'responsive' ); ?>" target="_blank">
+				<?php esc_html_e( 'Leave a star rating', 'responsive' ); ?></a>
 
-			<a class="button" href="<?php echo esc_url( 'http://cyberchimps.com/store/' ); ?>" title="<?php esc_attr_e( 'More Themes', 'responsive' ); ?>" target="_blank">
-				<?php _e( 'More Themes', 'responsive' ); ?></a>
+			<a class="button" href="<?php echo esc_url( 'https://cyberchimps.com/contact/' ); ?>" title="<?php esc_attr_e( 'Need Customization', 'responsive' ); ?>" target="_blank">
+				<?php esc_html_e( 'Need Customization?', 'responsive' ); ?></a>
 
+			<a class="button" href="<?php echo esc_url( 'https://cyberchimps.com/checkout/?add-to-cart=277804' ); ?>" title="<?php esc_attr_e( 'Theme Demo Data', 'responsive' ); ?>" target="_blank">
+				<?php esc_html_e( 'Theme Demo Data', 'responsive' ); ?></a>
+<a class="button" href="<?php echo esc_url( 'https://cyberchimps.com/store/responsivepro#whygopro' ); ?>" title="<?php esc_attr_e( 'Why Go Pro?', 'responsive' ); ?>" target="_blank">
+				<?php esc_html_e( 'Why Go Pro?', 'responsive' ); ?></a>
 		</div>
 	</div>
 
-<?php
+	<?php
 }
 
 add_action( 'responsive_theme_options', 'responsive_theme_support', 2 );
-
-function responsive_install_plugins() {
-	$plugins = array(
-
-		// This is an example of how to include a plugin pre-packaged with a theme
-		array(
-			'name'     => 'Responsive Add Ons', // The plugin name
-			'slug'     => 'responsive-add-ons', // The plugin slug (typically the folder name)
-			'required' => false
-		),
-		array(
-			'name'     => 'iFeature Slider', // The plugin name
-			'slug'     => 'ifeature-slider', // The plugin slug (typically the folder name)
-			'required' => false
-		)
-	);
-
-	// Change this to your theme text domain, used for internationalising strings
-	$theme_text_domain = 'responsive';
-
-	/**
-	 * Array of configuration settings. Amend each line as needed.
-	 * If you want the default strings to be available under your own theme domain,
-	 * leave the strings uncommented.
-	 * Some of the strings are added into a sprintf, so see the comments at the
-	 * end of each line for what each argument will be.
-	 */
-
-	$config = array(
-		'domain'           => $theme_text_domain, // Text domain - likely want to be the same as your theme.
-		'default_path'     => '', // Default absolute path to pre-packaged plugins
-		'parent_menu_slug' => 'themes.php', // Default parent menu slug
-		'parent_url_slug'  => 'themes.php', // Default parent URL slug
-		'menu'             => 'install-responsive-addons', // Menu slug
-		'has_notices'      => true, // Show admin notices or not
-		'is_automatic'     => true, // Automatically activate plugins after installation or not
-		'message'          => '', // Message to output right before the plugins table
-		'strings'          => array(
-			'page_title'                      => __( 'Responsive Add Features', 'responsive' ),
-			'menu_title'                      => __( 'Activate Add Ons', 'responsive' ),
-			'installing'                      => __( 'Installing Plugin: %s', 'responsive' ), // %1$s = plugin name
-			'oops'                            => __( 'Something went wrong with the plugin API.', 'responsive' ),
-			'notice_can_install_required'     => _n_noop( 'This theme requires the following plugin: %1$s.', 'This theme requires the following plugins: %1$s.', 'responsive' ), // %1$s = plugin name(s)
-			'notice_can_install_recommended'  => _n_noop( 'This theme recommends the following plugin: %1$s.', 'This theme recommends the following plugins: %1$s.', 'responsive' ), // %1$s = plugin name(s)
-			'notice_cannot_install'           => _n_noop( 'Sorry, but you do not have the correct permissions to install the %s plugin. Contact the administrator of this site for help on getting the plugin installed.', 'Sorry, but you do not have the correct permissions to install the %s plugins. Contact the administrator of this site for help on getting the plugins installed.', 'responsive' ), // %1$s = plugin name(s)
-			'notice_can_activate_required'    => _n_noop( 'The following required plugin is currently inactive: %1$s.', 'The following required plugins are currently inactive: %1$s.', 'responsive' ), // %1$s = plugin name(s)
-			'notice_can_activate_recommended' => _n_noop( 'The following recommended plugin is currently inactive: %1$s.', 'The following recommended plugins are currently inactive: %1$s.', 'responsive' ), // %1$s = plugin name(s)
-			'notice_cannot_activate'          => _n_noop( 'Sorry, but you do not have the correct permissions to activate the %s plugin. Contact the administrator of this site for help on getting the plugin activated.', 'Sorry, but you do not have the correct permissions to activate the %s plugins. Contact the administrator of this site for help on getting the plugins activated.', 'responsive' ), // %1$s = plugin name(s)
-			'notice_ask_to_update'            => _n_noop( 'The following plugin needs to be updated to its latest version to ensure maximum compatibility with this theme: %1$s.', 'The following plugins need to be updated to their latest version to ensure maximum compatibility with this theme: %1$s.', 'responsive' ), // %1$s = plugin name(s)
-			'notice_cannot_update'            => _n_noop( 'Sorry, but you do not have the correct permissions to update the %s plugin. Contact the administrator of this site for help on getting the plugin updated.', 'Sorry, but you do not have the correct permissions to update the %s plugins. Contact the administrator of this site for help on getting the plugins updated.', 'responsive' ), // %1$s = plugin name(s)
-			'install_link'                    => _n_noop( 'Begin installing plugin', 'Begin installing plugins', 'responsive' ),
-			'activate_link'                   => _n_noop( 'Activate installed plugin', 'Activate installed plugins', 'responsive' ),
-			'return'                          => __( 'Return to Required Plugins Installer', 'responsive' ),
-			'plugin_activated'                => __( 'Plugin activated successfully.', 'responsive' ),
-			'complete'                        => __( 'All plugins installed and activated successfully. %s', 'responsive' ) // %1$s = dashboard link
-		)
-	);
-
-	global $pagenow;
-	// Add plugin notification only if the current user is admin and on theme.php
-	if ( current_user_can( 'manage_options' ) && 'themes.php' == $pagenow ) {
-		tgmpa( $plugins, $config );
-	}
-
-}
-add_action( 'tgmpa_register', 'responsive_install_plugins' );
 
 /*
  * Add notification to Reading Settings page to notify if Custom Front Page is enabled.
@@ -170,3 +87,194 @@ function responsive_front_page_reading_notice() {
 }
 
 add_action( 'admin_notices', 'responsive_front_page_reading_notice' );
+
+/**
+ * Add Ask For Review Admin Notice.
+ */
+function ask_for_review_notice() {
+
+	if ( isset( $_GET['page'] ) && 'responsive' === $_GET['page'] ) {
+		return;
+	}
+
+	if ( false === get_option( 'responsive-theme-old-setup' ) ) {
+		set_transient( 'responsive_theme_ask_review_flag', true, MONTH_IN_SECONDS );
+		update_option( 'responsive-theme-old-setup', true );
+	} elseif ( false === get_transient( 'responsive_theme_ask_review_flag' ) && false === get_option( 'responsive_theme_review_notice_dismissed' ) ) {
+
+		$image_path = get_template_directory_uri() . '/admin/images/responsive-thumbnail.jpg';
+		echo sprintf(
+			'<div class="notice notice-warning ask-for-review-notice">
+             					<div class="notice-image">
+									<img src="%1$s" class="custom-logo" alt="Responsive" itemprop="logo">
+								</div>
+								<div class="notice-content">
+									<div class="notice-heading">
+										Hi! Thanks for using the Responsive theme.
+									</div>
+									Can you please do us a favor and give us a 5-star rating? Your feedback keeps us motivated and helps us grow the Responsive community.<br />
+									<div class="responsive-review-notice-container">
+										<a href="%2$s" class="responsive-notice-close responsive-review-notice button-primary" target="_blank">
+										Ok, you deserve it
+										</a>
+										<span class="dashicons dashicons-calendar"></span>
+										<a href="?responsive-theme-review-notice-change-timeout=true" data-repeat-notice-after="60" class="responsive-notice-close responsive-review-notice">
+										Nope, maybe later
+										</a>
+										<span class="dashicons dashicons-smiley"></span>
+										<a href="?responsive-theme-review-notice-dismissed=true" class="responsive-notice-close responsive-review-notice">
+										I already did
+										</a>
+									</div>
+								</div>
+								<div>
+									<a href="?responsive-theme-review-notice-dismissed=true">Dismiss</a>
+
+								</div>
+         					</div>',
+			esc_url( $image_path ),
+			'https://wordpress.org/support/theme/responsive/reviews/?filter=5#new-post'
+		);
+		do_action( 'tag_review' );
+	}
+
+}
+
+add_action( 'admin_notices', 'ask_for_review_notice' );
+
+/**
+ * Removed Ask For Review Admin Notice when dismissed.
+ */
+function responsive_theme_notice_dismissed() {
+	if ( isset( $_GET['responsive-theme-review-notice-dismissed'] ) ) {
+		update_option( 'responsive_theme_review_notice_dismissed', true );
+		wp_safe_redirect( remove_query_arg( array( 'responsive-theme-review-notice-dismissed' ), wp_get_referer() ) );
+	}
+}
+
+/**
+ * Removed Ask For Review Admin Notice when dismissed.
+ */
+function responsive_theme_notice_change_timeout() {
+	if ( isset( $_GET['responsive-theme-review-notice-change-timeout'] ) ) {
+		set_transient( 'responsive_theme_ask_review_flag', true, DAY_IN_SECONDS );
+		wp_safe_redirect( remove_query_arg( array( 'responsive-theme-review-notice-change-timeout' ), wp_get_referer() ) );
+	}
+}
+add_action( 'admin_init', 'responsive_theme_notice_dismissed' );
+add_action( 'admin_init', 'responsive_theme_notice_change_timeout' );
+add_action( 'admin_head', 'add_review_styling' );
+/**
+ * Add styling for ask_for_review_notice function.
+ */
+function add_review_styling() {
+	echo <<<HTML
+     <style>
+     .ask-for-review-notice {
+     	display:flex;
+     	padding: 15px;
+     }
+
+ 	.notice-image {
+ 		align-self: center;
+ 	}
+
+ 	.notice-content {
+ 		padding-left: 20px;
+ 	}
+
+ 	.responsive-review-notice-container .dashicons {
+ 		margin-left: 10px;
+ 		padding-right: 5px !important;
+ 	}
+
+ 	.responsive-review-notice-container {
+ 		display: flex;
+ 		align-items: center;
+ 		padding-top: 10px;
+ 	}
+
+ 	.responsive-review-notice-container .dashicons {
+ 		font-size: 1.4em;
+ 		padding-right: 10px;
+ 	}
+
+ 	.responsive-review-notice-container a {
+ 		padding-right: 5px;
+ 		text-decoration: none;
+ 	}
+
+ 	.responsive-review-notice-container .dashicons:first-child {
+ 		padding-right: 0;
+ 	}
+
+ 	.notice-image img {
+ 		max-width: 90px;
+ 	}
+
+ 	.notice-content .notice-heading {
+ 		padding-bottom: 5px;
+ 	}
+
+ 	.notice-content {
+ 		margin-right: 12%;
+ 	}
+
+ 	.notice-container {
+ 		padding-top: 10px;
+ 		padding-bottom: 10px;
+ 		display: flex;
+ 		justify-content: left;
+ 		align-items: center;
+ 	}
+
+ 	#responsive-sites-on-active .notice-image img {
+ 		max-width: 60px;
+ 		margin-right: 5px;
+ 	}
+
+ 	#responsive-sites-on-active .notice-content .notice-heading {
+ 		margin: 0 0 8px;
+ 		padding: 0;
+ 		font-weight: bolder;
+ 		font-size: 1.3em;
+ 		color: #2e4453;
+ 	}
+
+ 	#responsive-sites-on-active .notice-content p {
+ 		padding-top: 0;
+ 		margin-top: 0;
+ 		margin-bottom: 6px;
+ 	}
+
+ 	#responsive-sites-on-active .notice-container {
+ 		padding: 18px 0 18px;
+ 		align-items: start;
+ 	}
+
+ 	#responsive-sites-on-active .button.button-hero {
+ 		font-size: 13px;
+ 		min-height: 30px;
+ 		line-height: 26px;
+ 		padding: 0 12px;
+ 		height: 30px;
+ 	}
+
+ 	#responsive-sites-on-active .responsive-review-notice-container {
+ 		padding-top: 5px;
+ 	}
+
+ 	#responsive-sites-on-active .button-primary {
+ 		box-shadow: 0 1px 0 #006799;
+ 	}
+
+ 	#responsive-sites-on-active .button.updating-message:before,
+ 	#responsive-sites-on-active .button.updated-message:before,
+ 	#responsive-sites-on-active .button.installed:before,
+ 	#responsive-sites-on-active .button.installing:before {
+ 		margin: 4px -1px 0px 5px;
+ 	}
+
+     </style>
+HTML;
+}

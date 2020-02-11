@@ -11,15 +11,6 @@
  * Additional Search Queries: adminbar, masterbar
  */
 
-include dirname( __FILE__ ) . '/masterbar/masterbar.php';
+require dirname( __FILE__ ) . '/masterbar/masterbar.php';
 
-Jetpack::dns_prefetch( array(
-	'//s0.wp.com',
-	'//s1.wp.com',
-	'//s2.wp.com',
-	'//0.gravatar.com',
-	'//1.gravatar.com',
-	'//2.gravatar.com',
-) );
-
-new A8C_WPCOM_Masterbar;
+new A8C_WPCOM_Masterbar();

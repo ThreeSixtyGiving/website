@@ -1,82 +1,119 @@
-=== Plugin Name ===
-Contributors: matchalabs, DavidAnderson
-Tags: wordpress slideshow,seo,slideshow,slider,widget,wordpress slider,image slider,flexslider,flex slider,nivoslider,nivo slider,responsive,responsive slides,coinslider,coin slider,slideshow,carousel,responsive slider,vertical slides
+=== MetaSlider ===
+Contributors: matchalabs, DavidAnderson, dnutbourne, kbat82
+Tags: slideshow, slider, image slider, carousel, gallery, flexslider, wordpress slider, nivoslider, rotating banner, responsive slideshow, seo slideshow, unsplash
 Donate link: https://david.dw-perspective.org.uk/donate
 Requires at least: 3.5
-Tested up to: 4.8
-Stable tag: 3.5.1
+Stable tag: 3.15.3
+Requires PHP: 5.2
+Tested up to: 5.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Easy to use WordPress slider plugin. Create SEO optimised responsive slideshows with Nivo Slider, Flex Slider, Coin Slider and Responsive Slides.
+Easy to use WordPress slider plugin. Create SEO-optimized responsive slideshows with Nivo Slider, Flex Slider, Coin Slider and Responsive Slides.
 
 == Description ==
 
-https://www.youtube.com/watch?v=o0f3uAvL6Ic
+Create powerful, SEO-optimized slideshows in minutes with the world's #1 slider plugin!
 
-The most popular WordPress slider plugin. Creating slideshows with [Meta Slider](https://www.metaslider.com/) is fast and easy. Simply select images from your WordPress Media Library, drag and drop them into place, set slide captions, links and SEO fields all from one page. You can choose from 4 different slideshow types (Flex Slider, Nivo Slider, Responsive Slides & Coin Slider) and use the provided shortcode or template include to easily embed slideshows in your blog.
+With WordPress’ most popular slider plugin, enhancing your blog or website couldn’t be easier: simply select images from your WordPress Media Library, drag and drop them into place, and then set the slide captions, links and SEO fields all from one page.
 
-**Includes**
+**NEW: Easily search and download free images to your slideshow from Unsplash.com**
 
-* **Flex Slider 2** - Responsive, 2 transition effects, carousel mode
-* **Nivo Slider** - Responsive, 16 transition effects, 4 themes
-* **Responsive Slides** - Responsive & incredibly light weight
+Choose one of 4 different slideshow types, and use our provided short-code or template to embed the slideshows.
+
+Apply one of our professional slidehow designs to really make your website stand out.
+
+**Gutenberg compatible**
+
+**Included slideshow types:**
+
+* **Flex Slider 2** - responsive, 2 transition effects, carousel mode
+* **Nivo Slider** - responsive, 16 transition effects
+* **Responsive Slides** - responsive & incredibly light weight
 * **Coin Slider** - 4 transition effects
 
 **Features**
 
 * Simple, easy to use interface - perfect for individual users, developers & clients!
-* Create Responsive, SEO optimised slideshows in seconds
-* Unrestricted support for Image slides (supports caption, link, title text, alt text)
+* Access to free photos via Unsplash.com
+* Create Responsive, SEO-optimized slideshows in seconds
+* Unrestricted support for image slides (supports caption, link, title text, alt text)
 * Full width slideshow support
 * Drag and drop slide reordering
-* Admin preview
 * Intelligent image cropping
 * Set image crop position
-* Built in Widget and Shortcode
+* Themes - includes 11 free professional slideshow themes
+* Built in Gutenberg block, Widget and Shortcode
 * Loads of slideshow configuration options - transition effect, speed etc (per slideshow)
-* Fully localised
+* Fully localized
 * WordPress Multi Site compatible
 * Compatible with translation plugins (WPML, PolyLang & qTranslate)
-* Extensive Developer API (hooks & filters)
+* Extensive developer API (hooks & filters)
 * Fast - only the minimum JavaScript/CSS is included on your page
 * Free basic support (covering installation issues and theme/plugin conflicts)
-* Lightbox support with the [Meta Slider Lightbox](https://wordpress.org/plugins/ml-slider-lightbox/) addon
+* Lightbox support with the [MetaSlider Lightbox](https://wordpress.org/plugins/ml-slider-lightbox/) add-on
 
-Upgrade to [Meta Slider Pro](https://www.metaslider.com/upgrade) to add support for:
+**General:**
+
+* Simple and intuitive interface – perfect for individual users, developers & clients!
+* Fast – requires only the minimum JavaScript/CSS on your page
+* Creatively responsive
+	
+**Creative:**
+
+* Unrestricted full-width support for image slides, including captions, links, title texts and alt. texts.
+* Includes drag and drop slide reordering, intelligent image cropping, set image crop position. 
+* Multiple slideshow configuration options (e.g. for speed, timing, plus many more!)
+
+**Other:**
+
+* Preview from within the admin area
+* Shortcode lets you add the slideshow anyway
+* Fully localized
+* WordPress Multi-site compatible, and 
+* Compatible with translation plugins (WPML, PolyLang & qTranslate)
+* Developer Friendly, with extensive hooks & filters
+
+**Support:**
+
+* Includes free basic support (covering installation issues and theme/plugin conflicts).
+
+The <a href="https://www.metaslider.com/upgrade">MetaSlider Pro</a> includes added support for:
 
 * YouTube & Vimeo slides
 * HTML slides
 * Layer slides with CSS3 animations & HTML5 Video backgrounds
+* Full-featured text editor to include extra CSS
 * Dynamic Post Feed/Featured Image Slides (content slider)
-* Custom Themes
+* Slide scheduling & slide visibility
+* Custom Themes - build your own theme
 * Thumbnail Navigation
 * Premium Support
 
 Read more and thanks to:
 
 * [Flex Slider](http://flexslider.woothemes.com/)
-* [Responsive Slides](http://responsive-slides.viljamis.com/)
+* [Responsive Slides](http://responsiveslides.com/)
 * [Coin Slider](http://workshop.rs/projects/coin-slider/)
-* [Nivo Slider](http://dev7studios.com/nivo-slider/)
+* [Nivo Slider](https://github.com/Codeinwp/Nivo-Slider-jQuery)
 
-Find out more at https://www.metaslider.com
+Find out more at <a href="https://www.metaslider.com">metaslider.com</a>
 
-Follow us on Twitter: [@wpmetaslider](https://twitter.com/wpmetaslider)
+Follow us on Twitter: [@wpmetaslider](https://twitter.com/UpdraftPlus)
 
 == Installation ==
 
 The easy way:
 
 1. Go to the Plugins Menu in WordPress
-1. Search for "Meta Slider"
+1. Search for "MetaSlider"
 1. Click "Install"
 
 The not so easy way:
 
 1. Upload the `ml-slider` folder to the `/wp-content/plugins/` directory
 1. Activate the plugin through the 'Plugins' menu in WordPress
-1. Manage your slideshows using the 'Meta Slider' menu option
+1. Manage your slideshows using the 'MetaSlider' menu option
 
 == Frequently Asked Questions ==
 
@@ -113,13 +150,13 @@ Check out the troubleshooting page here:
 
 https://www.metaslider.com/documentation/troubleshooting/
 
-= Meta Slider is cropping my images in the wrong place - what can I do? =
+= MetaSlider is cropping my images in the wrong place - what can I do? =
 
 See https://www.metaslider.com/documentation/image-cropping/
 
 == Screenshots ==
 
-1. Meta Slider - for live demos see https://www.metaslider.com/examples/
+1. MetaSlider - for live demos see https://www.metaslider.com/examples/
 2. Nivo Slider example
 3. Coin Slider example
 4. Flex Slider example
@@ -127,6 +164,229 @@ See https://www.metaslider.com/documentation/image-cropping/
 6. Administration panel - selecting slides
 
 == Changelog ==
+
+= 3.15.3 - 2019/Nov/28 =
+
+* FIX: Updates layout breaks in WP3.4
+
+= 3.15.2 - 2019/Nov/14 =
+
+* TWEAK: Adds loaded event that other plugins can wait for
+* TWEAK: Updates a few UI elements on the search bar and slideshow drawer
+* TWEAK: Adds better checks for error messages
+* FIX: Fixes an issue where cetain settings would show when not needed
+* FIX: Fixes a layout break in IE11
+* FIX: Address performance issues with a very large collection of slideshows
+
+= 3.15.1 - 2019/Oct/22 =
+
+* FIX: Adds better check for slide image thumbnails and count
+* FIX: Updates $ to jQuery on the admin settings screen
+
+= 3.15.0 - 2019/Oct/21 =
+
+* FEATURE: Adds a new way to navigate slideshows
+* TWEAK: Adds various accessibility enhancements to FlexSlider
+* TWEAK: Adds extra checks for REST enabled sites
+* TWEAK: Updates notices
+* FIX: Updates various RTL language styling issues
+* FIX: Fixes bug where new slides wouldn't crop until pressing save
+* FIX: Fixes various layout breaks from other languages
+
+= 3.14.0 - 2019/July/26 =
+
+* FEATURE: Adds ability to duplicate a slideshow
+* FEATURE: Adds toolbar with various utilities
+* FEATURE: Adds unified notification system
+* REFACTOR: Moves inline styles out of the body tag
+* REFACTOR: Refactors the preview module to be called from anywhere
+* REFACTOR: Refactors the way slides and the slideshow saving works
+* REFACTOR: Refactors the shortcode copy module
+* REFACTOR: Adds helper functions to better manage the routes files
+* FIX: Fixes a bug where adding a class name via Gutenberg crashes the block
+
+= 3.13.1 - 2019/May/11 =
+
+* TWEAK: Corrects a check on a variable in Theme.php, preventing a possible PHP notice
+
+= 3.13.0 - 2019/May/7 =
+
+* FEATURE: Allows captions to inherit the image description
+* FEATURE: Adds support for theme developers to register a theme
+* TWEAK: Adds extra checks for when a theme is missing
+* TWEAK: Removes some ancient code for compatibility with PHP < 5.1
+* TWEAK: Stops random theme being inherited when user removes it
+* REFACTOR: DOM appended slides are now rendered as Vue components
+
+= 3.12.1 - 2019/Mar/18 =
+
+* FIX: Fixes a bug where Nivo and Coin Slider did not ship with the plugin
+
+= 3.12.0 - 2019/Mar/18 =
+
+* TWEAK: Sets a default theme on a newly created slideshow
+* TWEAK: Adds various trivial code quality fixes 
+* FEATURE: Adds access to the Unsplash.com image library
+
+= 3.11.1 - 2019/Jan/30 =
+
+* FIX: Update Gutenberg compatibility
+
+= 3.11.0 - 2019/Jan/30 =
+
+* FEATURE: Adds drag and drop module
+* FEATURE: Adds a convenient start page for new users
+* FIX: Fixes layout issue with notices served by other plugins
+* FIX: Updates Gutenberg container styles
+* FIX: Fixes issue where Coin Slider wouldn't open in a new window
+* FIX: Updates support for Elementor page builder
+* TWEAK: Updates various UI elements
+* TWEAK: Removes fonts to reduce package size
+* TWEAK: Adds an escape output of slideshow titles 
+* REFACTOR: Removes defunct preview method
+
+= 3.10.3 - 2018/Dec/04 =
+
+* FIX: Updates Gutenberg compatibility
+
+= 3.10.2 - 2018/Nov/21 =
+
+* FIX: Fixes bug in with captions in NivoSlider
+
+= 3.10.1 - 2018/Nov/20 =
+
+* TWEAK: Removes redundant height and width attributes
+* FIX: Fixes bug in PHP 5.2 where images would not import
+* FIX: Updates various translation errors and adds translator tips
+* FIX: Allows the folder name to be safely changed
+* FIX: Fixes the situation where using a different folder name breaks everything
+* FIX: Fixes a Gutenberg-related bug that appears in WP5.0 beta2
+
+= 3.10.0 - 2018/Oct/25 =
+
+* FEATURE: Adds 11 new themes users can apply to their slideshows
+* FEATURE: Adds ability to preview a slideshow with a theme
+* FEATURE: Adds ability for a theme developer to add instructions
+* FEATURE: Adds unique images by theme if a user is importing images
+* FEATURE: Adds new channel for user feedback
+* FEATURE: Adds new developer filters to adjust slide output/visibility
+* FIX: Updates unusable filter when attempting to filter slides by type
+* FIX: Fixes a bug when babel-polyfil is loaded more than once
+* FIX: Adds an extra check for an error before saving the theme
+* TWEAK: Adds a title to the theme module
+* TWEAK: Adds ability to import images with captions, title, alt and desc. from a theme.
+
+= 3.9.1 - 2018/Sept/28 =
+
+* FIX: Fixes a bug where some slides get appended inside others.
+
+= 3.9.0 - 2018/Sept/11 =
+
+* FEATURE: Adds the option to toggle autoplay for Coin Slider
+* FEATURE: Adds keyboard shortcuts to preview
+* FEATURE: Adds full width toggle to preview
+* FEATURE: Adds a light and dark preview option
+* FEATURE: Adds ability to import images if none exist
+* FEATURE: Adds Gutenberg block
+* FEATURE: Adds ability to use the title in a shortcode
+* FEATURE: Adds translation functionality to JS components
+* TWEAK: Updates Pro slide types descriptions
+* TWEAK: Adds placeholder and comparison table entries for schedule functionality
+* TWEAK: Adds compatibility with Pro feature ability to change layer slide background
+* TWEAK: Updates option name on slideshow select box as title name changes.
+* TWEAK: Adds default Flexslider fonts to repo for users that require them.
+* TWEAK: Adds filters to slides edit buttons
+* TWEAK: Tweaks edits buttons style
+* FIX: Limits image srcset to image and layer slides (fixes post feed image)
+* FIX: Fixes broken Nivo themes (due to css specificity)
+* FIX: Fixes bug where icons would jump during delete
+
+= 3.8.1 - 2018/Jun/07 =
+
+* FIX: Limits responsive image srcset to slideshows with cropping disabled only
+* FIX: Increases responsive image srcset maximum size to Full
+
+= 3.8.0 - 2018/Jun/04 =
+
+* FEATURE: Adds compatibility with new Pro schedule feature
+* FEATURE: Adds compatibility with retina plugin https://wordpress.org/plugins/wp-retina-2x/
+* FEATURE: Adds option to enable or disable initial fade in
+* FEATURE: Improves Responsiveness
+* TWEAK: Adds default Flexslider fonts to repo for users that require them.
+* FIX: Fixes error when trying to save many slides
+* FIX: Fixes broken markup in settings in some languages.
+* FIX: Fixes bug that always strips referral tags. 
+* FIX: Adds a check to the copy/paste element to make sure it exists before adding an event
+* REFACTOR: Removes plugin dependency on Notice class
+* REFACTOR: Standardizes the code to deny direct access
+* REFACTOR: Updates how the plugin handles setting updates.
+
+= 3.7.2 - 2018/Mar/20 =
+
+* TWEAK: Removes an obsolete admin notice
+* SECURITY: Prevents a non-persistent logged-in XSS attack. The attacker must persuade a logged-in admin-level WP user to click on a malicious link specifically targeted to your site; this can result in his chosen JavaScript being run inside your browser on the MetaSlider page. Hence, the risk is low, but you should certainly update.
+
+= 3.7.1 - 2018/Mar/13 =
+
+* FIX: Updates FlexSlider to remove flash on page load. 
+
+= 3.7.0 - 2018/Feb/26 =
+
+* FEATURE: Allows users to inherit default captions and other data from the image. 
+* FIX: Adds capability filter to pages.
+* TWEAK: Updates to the correct support link.
+
+= 3.6.8 - 2018/Jan/26 =
+
+* FIX: Updates support links to their correct locations
+* FIX: Updates compatibility for various themes (including Genesis)
+
+= 3.6.7 - 2017/Dec/15 =
+
+* FEATURE: Adds back in some instructions on how to display the slideshow
+* TWEAK: Removes unnecessary type attribute that was causing validation errors
+* TWEAK: Adds DocBlock checking with CI for PHP and JS files
+* FIX: Adds compatibility fixes for older WP versions.
+
+= 3.6.6 - 2017/Nov/23 =
+
+* FIX: Fixes FlexSlider bug when resizing slider.
+* FIX: Updates layout on post feed slides.
+
+= 3.6.5 - 2017/Nov/20 =
+
+* FIX: Fixes issues with bottom margin of slideshow, among other minor tweaks.
+* TWEAK: Prevents a PHP debug log item that appeared in the short-lived 3.6.4
+
+= 3.6.3 - 2017/Nov/16 =
+
+* FIX: Updates various styles to retain compatibility with previous releases based upon user feedback
+* FIX: Removes translation of slider brand names.
+* UPGRADE NOTE: If upgrading to MetaSlider 3.6+, users of the MetaSlider Add-On pack should also upgrade that plugin to a current release (2.7.1 or later).
+
+= 3.6.2 - 2017/Nov/15 =
+
+* FIX: Update various styles to retain compatibility with previous releases based upon user feedback
+* FIX: Restore compatibility with old WP versions that lack the wp_add_inline_script() function
+
+= 3.6.1 - 2017/Nov/14 =
+
+* FIX: Removes default FlexSlider styling
+
+= 3.6.0 - 2017/Nov/14 =
+
+* FEATURE: Allow a slide to be restored after deletion
+* FEATURE: Allow the background image to be changed
+* FEATURE: Adds a guided tour
+* FIX: Loads inline JS properly
+* FIX: FlexSlider touch events respect pause on hover setting
+* FIX: Allow for https image URLs
+* TRANSLATIONS: Addresses spelling/localization issues
+* TWEAK: Accessibility enhancements
+* TWEAK: Adds links to activation page
+* TWEAK: Updates FlexSlider to latest
+* TWEAK: Change the label "Meta Slider" to "MetaSlider"
+* TWEAK: Add dashboard notices
 
 = 3.5.1 [01/05/17] =
 
@@ -157,7 +417,7 @@ This is the first in a series of small updates which will eventually allow us to
 - Drafting slides
 - Scheduling slides
 
-We are releasing this update in a number of small stages due to the number of users Meta Slider has. We are being overly cautious to ensure it's a smooth transition. This update does not make any major changes to the current plugin functionality, but it does put in place the "scaffolding" code which we will rely on to implement further updates.
+We are releasing this update in a number of small stages due to the number of users MetaSlider has. We are being overly cautious to ensure it's a smooth transition. This update does not make any major changes to the current plugin functionality, but it does put in place the "scaffolding" code which we will rely on to implement further updates.
 
 = 3.3.7 [06/05/16] =
 
@@ -178,14 +438,14 @@ We are releasing this update in a number of small stages due to the number of us
 
 = 3.3.4 [16/07/15] =
 
-* Add HTML5 validation by applying a property="stylesheet" attribute to meta slider <link> CSS tags
+* Add HTML5 validation by applying a property="stylesheet" attribute to MetaSlider <link> CSS tags
 * Remove unused "Resource Manager" code
 * Chinese language pack updated (thanks to mamsds!)
 
 = 3.3.3 [11/06/15] =
 
 * Ukrainian language pack added (thanks to mister_r!)
-* Fix: Meta Slider hoplink incorrectly adding parameters to filtered url
+* Fix: MetaSlider hoplink incorrectly adding parameters to filtered url
 * Add "metaslider_attachment_url" filter
 
 = 3.3.2 [16/04/15] =
@@ -194,13 +454,13 @@ We are releasing this update in a number of small stages due to the number of us
 
 More information:
 
-The fix will prevent some servers (configured with 'display_errors' set to 'on') from disclosing the full path to certain files within Meta Slider.
+The fix will prevent some servers (configured with 'display_errors' set to 'on') from disclosing the full path to certain files within MetaSlider.
 
 http://codex.wordpress.org/Security_FAQ#Why_are_there_path_disclosures_when_directly_loading_certain_files.3F
 
 = 3.3.1 [23/03/15] =
 
-* Fix: Remove 'create video playlist' option from Media Library (on Meta Slider page only)
+* Fix: Remove 'create video playlist' option from Media Library (on MetaSlider page only)
 * Fix: Support for Enhanced Media Library plugin
 * Fix: Return public slide when DOING_AJAX
 * Improvement: Use admin actions to save slideshow settings
@@ -248,7 +508,7 @@ http://codex.wordpress.org/Security_FAQ#Why_are_there_path_disclosures_when_dire
 * New feature: Set crop position for slides (requires WP 3.9+)
 * New feature: Disable cropping setting
 * Fix: Use get_posts instead of WP_Query to extract slideshows (fix conflicts with plugins using get_post_type in admin_footer hooks)
-* Change: Add filter for capability required to use meta slider
+* Change: Add filter for capability required to use MetaSlider
 
 = 2.9.1 [15/07/14] =
 
@@ -289,14 +549,14 @@ http://codex.wordpress.org/Security_FAQ#Why_are_there_path_disclosures_when_dire
 * Improvement: Preview now uses admin-post action
 * Improvement: Classes are now auto loaded to reduce memory footprint
 (Thanks to Viktor Szépe for the above suggestions!)
-* Improvement: Slideshow initilisation time reduced
+* Improvement: Slideshow initilization time reduced
 * Improvement: HTML5 Compatibility: Alt tags always present on image tag - even if empty.
 * Improvement: Flex Slider slideshows should now 'reserve' a space for themselves while they fully load
 * Update: Flex Slider updated to v2.2.2
 * New feature: Romanian Language Pack added (Thanks to Octav Madalin Stanoaia)
 * New feature: Dutch Language Pack added
 * New feature: WP Super Cache compatibility - cache is cleared when saving slideshow
-* New feature: HTML5 Compatibility (Experimental). Set `define('METASLIDER_ENABLE_RESOURCE_MANAGER', true);` in wp-config.php to move Meta Slider link tags head of the page.
+* New feature: HTML5 Compatibility (Experimental). Set `define('METASLIDER_ENABLE_RESOURCE_MANAGER', true);` in wp-config.php to move MetaSlider link tags head of the page.
 
 = 2.7.2 [25/03/14] =
 
@@ -312,16 +572,16 @@ http://codex.wordpress.org/Security_FAQ#Why_are_there_path_disclosures_when_dire
 
 = 2.7 [18/03/14] =
 
-* New feature: Crotatian Lang pack added
+* New feature: Croatian Lang pack added
 * New feature: Carousel margin option added
 * New feature: Process shortcodes in captions
 * Improvement: Tab rename UX
 * Improvement: Admin save spinner functionality improved
 * Improvement: CSS Resets updated
-* Improvement: Use plugins_loaded action to initialise plugin
+* Improvement: Use plugins_loaded action to initialize plugin
 * Fix: PHP Warnings when one slideshow exists
 * Fix: Smart Cropping sometimes not returning smart cropped image
-* Fix: Add z-index to meta slider, attempted conflict fix for themes with drop down menus.
+* Fix: Add z-index to MetaSlider, attempted conflict fix for themes with drop down menus.
 * Fix: Only include the easing library when transition effect is set to slide
 * Fix: White Label Branding plugin compatibility.
 * Change: "Responsive" option renamed to "R. Slides". The (old) "Responsive" option refers to the "Responsive Slides" jQuery library, but users were getting confused as the naming suggested it was the only responsive option. Flex Slider & Nivo Slider are also responsive.
@@ -335,7 +595,7 @@ http://codex.wordpress.org/Security_FAQ#Why_are_there_path_disclosures_when_dire
 * Improvement: Filter added for slide image label
 * Improvement: 'No Conflict' mode refactored
 * Improvement: 'slider' parameter added to flexslider before/start/after etc callbacks
-* Change: Renamed in admin menu from "Meta Slider Lite" to "Meta Slider"
+* Change: Renamed in admin menu from "MetaSlider Lite" to "MetaSlider"
 
 = 2.6.2 [02/01/14] =
 
@@ -344,7 +604,7 @@ http://codex.wordpress.org/Security_FAQ#Why_are_there_path_disclosures_when_dire
 = 2.6.1 [31/12/13] =
 
 * Fix: Advanced settings arrow toggle
-* Fix: All in one SEO / Page builder / Meta Slider conflict
+* Fix: All in one SEO / Page builder / MetaSlider conflict
 * Fix: NextGen "Insert Gallery" conflict
 * New feature: Norwegian language pack added
 
@@ -490,7 +750,7 @@ More info/Comments: http://www.metaslider.com/coming-soon-meta-slider-2-6-free/
 * Fix: Flexslider navigation overflow
 
 = 2.0-betaX [17/04/13] =
-* Improvement: Error messages exposed in admin is Meta Slider cannot load the slides
+* Improvement: Error messages exposed in admin is MetaSlider cannot load the slides
 * Improvement: Load default settings if original settings are corrupt/incomplete
 * Fix: Smart Crop ratio
 * Fix: UTF-8 characters in captions (reported by and thanks to: javitopo)
@@ -505,7 +765,7 @@ More info/Comments: http://www.metaslider.com/coming-soon-meta-slider-2-6-free/
 * New feature: 'Auto play' option added
 * New feature: 'Smart Crop' setting ensures your slideshow size remains consitent regardless of image dimensions
 * New feature: 'Center align slideshow' option added for all sliders
-* New feature: Coin Slider upgraded to latest version, new options now exposed in Meta Slider
+* New feature: Coin Slider upgraded to latest version, new options now exposed in MetaSlider
 * New feature: Captions now supported by responsive slides
 * Improvement: Responsive AJAX powered administration screen
 * Improvement: Code refactored
@@ -514,10 +774,10 @@ More info/Comments: http://www.metaslider.com/coming-soon-meta-slider-2-6-free/
 * Fix: JS && encoding error (reported by and thanks to: neefje)
 
 = 1.3 [28/02/13] =
-* Renamed to Meta Slider (previously ML Slider)
+* Renamed to MetaSlider (previously ML Slider)
 * Improvement: Admin styling cleaned up
 * Improvement: Code refactored
-* Improvement: Plugin localised
+* Improvement: Plugin localized
 * Improvement: Template include PHP code now displayed on slider edit page
 * Improvement: jQuery tablednd replaced with jQuery sortable for reordering slides
 * New feature: Open URL in new window option added
@@ -552,5 +812,4 @@ More info/Comments: http://www.metaslider.com/coming-soon-meta-slider-2-6-free/
 * Initial version
 
 == Upgrade Notice ==
-
-
+* 3.15.3 : Update now if some styles look broken.

@@ -107,8 +107,20 @@ wp-content/mysql.sql
 /wp-includes
 /wp-content/index.php
 /wp-content/themes/twentyten
+/wp-content/themes/twentyeleven
+/wp-content/themes/twentytwelve
+/wp-content/themes/twentythirteen
+/wp-content/themes/twentyfourteen
+/wp-content/themes/twentyfifteen
+/wp-content/themes/twentysixteen
+/wp-content/themes/twentyseventeen
+/wp-content/themes/twentyeightteen
+/wp-content/themes/twentynineteen
+/wp-content/themes/twentytwenty
 /wp-content/themes/index.php
 /wp-content/plugins/index.php
+/wp-content/plugins/hello.php
+/wp-content/plugins/akismet*
 
 # Gallaries in various places
 gallery/*
