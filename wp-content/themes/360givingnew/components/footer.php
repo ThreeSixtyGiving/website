@@ -1,3 +1,11 @@
+<?php 
+$tc_menu_name = 'footer-menu-terms';
+$tc_menu_items = array();
+if ( ( $locations = get_nav_menu_locations() ) && isset( $locations[ $tc_menu_name ] ) ) {
+    $tc_menu = wp_get_nav_menu_object( $locations[ $tc_menu_name ] );
+    $tc_menu_items = wp_get_nav_menu_items($tc_menu->term_id);
+}
+?>
 <footer class="layout__footer">
     <div class="subscribe-section">
         <div class="subscribe-section__wrapper">
@@ -66,11 +74,10 @@
             </div>
             <div class="footer__column-2 footer__policy-links">
                 <p>
-                    <a href="https://www.threesixtygiving.org/privacy/">Privacy Notice</a> | 
-                    <a href="https://www.threesixtygiving.org/terms-conditions/">Terms & Conditions</a> | 
-                    <a href="https://www.threesixtygiving.org/cookie-policy/">Cookie Policy</a> | 
-                    <a href="https://www.threesixtygiving.org/take-down-policy/">Take Down Policy</a> | 
-                    <a href="https://creativecommons.org/licenses/by/4.0/">License</a>
+                    <?php foreach ( (array) $tc_menu_items as $key => $menu_item ): ?>
+                    <?php if($key > 0): ?> | <?php endif; ?>
+                    <a href="<?php echo $menu_item->url; ?>"><?php echo $menu_item->title; ?></a>
+                    <?php endforeach; ?>
                 </p>
             </div>
         </div>

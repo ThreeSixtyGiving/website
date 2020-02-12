@@ -19,5 +19,7 @@
             </div>
         </div>
     </div>
+    <?php if(!is_front_page()): ?>
     <?php get_template_part('components/breadcrumbs'); ?>
+    <?php endif; ?>
 </header>

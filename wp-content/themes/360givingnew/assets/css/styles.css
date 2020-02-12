@@ -398,12 +398,13 @@ a {
   .breadcrumbs__item, .breadcrumbs__arrow {
     vertical-align: middle;
     margin-top: -16px;
-    margin-right: 8px; }
+    margin-right: 6px; }
   .breadcrumbs__item {
     color: rgba(21, 54, 52, 0.6); }
   .breadcrumbs__arrow {
-    margin-bottom: -16px; }
-  .breadcrumbs--active {
+    margin-bottom: -18px;
+    color: rgba(21, 54, 52, 0.4); }
+  .breadcrumbs__item:last-of-type {
     color: #153634; }
 
 .button {

@@ -6,12 +6,13 @@
         <div class="cards-section">
             <section class="grid grid--three-columns">
                 <div class="grid__all">
-                    <h2 class="cards-section__tagline"><?php echo get_theme_mod( 'tsg_cards_tagline', TSG_DEFAULTS['cards_tagline'] ); ?></h2>
+                    <h2 class="cards-section__tagline">
+                        <?php echo get_theme_mod( 'tsg_cards_tagline', TSG_DEFAULTS['cards_tagline'] ); ?></h2>
                 </div>
                 <?php get_sidebar('front-page'); ?>
             </section>
         </div>
-        
+
         <?php get_template_part('components/front-page-numbers') ?>
 
         <?php if ( have_posts() ) : ?>
@@ -20,16 +21,25 @@
             <ul class="card-list">
                 <?php while ( have_posts() ) : the_post(); ?>
                 <li class="card-list__item">
-                    <article class="blog-card">
-
-                        <div class="blog-card__content">
-                            <h3 class="blog-card__heading"><?php the_title(); ?></h3>
+                    <article class="media-card media-card--teal">
+                        <div class="media-card__content">
+                            <header class="media-card__header">
+                                <h3 class="media-card__heading">
+                                    <a href="<?php the_permalink(); ?>">
+                                        <?php the_title(); ?>
+                                    </a>
+                                </h3>
+                            </header>
                             <p><?php the_excerpt(); ?></p>
-                            <div class="blog-card__byline">Written by <?php the_author(); ?> on <?php the_time('F j, Y'); ?>.</div>
+                            <div class="media-card__byline">Written by <?php the_author(); ?> on
+                                <?php the_time('F j, Y'); ?>.</div>
                         </div>
+
                         <?php if (has_post_thumbnail()) :?>
-                        <div class="blog-card__image"
-                            style="background-image: url(<?php the_post_thumbnail( 'medium' ); ?>)">
+                        <div class="media-card__image-wrapper">
+                            <div class="media-card__image"
+                                 style="background-image: url(<?php the_post_thumbnail_url( 'large' ); ?>)">
+                            </div>
                         </div>
                         <?php endif; ?>
                     </article>

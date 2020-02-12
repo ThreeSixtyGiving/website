@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-<div class="layout layout--two-columns">
+<div class="layout">
     <?php get_template_part('components/header'); ?>
     <main class="layout__content">
         <?php if ( have_posts() ) : ?>
@@ -38,7 +38,6 @@
         </div>
         <?php endif; ?>
     </main>
-    <?php get_template_part('components/blog-sidebar'); ?>
     <?php get_template_part('components/footer'); ?>
 </div>
 <?php get_footer(); ?>

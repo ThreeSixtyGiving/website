@@ -6,6 +6,7 @@ add_theme_support( 'post-thumbnails' );
 function tsg_enqueue_style() {
     wp_enqueue_style( '360giving-style', get_template_directory_uri() . '/assets/css/styles.css', false );
     wp_enqueue_style( 'material-icons', 'https://fonts.googleapis.com/icon?family=Material+Icons', false );
+    wp_enqueue_script( '360g-top-bar', get_template_directory_uri() . '/assets/js/top-bar.js', false );
 }
 add_action( 'wp_enqueue_scripts', 'tsg_enqueue_style' );
 
@@ -35,7 +36,10 @@ function tsg_register_menus() {
     register_nav_menus(
         array(
             'footer-menu-1' => __( 'Footer Menu 1' ),
-            'footer-menu-2' => __( 'Footer Menu 2' )
+            'footer-menu-2' => __( 'Footer Menu 2' ),
+            'footer-menu-terms' => __( 'Footer Terms and Conditions Menu' ),
+            'top-bar-menu' => __( 'Top bar menu' ),
+            'off-canvas-menu' => __( 'Off canvas menu' ),
         )
     );
 }
