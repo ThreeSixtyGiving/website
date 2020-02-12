@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Plugins - Jetpack by WordPress.com - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-02-11 14:27:33+0000\n"
+"PO-Revision-Date: 2020-02-11 15:34:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -354,6 +354,11 @@ msgstr "daily backups"
 #: modules/subscriptions/views.php:190
 msgid "You subscribed this site before but you have not clicked the confirmation link yet. Please check your inbox. <br /> Otherwise, you can manage your preferences at <a href=\"%1$s\" title=\"%2$s\" target=\"_blank\" rel=\"noopener noreferrer\">subscribe.wordpress.com</a>."
 msgstr "You subscribed to this site before, but you have not clicked the confirmation link yet. Please check your inbox. <br /> Otherwise, you can manage your preferences at <a href=\"%1$s\" title=\"%2$s\" target=\"_blank\" rel=\"noopener noreferrer\">subscribe.wordpress.com</a>."
+
+#: _inc/blocks/editor.js:2 _inc/blocks/editor-experimental.js:2
+#: _inc/blocks/editor-beta.js:2
+msgid "Wide (840 x 150 pixels)"
+msgstr "Wide (840 x 150 pixels)"
 
 #. translators: 1: Link to Subscription Management page
 #. https://subscribe.wordpress.com/, 2: Description of this link
