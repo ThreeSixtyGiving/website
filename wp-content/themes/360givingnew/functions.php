@@ -50,5 +50,29 @@ function tsg_bootstrap(){
     locate_template( array( 'functions/breadcrumbs.php' ), true, true );
     locate_template( array( 'functions/customiser.php' ), true, true );
     locate_template( array( 'functions/fp-widgets.php' ), true, true );
+    
+    // add custom colours
+    add_theme_support( 'editor-color-palette', array(
+        array(
+            'name' => __( 'Orange', 'tsgLangDomain' ),
+            'slug' => 'orange',
+            'color' => '#DE6E26',
+        ),
+        array(
+            'name' => __( 'Teal', 'tsgLangDomain' ),
+            'slug' => 'teal',
+            'color' => '#4DACB6',
+        ),
+        array(
+            'name' => __( 'Yellow', 'tsgLangDomain' ),
+            'slug' => 'yellow',
+            'color' => '#EFC329',
+        ),
+        array(
+            'name' => __( 'Red', 'tsgLangDomain' ),
+            'slug' => 'red',
+            'color' => '#BC2C26',
+        ),
+    ) );
 }
 add_action( 'after_setup_theme', 'tsg_bootstrap' );
