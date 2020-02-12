@@ -5,6 +5,7 @@ add_theme_support( 'post-thumbnails' );
 // Add custom stylesheet
 function tsg_enqueue_style() {
     wp_enqueue_style( '360giving-style', get_template_directory_uri() . '/assets/css/styles.css', false );
+    wp_enqueue_style( 'material-icons', 'https://fonts.googleapis.com/icon?family=Material+Icons', false );
 }
 add_action( 'wp_enqueue_scripts', 'tsg_enqueue_style' );
 
@@ -42,6 +43,7 @@ add_action( 'init', 'tsg_register_menus' );
 
 // load other functions files
 function tsg_bootstrap(){  
+    locate_template( array( 'functions/breadcrumbs.php' ), true, true );
     locate_template( array( 'functions/customiser.php' ), true, true );
     locate_template( array( 'functions/fp-widgets.php' ), true, true );
 }

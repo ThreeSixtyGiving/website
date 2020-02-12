@@ -19,4 +19,5 @@
             </div>
         </div>
     </div>
+    <?php get_template_part('components/breadcrumbs'); ?>
 </header>

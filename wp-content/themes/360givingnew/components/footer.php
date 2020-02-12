@@ -53,7 +53,6 @@
         </div>
 
         <div class="wrapper footer__small-print">
-            <a href="#" class="edit-github button button--small button--yellow">Edit on Github</a>
             <p>© Copyright <?php echo date("Y"); ?> 360Giving, licensed under a <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International License</a>.</p>
         </div>
 
