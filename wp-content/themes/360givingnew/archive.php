@@ -6,33 +6,24 @@
         <div class="layout__content-inner">
             <div class="wrapper">
                 <section class="cards-section">
+                    <?php if ( is_category() ): ?>
+                    <h2 class="cards-section__heading"><?php echo single_cat_title( '', false ); ?></h2>
+                    <?php elseif ( is_author() ): ?>
+                    <h2 class="cards-section__heading"><?php echo get_the_author(); ?></h2>
+                    <p class="cards-section__tagline"><?php the_author_description(); ?></p>
+                    <?php else: ?>
+                    <h2 class="cards-section__heading"><?php the_archive_title(); ?></h2>
+                    <?php endif; ?>
                     <ul class="card-list">
                         <?php while ( have_posts() ) : the_post(); ?>
                         <li class="card-list__item">
-                            <article class="media-card media-card--teal">
-                                <div class="media-card__content">
-                                    <header class="media-card__header">
-                                        <h3 class="media-card__heading">
-                                            <a href="<?php the_permalink() ?>">
-                                                <?php the_title(); ?>
-                                            </a>
-                                        </h3>
-                                    </header>
-                                    <p><?php the_excerpt(); ?></p>
-                                    <div class="media-card__byline">Written by <?php the_author(); ?> on <?php the_time('F j, Y'); ?>.</div>
-                                </div>
-                                
-                                <?php if (has_post_thumbnail()) :?>
-                                <div class="media-card__image-wrapper">
-                                    <div class="media-card__image" 
-                                         style="background-image: url(<?php the_post_thumbnail_url( 'large' ); ?>)"></div>
-                                </div>
-                                <?php endif; ?>      
-                            
-                            </article>
+                            <?php get_template_part('components/post-card'); ?>
                         </li>
                         <?php endwhile; ?>
                     </ul>
+                    <div class="navigation">
+                        <p><?php posts_nav_link(' '); ?></p>
+                    </div>
                 </section>
             </div>
         </div>

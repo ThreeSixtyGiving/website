@@ -19,7 +19,18 @@ if ( ( $locations = get_nav_menu_locations() ) && isset( $locations[ $oc_menu_na
 
     <nav class="top-bar__menu contextual-menu">
         <?php foreach ( (array) $tb_menu_items as $key => $menu_item ): ?>
-        <a href="<?php echo $menu_item->url; ?>" class="contextual-menu__button"><?php echo $menu_item->title; ?></a>
+            <?php if($menu_item->menu_item_parent == 0): ?>
+            <a href="<?php echo $menu_item->url; ?>" class="contextual-menu__button"><?php echo $menu_item->title; ?></a>
+            <!-- <ul>
+            <?php foreach ( (array) $tb_menu_items as $jey => $menu_item_child ): ?>
+                <?php if($menu_item->ID == $menu_item_child->menu_item_parent): ?>
+                <li>
+                <a href="<?php echo $menu_item_child->url; ?>" class="contextual-menu__button"><?php echo $menu_item_child->title; ?></a>
+                </li>
+                <?php endif; ?>
+            <?php endforeach; ?>
+            </ul> -->
+            <?php endif; ?>
         <?php endforeach; ?>
     </nav>
 
@@ -28,10 +39,12 @@ if ( ( $locations = get_nav_menu_locations() ) && isset( $locations[ $oc_menu_na
         <nav>
             <ul class="off-canvas-menu__list">
                 <?php foreach ( (array) $tb_menu_items as $key => $menu_item ): ?>
+                <?php if($menu_item->menu_item_parent == 0): ?>
                 <li class="off-canvas-menu__item">
                     <a href="<?php echo $menu_item->url; ?>"><?php echo $menu_item->title; ?></a>
                     <p><?php echo $menu_item->description; ?></p>
                 </li>
+                <?php endif; ?>
                 <?php endforeach; ?>
             </ul>
         </nav>

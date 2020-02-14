@@ -50,7 +50,7 @@ function tsg_bootstrap(){
     locate_template( array( 'functions/breadcrumbs.php' ), true, true );
     locate_template( array( 'functions/customiser.php' ), true, true );
     locate_template( array( 'functions/fp-widgets.php' ), true, true );
-    // locate_template( array( 'functions/gutenberg.php' ), true, true );
+    locate_template( array( 'functions/gutenberg.php' ), true, true );
     locate_template( array( 'functions/users.php' ), true, true );
     
     // add custom colours

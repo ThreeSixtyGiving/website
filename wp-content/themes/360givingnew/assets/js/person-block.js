@@ -1,11 +1,11 @@
 /**
  * 
  */
-(function (blocks, editor, i18n, element, components, _) {
+(function (blocks, blockEditor, i18n, element, components, _) {
     var __ = i18n.__;
     var el = element.createElement;
-    var RichText = editor.RichText;
-    var MediaUpload = editor.MediaUpload;
+    var RichText = blockEditor.RichText;
+    var MediaUpload = blockEditor.MediaUpload;
 
     blocks.registerBlockType('tsg/person-block', {
         title: __('360Giving: Person block', 'tsg'),
@@ -15,36 +15,29 @@
             name: {
                 type: 'array',
                 source: 'children',
-                selector: 'h2',
+                selector: 'h3',
             },
             jobTitle: {
                 type: 'array',
                 source: 'children',
-                selector: 'h3',
+                selector: '.jobTitle',
             },
             email: {
-                type: 'array',
-                source: 'children',
-                selector: '.email',
+                type: 'string',
             },
             twitter: {
-                type: 'array',
-                source: 'children',
-                selector: '.twitter',
+                type: 'string',
             },
             mediaID: {
                 type: 'number',
             },
             mediaURL: {
                 type: 'string',
-                source: 'attribute',
-                selector: 'img',
-                attribute: 'src',
             },
             description: {
                 type: 'array',
                 source: 'children',
-                selector: '.ingredients',
+                selector: '.description',
             },
         },
         example: {
@@ -69,7 +62,7 @@
             return (
                 el('div', { className: props.className },
                     el(RichText, {
-                        tagName: 'h2',
+                        tagName: 'h3',
                         inline: true,
                         placeholder: __('Person name', 'tsg'),
                         value: attributes.name,
@@ -78,7 +71,7 @@
                         },
                     }),
                     el(RichText, {
-                        tagName: 'h3',
+                        tagName: 'span',
                         inline: true,
                         placeholder: __('Job title', 'tsg'),
                         value: attributes.jobTitle,
@@ -138,54 +131,54 @@
             var attributes = props.attributes;
 
             return (
-                el('li', { className: 'card-list__item' },
-                    el('article', { className: 'media-card media-card--orange'},
-                        el('div', { className: 'media-card__content'},
-                            el('header', { className: 'media-card__header' },
-                                el(RichText.Content, {
-                                    tagName: 'h3',
-                                    value: attributes.name,
-                                    className: 'media-card__heading'
-                                }),
-                                el(RichText.Content, {
-                                    tagName: 'span',
-                                    value: attributes.jobTitle,
-                                    className: 'media-card__subtitle'
-                                }),
-                                el('div', {className: 'media-card__links'},
-                                    el(RichText.Content, {
-                                        tagName: 'a',
-                                        href: 'mailto:' + attributes.email,
-                                        value: attributes.email,
-                                        className: 'media-card__link email'
-                                    }),
-                                    el(RichText.Content, {
-                                        tagName: 'a',
-                                        href: attributes.twitter,
-                                        value: attributes.twitter,
-                                        className: 'media-card__link email'
-                                    }),
-                                )
-                            ),
+                el('article', { className: 'media-card media-card--orange'},
+                    el('div', { className: 'media-card__content'},
+                        el('header', { className: 'media-card__header' },
                             el(RichText.Content, {
-                                tagName: 'p', value: attributes.description
+                                tagName: 'h3',
+                                value: attributes.name,
+                                className: 'media-card__heading'
                             }),
-                        ),
-                        attributes.mediaURL &&
-                        el('div', { className: 'media-card__image-wrapper' },
-                            el('div', { 
-                                className: 'media-card__image',
-                                style: {backgroundImage: 'url(' + attributes.mediaURL + ')'} 
+                            el(RichText.Content, {
+                                tagName: 'span',
+                                value: attributes.jobTitle,
+                                className: 'media-card__subtitle jobTitle'
                             }),
+                            el('div', {className: 'media-card__links'},
+                                attributes.email && el(RichText.Content, {
+                                    tagName: 'a',
+                                    href: 'mailto:' + attributes.email,
+                                    value: 'email',
+                                    className: 'media-card__link email material-icons'
+                                }),
+                                attributes.twitter && el(RichText.Content, {
+                                    tagName: 'a',
+                                    href: 'https://twitter.com/' + attributes.twitter,
+                                    value: 'alternate_email',
+                                    className: 'media-card__link twitter material-icons'
+                                }),
+                            )
                         ),
-                    )
+                        el(RichText.Content, {
+                            tagName: 'p',
+                            value: attributes.description,
+                            className: 'description'
+                        }),
+                    ),
+                    attributes.mediaURL &&
+                    el('div', { className: 'media-card__image-wrapper' },
+                        el('div', { 
+                            className: 'media-card__image',
+                            style: {backgroundImage: 'url(' + attributes.mediaURL + ')'} 
+                        }),
+                    ),
                 )
             );
         },
     });
 }(
     window.wp.blocks,
-    window.wp.editor,
+    window.wp.blockEditor,
     window.wp.i18n,
     window.wp.element,
     window.wp.components,

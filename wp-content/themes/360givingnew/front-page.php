@@ -16,34 +16,15 @@
         <?php get_template_part('components/front-page-numbers') ?>
 
         <?php if ( have_posts() ) : ?>
+        <?php $count = 0; ?>
         <section class="cards-section">
             <h2 class="cards-section__heading">From the Blog</h2>
             <ul class="card-list">
-                <?php while ( have_posts() ) : the_post(); ?>
+                <?php while ( have_posts() & $count < 5 ) : the_post(); ?>
                 <li class="card-list__item">
-                    <article class="media-card media-card--teal">
-                        <div class="media-card__content">
-                            <header class="media-card__header">
-                                <h3 class="media-card__heading">
-                                    <a href="<?php the_permalink(); ?>">
-                                        <?php the_title(); ?>
-                                    </a>
-                                </h3>
-                            </header>
-                            <p><?php the_excerpt(); ?></p>
-                            <div class="media-card__byline">Written by <?php the_author(); ?> on
-                                <?php the_time('F j, Y'); ?>.</div>
-                        </div>
-
-                        <?php if (has_post_thumbnail()) :?>
-                        <div class="media-card__image-wrapper">
-                            <div class="media-card__image"
-                                 style="background-image: url(<?php the_post_thumbnail_url( 'large' ); ?>)">
-                            </div>
-                        </div>
-                        <?php endif; ?>
-                    </article>
+                    <?php get_template_part('components/post-card'); ?>
                 </li>
+                <?php $count++; ?>
                 <?php endwhile; ?>
             </ul>
             <div class="align-center">

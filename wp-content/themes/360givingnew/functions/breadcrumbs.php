@@ -10,30 +10,37 @@ function get_breadcrumb() {
     echo '<a href="'.home_url().'" rel="nofollow" class="breadcrumbs__item">Home</a>';
     if (is_category() || is_single()) {
         echo $divider;
-        $list = get_the_category_list(' &bull; ', 'single');
+        $list = get_the_category_list('|  ', 'single');
         if (is_single()) {
             $list = str_replace('<a ', '<a class="breadcrumbs__item" ', $list);
             echo $list;
             echo $divider;
-            echo '<span class="breadcrumbs__item breadcrumbs--active">';
+            echo '<a class="breadcrumbs__item breadcrumbs--active" href="'. get_the_permalink() . '">';
             the_title();
-            echo '</span>';
+            echo '</a>';
         } else {
             $list = str_replace('<a ', '<a class="breadcrumbs__item breadcrumbs--active" ', $list);
             echo $list;
         }
     } elseif (is_page()) {
         echo $divider;
-        echo '<span class="breadcrumbs__item breadcrumbs--active">';
+        echo '<a class="breadcrumbs__item breadcrumbs--active" href="'. get_the_permalink() . '">';
         echo the_title();
-        echo '</span>';
+        echo '</a>';
     } elseif (is_search()) {
         echo $divider;
-        echo '<span class="breadcrumbs__item breadcrumbs--active">';
+        echo '<a class="breadcrumbs__item breadcrumbs--active" href="'. get_the_permalink() . '">';
         echo "Search Results for... ";
         echo '"<em>';
         echo the_search_query();
         echo '</em>"';
-        echo '</span>';
+        echo '</a>';
     }
+}
+
+add_filter('next_posts_link_attributes', 'posts_link_attributes');
+add_filter('previous_posts_link_attributes', 'posts_link_attributes');
+
+function posts_link_attributes() {
+    return 'class="button button--teal"';
 }
