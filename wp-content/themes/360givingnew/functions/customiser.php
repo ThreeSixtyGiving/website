@@ -4,7 +4,7 @@ define('TSG_DEFAULTS', array(
     "funder_count" => 120,
     "recipient_count" => 199000,
     "grant_count" => 349000,
-    "grant_amount" => '30B',
+    "grant_amount" => 30000000000,
     'cards_tagline' => 'We help organisations openly publish grants data, and help people
                         use it to improve charitable giving. Join the <a href="#">#opengrants</a> movement.',
     'site_description' => '360 Resources is a repository of resources to help Data Champions make better informed decisions by leveraging other people’s experiences.'
@@ -62,8 +62,8 @@ function tsg_customize_register( $wp_customize ) {
     ) );
     $wp_customize->add_control( 'tsg_grant_amount', array(
         'label' => __( 'Grant amount' ),
-        'description' => __( 'In £. Make sure you include a suffix for the total (eg "B" for billions. Don\'t include a £ symbol.' ),
-        'type' => 'text',
+        'description' => __( 'In £. Don\'t include a £ symbol.' ),
+        'type' => 'number',
         'section' => 'static_front_page',
     ) );
 }

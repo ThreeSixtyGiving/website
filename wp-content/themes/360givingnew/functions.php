@@ -53,6 +53,7 @@ function tsg_bootstrap(){
     locate_template( array( 'functions/gutenberg.php' ), true, true );
     locate_template( array( 'functions/users.php' ), true, true );
     locate_template( array( 'functions/api.php' ), true, true );
+    locate_template( array( 'functions/get-numbers.php' ), true, true );
     
     // add custom colours
     add_theme_support( 'editor-color-palette', array(
