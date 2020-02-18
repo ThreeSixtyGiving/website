@@ -66,6 +66,10 @@ wp-content/advanced-cache.php
 wp-content/wp-cache-config.php
 wp-content/cache/*
 wp-content/cache/supercache/*
+wp-content/*
+
+!wp-content/themes/360giving
+!wp-content/themes/360givingnew
 
 # wpengine specific
 .smushit-status

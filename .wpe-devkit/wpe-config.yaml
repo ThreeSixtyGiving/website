@@ -1,0 +1,5 @@
+email: stag360giving
+ssh_key: 'C:\Users\drkan\AppData\Roaming\Local\ssh\wpe-connect'
+update_check: false
+analytics: false
+alpha_commands_access: true
