@@ -8,12 +8,10 @@
             <div class="prose">
                 <section class="prose__section prose__intro">
                     <h1 class="h1"><?php the_title(); ?></h1>
-                    <p class="media-card__byline">
-                        Written by 
-                        <?php the_author_posts_link(); ?> on 
-                        <?php the_time('F j, Y'); ?>.
-                    </p>
-                    <!-- <p class="intro"></p> -->
+                    <div class="box box--teal">
+                        <p>By <?php the_author_posts_link(); ?></p>
+                        <p><time datetime="<?php the_time('c'); ?>"><?php the_time('F j, Y'); ?></time></p>
+                    </div>
                     <?php the_content(); ?>
                 </section>
             </div>
