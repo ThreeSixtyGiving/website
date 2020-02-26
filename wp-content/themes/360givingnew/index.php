@@ -8,7 +8,7 @@
             <div class="prose prose--wp">
                 <section class="prose__section prose__intro">
                     <h1 class="h1"><?php the_title(); ?></h1>
-                    <div class="box box--teal">
+                    <div class="box">
                         <p>By <?php the_author_posts_link(); ?></p>
                         <p><time datetime="<?php the_time('c'); ?>"><?php the_time('F j, Y'); ?></time></p>
                     </div>
