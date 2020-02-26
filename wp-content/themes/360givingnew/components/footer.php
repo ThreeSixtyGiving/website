@@ -7,14 +7,7 @@ if ( ( $locations = get_nav_menu_locations() ) && isset( $locations[ $tc_menu_na
 }
 ?>
 <footer class="layout__footer">
-    <div class="subscribe-section">
-        <div class="subscribe-section__wrapper">
-            <form action="#" class="subscribe-section__form">
-                <input type="text" placeholder="Subscribe to our newsletter">
-                <input type="submit" value="Send">
-            </form>
-        </div>
-    </div>
+    <?php get_template_part('components/subscribe'); ?>
     <footer class="footer">
         <div class="footer__row wrapper">
             <div class="footer__column-2 footer__branding">

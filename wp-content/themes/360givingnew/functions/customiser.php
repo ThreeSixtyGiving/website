@@ -1,6 +1,10 @@
 <?php
 
 define('TSG_DEFAULTS', array(
+    "mailchimp_url" => "http://mailchimp.us8.list-manage.com/subscribe/post",
+    "mailchimp_u" => "216b8b926250184f90c7198e8",
+    "mailchimp_id" => "91870dde44",
+    "mailchimp_email_field" => "MERGE0",
     "funder_count" => 120,
     "recipient_count" => 199000,
     "grant_count" => 349000,
@@ -65,6 +69,51 @@ function tsg_customize_register( $wp_customize ) {
         'description' => __( 'In £. Don\'t include a £ symbol.' ),
         'type' => 'number',
         'section' => 'static_front_page',
+    ) );
+
+    $wp_customize->add_section( 'tsg_mailchimp_section' , array(
+        'title'      => __( 'Mailchimp newsletter signup', 'tsg' ),
+        'priority'   => 30,
+    ) );
+    $wp_customize->add_setting( 'tsg_mailchimp_url', array(
+        'type' => 'theme_mod',
+        'default' => TSG_DEFAULTS['mailchimp_url'],
+    ) );
+    $wp_customize->add_control( 'tsg_mailchimp_url', array(
+        'label' => __( 'Mailchimp URL' ),
+        'description' => __( 'The url to post the mailchimp information to. From: https://mailchimp.com/help/host-your-own-signup-forms/.' ),
+        'type' => 'url',
+        'section' => 'tsg_mailchimp_section',
+    ) );
+    $wp_customize->add_setting( 'tsg_mailchimp_u', array(
+        'type' => 'theme_mod',
+        'default' => TSG_DEFAULTS['mailchimp_u'],
+    ) );
+    $wp_customize->add_control( 'tsg_mailchimp_u', array(
+        'label' => __( 'User ID' ),
+        'description' => __( 'The user ID for this signup form' ),
+        'type' => 'text',
+        'section' => 'tsg_mailchimp_section',
+    ) );
+    $wp_customize->add_setting( 'tsg_mailchimp_id', array(
+        'type' => 'theme_mod',
+        'default' => TSG_DEFAULTS['mailchimp_id'],
+    ) );
+    $wp_customize->add_control( 'tsg_mailchimp_id', array(
+        'label' => __( 'Audience ID' ),
+        'description' => __( 'The audience ID for this signup form' ),
+        'type' => 'text',
+        'section' => 'tsg_mailchimp_section',
+    ) );
+    $wp_customize->add_setting( 'tsg_mailchimp_email_field', array(
+        'type' => 'theme_mod',
+        'default' => TSG_DEFAULTS['mailchimp_email_field'],
+    ) );
+    $wp_customize->add_control( 'tsg_mailchimp_email_field', array(
+        'label' => __( 'Mailchimp Email Field' ),
+        'description' => __( 'The id of the email field' ),
+        'type' => 'text',
+        'section' => 'tsg_mailchimp_section',
     ) );
 }
 add_action( 'customize_register', 'tsg_customize_register' );

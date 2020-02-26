@@ -38,7 +38,7 @@ if ( ( $locations = get_nav_menu_locations() ) && isset( $locations[ $oc_menu_na
         <button class="off-canvas-menu__trigger"><i class="material-icons">close</i></button>
         <nav>
             <ul class="off-canvas-menu__list">
-                <?php foreach ( (array) $tb_menu_items as $key => $menu_item ): ?>
+                <?php foreach ( (array) $oc_menu_items as $key => $menu_item ): ?>
                 <?php if($menu_item->menu_item_parent == 0): ?>
                 <li class="off-canvas-menu__item">
                     <a href="<?php echo $menu_item->url; ?>"><?php echo $menu_item->title; ?></a>
