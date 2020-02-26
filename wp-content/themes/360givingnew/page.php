@@ -24,7 +24,7 @@ $users = get_users(array(
             <h2 class="cards-section__tagline"></h2>
         </section>
         <div class="layout__content-inner">
-            <div class="prose">
+            <div class="prose prose--wp">
                 <section class="prose__section">
                     <?php the_content(); ?>
                 </section>

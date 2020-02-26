@@ -5,7 +5,7 @@
         <div class="layout__content-inner">
         <?php if ( have_posts() ) : ?>
             <?php while ( have_posts() ) : the_post(); ?>
-            <div class="prose">
+            <div class="prose prose--wp">
                 <section class="prose__section prose__intro">
                     <h1 class="h1"><?php the_title(); ?></h1>
                     <div class="box box--teal">
