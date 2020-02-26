@@ -23,7 +23,8 @@ function get_nav_menu_items_by_location( $location, $args = [] ) {
     foreach($menu_items as $menu_item){
         $return_items["items"][] = array(
             "url"=>$menu_item->url,
-            "title"=>$menu_item->title
+            "title"=>$menu_item->title,
+            "description"=>$menu_item->description,
         );
     }
  
@@ -36,9 +37,6 @@ function tsg_get_footer_items() {
     global $wp_registered_widgets, $wp_registered_sidebars;
 
     // Replace your menu name, slug or ID carefully
-    $menu_1 = get_nav_menu_items_by_location('footer-menu-1');
-    $menu_2 = get_nav_menu_items_by_location('footer-menu-2');
-    $menu_terms = get_nav_menu_items_by_location('footer-menu-terms');
     $sidebars = wp_get_sidebars_widgets();
     $widgets = array();
     $sidebar = 'tsg-footer';
@@ -50,12 +48,12 @@ function tsg_get_footer_items() {
                 array_merge(
                     // $wp_registered_sidebars[ $sidebar ],
                     array(
-                        'before_widget'=>'',
-                        'after_widget'=>'',
-                        'before_title'=>'',
-                        'after_title'=>$delim,
-                        'widget_id'   => $id,
-                        'widget_name' => $wp_registered_widgets[ $id ]['name'],
+                        'before_widget'=> '',
+                        'after_widget' => '',
+                        'before_title' => '',
+                        'after_title'  => $delim,
+                        'widget_id'    => $id,
+                        'widget_name'  => $wp_registered_widgets[ $id ]['name'],
                     )
                 ),
             ),
@@ -73,17 +71,24 @@ function tsg_get_footer_items() {
 
     return array(
         "menus"=>array(
-            "menu_1" => $menu_1,
-            "menu_2" => $menu_2,
-            "menu_terms" => $menu_terms
+            "menu_1" => get_nav_menu_items_by_location('footer-menu-1'),
+            "menu_2" => get_nav_menu_items_by_location('footer-menu-2'),
+            "menu_terms" => get_nav_menu_items_by_location('footer-menu-terms'),
+            "menu_off_canvas" => get_nav_menu_items_by_location('off-canvas-menu'),
         ),
-        "widgets"=>$widgets
+        "widgets"=>$widgets,
+        "newsletter"=>array(
+            "form_url"=>get_theme_mod( 'tsg_mailchimp_url', TSG_DEFAULTS['mailchimp_url'] ),
+            "u"=>get_theme_mod( 'tsg_mailchimp_u', TSG_DEFAULTS['mailchimp_u'] ),
+            "id"=>get_theme_mod( 'tsg_mailchimp_id', TSG_DEFAULTS['mailchimp_id'] ),
+            "email_field"=>get_theme_mod( 'tsg_mailchimp_email_field', TSG_DEFAULTS['mailchimp_email_field'] ),
+        )
     );
 }
 
 // create new endpoint route
 add_action( 'rest_api_init', function () {
-    register_rest_route( 'wp/v2', '360giving_footer', array(
+    register_rest_route( 'wp/v2', '360giving', array(
         'methods' => 'GET',
         'callback' => 'tsg_get_footer_items',
     ) );
