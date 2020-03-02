@@ -18,20 +18,24 @@ if ( ( $locations = get_nav_menu_locations() ) && isset( $locations[ $oc_menu_na
     <button class="top-bar__menu-trigger"><i class="material-icons">menu</i></button>
 
     <nav class="top-bar__menu contextual-menu">
+        <ul>
         <?php foreach ( (array) $tb_menu_items as $key => $menu_item ): ?>
             <?php if($menu_item->menu_item_parent == 0): ?>
-            <a href="<?php echo $menu_item->url; ?>" class="contextual-menu__button"><?php echo $menu_item->title; ?></a>
-            <!-- <ul>
-            <?php foreach ( (array) $tb_menu_items as $jey => $menu_item_child ): ?>
-                <?php if($menu_item->ID == $menu_item_child->menu_item_parent): ?>
-                <li>
-                <a href="<?php echo $menu_item_child->url; ?>" class="contextual-menu__button"><?php echo $menu_item_child->title; ?></a>
-                </li>
-                <?php endif; ?>
-            <?php endforeach; ?>
-            </ul> -->
+            <li class="contextual-menu__item submenu">
+                <a href="<?php echo $menu_item->url; ?>" class="contextual-menu__button"><?php echo $menu_item->title; ?></a>
+                <ul class="submenu__list">
+                <?php foreach ( (array) $tb_menu_items as $jey => $menu_item_child ): ?>
+                    <?php if($menu_item->ID == $menu_item_child->menu_item_parent): ?>
+                    <li class="submenu__item">
+                        <a href="<?php echo $menu_item_child->url; ?>" class="submenu__button"><?php echo $menu_item_child->title; ?></a>
+                    </li>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+                </ul>
+            </li>
             <?php endif; ?>
         <?php endforeach; ?>
+        </ul>
     </nav>
 
         <div class="off-canvas-menu" <?php if ( is_admin_bar_showing() ): ?>style="top: 32px;"<?php endif; ?> aria-hidden>
