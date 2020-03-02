@@ -1,7 +1,7 @@
 <?php
 
-function get_breadcrumb(){
-    $breadcrumbs = tsg_get_breadcrumbs();
+function get_breadcrumb( $post_id = false, $withhome = true, $multiple = false ){
+    $breadcrumbs = tsg_get_breadcrumbs( $post_id, $withhome, $multiple );
     $divider = '<i class="breadcrumbs__arrow">keyboard_arrow_right</i>';
     $count = 0;
     foreach($breadcrumbs as $b){
@@ -20,11 +20,12 @@ function posts_link_attributes() {
     return 'class="button button--teal"';
 }
 
-function tsg_get_breadcrumbs( $post_id = false ) {
-    $thelist = array(
-        array("title"=>"Home", "url"=>home_url())
-    );
-    if (is_single()) {
+function tsg_get_breadcrumbs( $post_id = false, $withhome = true, $multiple = false ) {
+    $thelist = array();
+    if($withhome){
+        $thelist[] = array("title"=>"Home", "url"=>home_url());
+    }
+    if (is_single() || $post_id) {
         if ( ! is_object_in_taxonomy( get_post_type( $post_id ), 'category' ) ) {
             return $thelist;
         }
@@ -34,11 +35,22 @@ function tsg_get_breadcrumbs( $post_id = false ) {
             return $thelist;
         }
     
-        $category = $categories[0];
-        foreach ( get_ancestors($category->term_id, 'category') as $category_ancestor){
-            $thelist[] = array("title"=>get_cat_name($category_ancestor), "url"=>get_category_link( $category_ancestor ));
+        if(!$multiple){
+            $categories = array($categories[0]);
         }
-        $thelist[] = array("title"=>$category->name, "url"=>get_category_link( $category->term_id ));
+        $seen_categories = array();
+        foreach( $categories as $category ){
+            foreach ( get_ancestors($category->term_id, 'category') as $category_ancestor){
+                if(!in_array($category_ancestor, $seen_categories)){
+                    $thelist[] = array("title"=>get_cat_name($category_ancestor), "url"=>get_category_link( $category_ancestor ));
+                    $seen_categories[] = $category_ancestor;
+                }
+            }
+            if(!in_array($category->term_id, $seen_categories)){
+                $thelist[] = array("title"=>$category->name, "url"=>get_category_link( $category->term_id ));
+                $seen_categories[] = $category->term_id;
+            }
+        }
     } elseif (is_category()) {
         global $wp_query;
         $category = $wp_query->get_queried_object();

@@ -14,6 +14,17 @@
             <?php the_author_posts_link(); ?> on
             <?php the_time('F j, Y'); ?>.
         </div>
+        <div class="media-card__byline">
+            <?php 
+                $breadcrumbs = tsg_get_breadcrumbs(get_the_ID(), false, true);
+                $count = 0;
+            ?>
+            <?php foreach($breadcrumbs as $b): ?>
+            <?php if($count>0): ?> &gt; <?php endif; ?>
+            <a class="" href="<?php echo $b["url"]; ?>"><?php echo $b["title"]; ?></a>
+            <?php $count++; ?>
+            <?php endforeach; ?>
+        </div>
     </div>
 
     <?php if (has_post_thumbnail()) :?>
