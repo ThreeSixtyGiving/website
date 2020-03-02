@@ -1,14 +1,15 @@
 <?php
 
 define('TSG_DEFAULTS', array(
-    "mailchimp_url" => "http://mailchimp.us8.list-manage.com/subscribe/post",
+    "mailchimp_url" => "https://threesixtygiving.us10.list-manage.com/subscribe",
     "mailchimp_u" => "216b8b926250184f90c7198e8",
     "mailchimp_id" => "91870dde44",
-    "mailchimp_email_field" => "MERGE0",
+    "mailchimp_email_field" => "EMAIL",
     "funder_count" => 120,
     "recipient_count" => 199000,
     "grant_count" => 349000,
     "grant_amount" => 30000000000,
+    'footer_tagline' => 'Open data for more effective grantmaking',
     'cards_tagline' => 'We help organisations openly publish grants data, and help people
                         use it to improve charitable giving. Join the <a href="#">#opengrants</a> movement.',
     'site_description' => '360 Resources is a repository of resources to help Data Champions make better informed decisions by leveraging other people’s experiences.'
@@ -24,12 +25,21 @@ function tsg_customize_register( $wp_customize ) {
         'type' => 'textarea',
         'section' => 'title_tagline',
     ) );
+    $wp_customize->add_setting( 'tsg_footer_tagline', array(
+        'type' => 'theme_mod',
+        'default' => TSG_DEFAULTS['footer_tagline']
+    ) );
+    $wp_customize->add_control( 'tsg_footer_tagline', array(
+        'label' => __( 'Footer tagline' ),
+        'type' => 'textarea',
+        'section' => 'static_front_page',
+    ) );
     $wp_customize->add_setting( 'tsg_cards_tagline', array(
         'type' => 'theme_mod',
         'default' => TSG_DEFAULTS['cards_tagline']
     ) );
     $wp_customize->add_control( 'tsg_cards_tagline', array(
-        'label' => __( 'Tagline' ),
+        'label' => __( 'Front page tagline' ),
         'type' => 'textarea',
         'section' => 'static_front_page',
     ) );

@@ -82,7 +82,8 @@ function tsg_get_footer_items() {
             "u"=>get_theme_mod( 'tsg_mailchimp_u', TSG_DEFAULTS['mailchimp_u'] ),
             "id"=>get_theme_mod( 'tsg_mailchimp_id', TSG_DEFAULTS['mailchimp_id'] ),
             "email_field"=>get_theme_mod( 'tsg_mailchimp_email_field', TSG_DEFAULTS['mailchimp_email_field'] ),
-        )
+        ),
+        "footer_tagline"=>get_theme_mod( 'tsg_footer_tagline', TSG_DEFAULTS['footer_tagline'] ),
     );
 }
 
