@@ -22,6 +22,7 @@
         <?php endif; ?>
         </div>
     </main>
+    <?php get_template_part('components/blog-sidebar'); ?>
     <?php get_template_part('components/footer'); ?>
 </div>
 <?php get_footer(); ?>
