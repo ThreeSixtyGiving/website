@@ -56,9 +56,9 @@ function tsg_get_breadcrumbs( $post_id = false ) {
             "url"=>get_the_permalink()
         );
     }
-    if(is_single() || is_page()){
-        $thelist[] = array("title"=>get_the_title(), "url"=>get_the_permalink());
-    }
+    // if(is_single() || is_page()){
+    //     $thelist[] = array("title"=>get_the_title(), "url"=>get_the_permalink());
+    // }
  
     return $thelist;
 }
