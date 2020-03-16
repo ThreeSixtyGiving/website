@@ -42,6 +42,17 @@ function tsg_register_menus() {
             'off-canvas-menu' => __( 'Off canvas menu' ),
         )
     );
+
+    register_post_meta( 'page', 'tsg_page_kicker', array(
+        'show_in_rest' => true,
+        'single' => true,
+        'type' => 'string',
+    ) );
+    register_post_meta( 'page', 'tsg_page_blurb', array(
+        'show_in_rest' => true,
+        'single' => true,
+        'type' => 'string',
+    ) );
 }
 add_action( 'init', 'tsg_register_menus' );
 
@@ -54,6 +65,7 @@ function tsg_bootstrap(){
     locate_template( array( 'functions/users.php' ), true, true );
     locate_template( array( 'functions/api.php' ), true, true );
     locate_template( array( 'functions/get-numbers.php' ), true, true );
+    locate_template( array( 'functions/metabox.php' ), true, true );
     
     // add custom colours
     add_theme_support( 'editor-color-palette', array(
