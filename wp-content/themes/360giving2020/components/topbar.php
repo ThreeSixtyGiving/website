@@ -45,11 +45,11 @@ if ( ( $locations = get_nav_menu_locations() ) && isset( $locations[ $oc_menu_na
                 <?php foreach ( (array) $oc_menu_items as $key => $menu_item ): ?>
                 <?php if($menu_item->menu_item_parent == 0): ?>
                 <li class="off-canvas-menu__item">
-                    <a href="<?php echo $menu_item->url; ?>">
-                        <strong><?php echo $menu_item->title; ?></strong>
-                        <p><?php echo $menu_item->description; ?></p>
-                    </a>
-                </li>
+					<a href="<?php echo $menu_item->url; ?>">
+						<strong><?php echo $menu_item->title; ?></strong>
+                    	<p><?php echo $menu_item->description; ?></p>
+					</a>
+				</li>
                 <?php endif; ?>
                 <?php endforeach; ?>
             </ul>
