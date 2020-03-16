@@ -72,7 +72,7 @@ wp-content/plugins/*
 wp-content/updraft/*
 wp-content/themes/*
 !wp-content/themes/360giving/
-!wp-content/themes/360givingnew/
+!wp-content/themes/360giving2020/
 
 # wpengine specific
 .smushit-status
