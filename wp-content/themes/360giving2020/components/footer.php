@@ -11,12 +11,12 @@ if ( ( $locations = get_nav_menu_locations() ) && isset( $locations[ $tc_menu_na
     <footer class="footer">
         <div class="footer__row wrapper">
             <div class="footer__column-2 footer__branding">
-                <div class="footer__logo"><img src="<?php echo get_template_directory_uri() . '/assets'; ?>/images/360-giving-logo-white.svg" alt="360Giving"></div>
+                <div class="footer__logo"><a href='<?php echo get_home_url(); ?>'><img src="<?php echo get_template_directory_uri() . '/assets'; ?>/images/360-giving-logo-white.svg" alt="360Giving"></a></div>
                 <p class="footer__tagline"><?php echo get_theme_mod( 'tsg_footer_tagline', TSG_DEFAULTS['footer_tagline'] ); ?></p>
             </div>
             <div class="footer__column-1 footer__social">
-                <a href="#" class="github-icon"><img src="<?php echo get_template_directory_uri() . '/assets'; ?>/images/github-logo.svg" alt="Check our Github"></a>
-                <a href="#" class="twitter-icon"><img src="<?php echo get_template_directory_uri() . '/assets'; ?>/images/twitter-logo.svg" alt="Follow us on Twitter"></a>
+                <a href="https://github.com/threesixtygiving/" class="github-icon"><img src="<?php echo get_template_directory_uri() . '/assets'; ?>/images/github-logo.svg" alt="Check our Github"></a>
+                <a href="https://twitter.com/360Giving/" class="twitter-icon"><img src="<?php echo get_template_directory_uri() . '/assets'; ?>/images/twitter-logo.svg" alt="Follow us on Twitter"></a>
             </div>
         </div>
 
