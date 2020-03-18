@@ -8,7 +8,7 @@ function tsg_kicker_blurb_metabox()
         'tsg_kicker_blurb_box_html',  // Content callback, must be of type callable
         'page',                       // Post type
         'side',
-        'high',
+        'normal',
         array(
             '__block_editor_compatible_meta_box' => true,
         )

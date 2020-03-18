@@ -64,7 +64,7 @@
                 <?php endif; ?>
             </ul>
             <div class="align-center">
-                <a href="#" class="button button--teal">More from the blog</a>
+                <a href="/category/ideas-and-updates" class="button button--teal">Ideas &amp; Updates</a>
             </div>
         </section>
 
