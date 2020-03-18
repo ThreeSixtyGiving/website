@@ -5,6 +5,7 @@ add_theme_support( 'post-thumbnails' );
 // Add custom stylesheet
 function tsg_enqueue_style() {
     wp_enqueue_style( '360giving-style', get_template_directory_uri() . '/assets/css/styles.css', false );
+    wp_enqueue_style( '360giving-style-custom', get_template_directory_uri() . '/assets/css/custom.css', false );
     wp_enqueue_style( 'material-icons', 'https://fonts.googleapis.com/icon?family=Material+Icons', false );
     wp_enqueue_script( '360g-top-bar', get_template_directory_uri() . '/assets/js/top-bar.js', false );
 }
