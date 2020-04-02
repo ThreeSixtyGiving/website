@@ -2,7 +2,7 @@
 
 // fetch numbers from status.json
 function tsg_get_numbers(){
-    $api_url = 'http://store.data.threesixtygiving.org/reports/latest_status.json';
+    $api_url = 'http://store.data.threesixtygiving.org/reports/daily_status.json';
     $request = wp_remote_get( $api_url );
     if( is_wp_error( $request ) ) {
         return false;
