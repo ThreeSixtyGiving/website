@@ -47,6 +47,16 @@
             </section>
         </div>
 
+        <?php if ( get_option( 'show_on_front' ) == 'page' & have_posts() ) : ?>
+        <?php while ( have_posts() ) : the_post(); ?>
+        <div class="base-section">
+            <div class="base-card base-card--none">
+                <?php the_content(); ?>
+            </div>
+        </div>
+        <?php endwhile; ?>
+        <?php endif; ?>
+
         <?php get_template_part('components/front-page-numbers') ?>
 
         <section class="cards-section">
@@ -68,17 +78,7 @@
             </div>
         </section>
 
-        <?php if ( get_option( 'show_on_front' ) == 'page' & have_posts() ) : ?>
-        <?php while ( have_posts() ) : the_post(); ?>
-        <div class="base-section">
-            <div class="base-card base-card--none">
-                <?php the_content(); ?>
-            </div>
-        </div>
-        <?php endwhile; ?>
-        <?php endif; ?>
 
-    </main>
     </main>
     <?php get_template_part('components/footer'); ?>
 </div>
