@@ -1,0 +1,3 @@
+.accordion-list__item .accordion::before {
+    content: "";
+}

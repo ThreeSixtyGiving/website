@@ -96,6 +96,28 @@ staging, or test the live site.
 
 When adding features or fixing bugs, please create and run tests.
 
+
+How do the docs work?
+---------------------
+We have created a new plugin: threesixty_docs to handle the documentation side of the website.
+This contains 3 git submodules:
+
+* A markdown to HTML parser: parsedown
+* Our documents from the Standard repo: standard
+* Docson - Give Docson a JSON schema and it will generate beautiful documentation: docson
+
+The SSOT of the documentation is at:
+https://github.com/ThreeSixtyGiving/standard
+and so we clone this repository into the plugin. 
+
+In Wordpress we then use short codes of the form (standard page="<name>") to fetch the correct document to display, pass it through a markdown to HTML parser, and display it on the website.
+
+Replace <name> with the filename of the markdown text you wish to display (without .md)
+e.g. to display the identifiers.md document: (standard page="identifiers")
+
+We construct Wordpress pages under /standard
+
+
 How does the data on the Find Data page work?
 ---------------------------------------------
 We have a custom plugin: threesixty_salesforce_data that fetches data from a JSON output.
@@ -144,26 +166,3 @@ The template for the home page is called index.php
 The template for  the blog becomes home.php - this is standard Wordpress practice.
 
 
-
-Sept 2017: the docs are no longer active in the Wordpress/public site - please ignore the following:
----------------------
-
-How do the docs work?
----------------------
-We have created a new plugin: threesixty_docs to handle the documentation side of the website.
-This contains 3 git submodules:
-
-* A markdown to HTML parser: parsedown
-* Our documents from the Standard repo: standard
-* Docson - Give Docson a JSON schema and it will generate beautiful documentation: docson
-
-The SSOT of the documentation is at:
-https://github.com/ThreeSixtyGiving/standard
-and so we clone this repository into the plugin. 
-
-In Wordpress we then use short codes of the form (standard page="<name>") to fetch the correct document to display, pass it through a markdown to HTML parser, and display it on the website.
-
-Replace <name> with the filename of the markdown text you wish to display (without .md)
-e.g. to display the identifiers.md document: (standard page="identifiers")
-
-We construct Wordpress pages under /standard

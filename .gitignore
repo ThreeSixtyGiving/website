@@ -50,6 +50,8 @@ wp-content/themes/responsive-child/ckan/urls/*
 wp-content/themes/responsive-child/ckan/data/*
 wp-content/themes/responsive-child/ckan/logos/*
 wp-content/themes/responsive-child/glyphicons*
+wp-content/themes/responsive-child/*
+wp-content/themes/responsive/*
 wp-content/plugins/*.zip
 tests/_pycache_/
 wp-cli.phar
@@ -64,6 +66,13 @@ wp-content/advanced-cache.php
 wp-content/wp-cache-config.php
 wp-content/cache/*
 wp-content/cache/supercache/*
+wp-content/languages/*
+wp-content/mu-plugins/*
+wp-content/plugins/*
+wp-content/updraft/*
+wp-content/themes/*
+!wp-content/themes/360giving/
+!wp-content/themes/360giving2020/
 
 # wpengine specific
 .smushit-status
@@ -107,8 +116,20 @@ wp-content/mysql.sql
 /wp-includes
 /wp-content/index.php
 /wp-content/themes/twentyten
+/wp-content/themes/twentyeleven
+/wp-content/themes/twentytwelve
+/wp-content/themes/twentythirteen
+/wp-content/themes/twentyfourteen
+/wp-content/themes/twentyfifteen
+/wp-content/themes/twentysixteen
+/wp-content/themes/twentyseventeen
+/wp-content/themes/twentyeightteen
+/wp-content/themes/twentynineteen
+/wp-content/themes/twentytwenty
 /wp-content/themes/index.php
 /wp-content/plugins/index.php
+/wp-content/plugins/hello.php
+/wp-content/plugins/akismet*
 
 # Gallaries in various places
 gallery/*

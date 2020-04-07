@@ -1,0 +1,1 @@
+<?php dynamic_sidebar( 'tsg-front-page' ); ?>
