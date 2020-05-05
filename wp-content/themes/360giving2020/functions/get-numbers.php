@@ -19,17 +19,26 @@ function tsg_get_numbers(){
     foreach($data as $file){
         $aggs["grant_count"] += $file["datagetter_aggregates"]["count"];
         $aggs["grant_amount"] += $file["datagetter_aggregates"]["currencies"]["GBP"]["total_amount"];
-        $aggs["funders"] = array_merge($aggs["funders"], $file["datagetter_aggregates"]["distinct_funding_org_identifier"]);
+        if(!empty($file["datagetter_aggregates"]["distinct_funding_org_identifier"])){
+            $aggs["funders"] = array_merge($aggs["funders"], $file["datagetter_aggregates"]["distinct_funding_org_identifier"]);
+        }
     }
 
     $aggs["funder_count"] = count(array_unique($aggs["funders"]));
     // wp_cache_set( 'tsg_fp_numbers', $aggs );
-    set_theme_mod('tsg_grant_count', $aggs['grant_count']);
-    set_theme_mod('tsg_grant_amount', $aggs['grant_amount']);
-    set_theme_mod('tsg_funder_count', $aggs['funder_count']);
+    if($aggs['grant_count']>0){
+        set_theme_mod('tsg_grant_count', $aggs['grant_count']);
+    }
+    if($aggs['grant_amount']>0){
+        set_theme_mod('tsg_grant_amount', $aggs['grant_amount']);
+    }
+    if($aggs['funder_count']>0){
+        set_theme_mod('tsg_funder_count', $aggs['funder_count']);
+    }
     return $aggs;
 }
-add_action ('tsg_cron_hook', 'tsg_get_numbers'); 
+add_action ('tsg_cron_hook', 'tsg_get_numbers');
+add_action ('wp', 'tsg_get_numbers');
 
 // create a scheduled event for updating the numbers
 function tsg_cronstarter_activation() {
