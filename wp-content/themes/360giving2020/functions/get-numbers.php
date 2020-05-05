@@ -38,7 +38,6 @@ function tsg_get_numbers(){
     return $aggs;
 }
 add_action ('tsg_cron_hook', 'tsg_get_numbers');
-add_action ('wp', 'tsg_get_numbers');
 
 // create a scheduled event for updating the numbers
 function tsg_cronstarter_activation() {
