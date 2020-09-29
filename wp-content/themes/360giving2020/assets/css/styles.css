@@ -2569,9 +2569,6 @@ body.modal--shown {
 .submenu__list {
   width: auto; }
 
-.top-bar .submenu__list {
-  background-color: white; }
-  
 .submenu__button {
   width: 100%;
   padding: 8px 24px 8px;

@@ -1,3 +1,12 @@
 .accordion-list__item .accordion::before {
     content: "";
 }
+@media screen and (max-width:600px) {
+    #wpadminbar {
+        position: fixed;
+    }
+}
+
+.contextual-menu .submenu__list {
+    background-color: white;
+}
