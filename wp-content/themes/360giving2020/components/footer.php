@@ -54,15 +54,15 @@ if ( ( $locations = get_nav_menu_locations() ) && isset( $locations[ $tc_menu_na
         </div>
 
         <div class="wrapper footer__small-print">
-            <p>© Copyright <?php echo date("Y"); ?> 360Giving, licensed under a <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International License</a>.</p>
+            <p>© Copyright <?php echo date("Y"); ?> 360Giving, licensed under a <a href="https://creativecommons.org/licenses/by/4.0/" rel="noreferrer">Creative Commons Attribution 4.0 International License</a>.</p>
         </div>
 
         <div class="footer__row wrapper footer__small-print">
 
             <div class="footer__column-2">
-                <p>360Giving: 
-                    Company <a href="https://beta.companieshouse.gov.uk/company/09668396" target="_blank">09668396</a>
-                    Charity <a href="http://beta.charitycommission.gov.uk/charity-details/?regid=1164883&subid=0" target="_blank">1164883</a>
+                <p>360Giving  
+                    is a registered charity <a href="https://ccew.dkane.net/charity/1164883" rel="noreferrer">1164883</a>
+                    and a registered company <a href="https://beta.companieshouse.gov.uk/company/09668396" rel="noreferrer">09668396</a>
                 </p>
             </div>
             <div class="footer__column-2 footer__policy-links">
