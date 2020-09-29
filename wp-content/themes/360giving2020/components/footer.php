@@ -54,7 +54,7 @@ if ( ( $locations = get_nav_menu_locations() ) && isset( $locations[ $tc_menu_na
         </div>
 
         <div class="wrapper footer__small-print">
-            <p>© Copyright <?php echo date("Y"); ?> 360Giving, licensed under a <a href="https://creativecommons.org/licenses/by/4.0/" rel="noreferrer">Creative Commons Attribution 4.0 International License</a>.</p>
+            <p>© Copyright <?php echo date("Y"); ?> 360Giving, 90 York Way, London, N1 9AG. Licensed under a <a href="https://creativecommons.org/licenses/by/4.0/" rel="noreferrer">Creative Commons Attribution 4.0 International License</a>.</p>
         </div>
 
         <div class="footer__row wrapper footer__small-print">
