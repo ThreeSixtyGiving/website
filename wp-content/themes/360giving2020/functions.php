@@ -16,8 +16,8 @@ function tsg_widgets_init() {
     register_sidebar( array(
         'name'          => __( 'Front page Sidebar', 'tsg' ),
         'id'            => 'tsg-front-page',
-        'before_widget' => '<div class="grid__1"><div id="%1$s" class="base-card %2$s"><div class="base-card__content">',
-        'after_widget'  => '</div></div></div>',
+        'before_widget' => '<div class="grid__1">',
+        'after_widget'  => '</div>',
         'before_title'  => '<h2 class="base-card__title">',
         'after_title'   => '</h2>',
     ) );

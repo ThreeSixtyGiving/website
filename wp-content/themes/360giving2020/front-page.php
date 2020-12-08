@@ -34,6 +34,7 @@
     endif;
 ?><?php get_header(); ?>
 <div class="layout layout--single-column">
+    <?php get_template_part('components/topbar'); ?>
     <?php get_template_part('components/header'); ?>
     <main class="layout__content">
 

@@ -1,5 +1,6 @@
 <?php get_header(); ?>
 <div class="layout layout--two-columns">
+    <?php get_template_part('components/topbar'); ?>
     <?php get_template_part('components/header'); ?>
     <main class="layout__content">
         <div class="layout__content-inner">

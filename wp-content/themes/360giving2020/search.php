@@ -1,6 +1,7 @@
 <?php global $wp_query; ?>
 <?php get_header(); ?>
 <div class="layout">
+    <?php get_template_part('components/topbar'); ?>
     <?php get_template_part('components/header'); ?>
     <main class="layout__content">
         <div class="layout__content-inner">

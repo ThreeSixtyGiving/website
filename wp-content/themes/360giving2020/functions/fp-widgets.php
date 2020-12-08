@@ -16,17 +16,23 @@ class TSG_FrontPage_Widget extends WP_Widget {
     }
  
     public $args = array(
-        'before_widget' => '<div class="grid__1"><div id="%1$s" class="base-card %2$s"><div class="base-card__content">',
-        'after_widget'  => '</div></div></div>',
-        'before_title'  => '<h2 class="base-card__title">',
+        'before_widget' => '<div class="grid__1">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h2 class="base-card__title | margin-bottom:1">',
         'after_title'   => '</h2>',
     );
  
     public function widget( $args, $instance ) {
 
         $colour = ! empty( $instance['colour'] ) ? $instance['colour'] : 'orange';
- 
-        echo str_replace('base-card ', 'base-card base-card--'. $colour . ' ', $args['before_widget']);
+
+        echo $args['before_widget'];
+        if(!empty( $instance['link'])){
+            echo '<a href="' . $instance['link'] . '" class="base-card base-card--' . $colour . ' base-card--spacious">';
+        } else {
+            echo '<div id="%1$s" class="base-card base-card--' . $colour . ' base-card--spacious">';
+        }
+        echo '<div class="base-card__content">';
  
         if ( ! empty( $instance['title'] ) ) {
             echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ) . $args['after_title'];
@@ -37,13 +43,9 @@ class TSG_FrontPage_Widget extends WP_Widget {
             echo esc_html__( $instance['text'], 'text_domain' );
             echo '</p>';
         }
-
-        if(!empty( $instance['link']) & !empty( $instance['link_text'])){
-            echo '<p class="base-card__text">';
-            echo '<a href="' . $instance['link'] . '" class="button button--' . $colour . '">' . $instance['link_text'] . '</a>';
-            echo '</p>';
-        }
  
+        echo '</div>';
+        echo '</a>';
         echo $args['after_widget'];
  
     }

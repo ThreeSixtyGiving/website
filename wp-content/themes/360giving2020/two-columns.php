@@ -12,6 +12,7 @@
     )); 
 ?>
 <div class="layout <?php if(!$children): ?>layout--single-column<?php else: ?>layout--two-columns<?php endif; ?>">
+    <?php get_template_part('components/topbar'); ?>
     <?php get_template_part('components/header'); ?>
     <main class="layout__content">
         <?php if(empty(get_post_meta(get_the_ID(), 'tsg_page_kicker', true))): ?>
