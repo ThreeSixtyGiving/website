@@ -5,7 +5,7 @@
             <div class="base-card base-card--spacious base-card--teal">
                 <div class="base-card__content">
                     <h2 class="base-card__title"><?php echo tsg_number_format(get_theme_mod( 'tsg_funder_count', TSG_DEFAULTS['funder_count'] )); ?></h2>
-                    <p class="base-card__text"><a href="http://grantnav.threesixtygiving.org/">Funders</a></p>
+                    <p class="base-card__text"><a href="https://grantnav.threesixtygiving.org/">Funders</a></p>
                 </div>
             </div>
         </div>
@@ -13,7 +13,7 @@
             <div class="base-card base-card--spacious base-card--teal">
                 <div class="base-card__content">
                     <h2 class="base-card__title"><?php echo tsg_number_format(round(get_theme_mod( 'tsg_grant_count', TSG_DEFAULTS['grant_count'] ), -3)); ?></h2>
-                    <p class="base-card__text"><a href="http://grantnav.threesixtygiving.org/">Grants</a></p>
+                    <p class="base-card__text"><a href="https://grantnav.threesixtygiving.org/">Grants</a></p>
                 </div>
             </div>
         </div>
@@ -21,7 +21,7 @@
             <div class="base-card base-card--spacious base-card--teal">
                 <div class="base-card__content">
                     <h2 class="base-card__title"><small>£</small><?php echo tsg_number_format( get_theme_mod( 'tsg_grant_amount', TSG_DEFAULTS['grant_amount'] )); ?></h2>
-                    <p class="base-card__text"><a href="http://grantnav.threesixtygiving.org/">of Grants Data</a></p>
+                    <p class="base-card__text"><a href="https://grantnav.threesixtygiving.org/">of Grants Data</a></p>
                 </div>
             </div>
         </div>
