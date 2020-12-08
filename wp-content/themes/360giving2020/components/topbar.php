@@ -14,7 +14,7 @@ if ( ( $locations = get_nav_menu_locations() ) && isset( $locations[ $oc_menu_na
 }
 ?>
 
-<div class="top-bar">
+<div class="top-bar layout__nav">
     <button class="top-bar__menu-trigger" aria-label="menu"><i class="material-icons">menu</i></button>
 
     <nav class="top-bar__menu contextual-menu">
