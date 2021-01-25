@@ -1503,7 +1503,9 @@ a.base-card:hover:before {
     .footer ul a {
       text-decoration: none; }
   .footer a {
-    color: hsl(var(--white-hsl), 0.7); }
+    color: hsl(var(--white-hsl), 1);
+    text-decoration: underline;
+    text-underline-offset: under; }
     .footer a:hover {
       color: hsl(var(--white-hsl), 1);
       text-decoration: underline; }
@@ -1988,19 +1990,24 @@ a.base-card:hover:before {
   --prose-card-border-hsl: var(--red-hsl);
   --prose-card-text-hsl: var(--red-hsl); }
 
-.prose__section > * + * {
+.prose__section > * + *,
+.prose__section .section > * + * {
   margin-top: 1rem; }
 
-.prose__section .grid > * + * {
+.prose__section .grid > * + *,
+.prose__section .section .grid > * + * {
   margin-top: 0; }
 
-.prose__section .media-card {
+.prose__section .media-card,
+.prose__section .section .media-card {
   margin-top: 2.2rem;
   margin-bottom: 2.2rem; }
-  .prose__section .media-card__content {
+  .prose__section .media-card__content,
+  .prose__section .section .media-card__content {
     padding-top: 1.8rem;
     padding-bottom: 1.8rem; }
-  .prose__section .media-card h3 {
+  .prose__section .media-card h3,
+  .prose__section .section .media-card h3 {
     margin: 0; }
 
 .prose p,
@@ -2019,7 +2026,13 @@ a.base-card:hover:before {
   .prose li > a,
   .p > a {
     font-weight: 400;
-    color: hsl(var(--teal-dark-hsl), 1); }
+    color: hsl(var(--teal-dark-hsl), 1);
+    text-decoration: underline;
+    text-underline-position: under; }
+    .prose p > a:hover,
+    .prose li > a:hover,
+    .p > a:hover {
+      background-color: hsl(var(--teal-hsl), 0.1); }
 
 .prose__author {
   font-style: italic;
