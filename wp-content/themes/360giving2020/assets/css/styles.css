@@ -652,7 +652,8 @@ a {
   padding: 6px 24px 8px;
   font-size: 1rem;
   font-weight: 400;
-  background-color: var(--bg-color); }
+  background-color: var(--bg-color);
+  text-decoration: none; }
   .button.button--small {
     padding: 2px 16px 2px;
     border-width: 1px;
@@ -2022,17 +2023,17 @@ a.base-card:hover:before {
     .prose li,
     .p {
       font-size: 1.2rem; } }
-  .prose p > a,
-  .prose li > a,
-  .p > a {
-    font-weight: 400;
-    color: hsl(var(--teal-dark-hsl), 1);
-    text-decoration: underline;
-    text-underline-position: under; }
-    .prose p > a:hover,
-    .prose li > a:hover,
-    .p > a:hover {
-      background-color: hsl(var(--teal-hsl), 0.1); }
+
+.prose a {
+  font-weight: inherit;
+  color: hsl(var(--teal-dark-hsl), 1);
+  text-decoration: underline;
+  text-underline-position: under; }
+  .prose a:hover {
+    background-color: hsl(var(--teal-hsl), 0.1); }
+  .prose a.button {
+    text-decoration: none;
+    color: var(--text-color); }
 
 .prose__author {
   font-style: italic;

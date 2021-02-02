@@ -54,15 +54,18 @@ if ( ( $locations = get_nav_menu_locations() ) && isset( $locations[ $tc_menu_na
         </div>
 
         <div class="wrapper footer__small-print">
-            <p>© Copyright <?php echo date("Y"); ?> 360Giving, 90 York Way, London, N1 9AG. Licensed under a <a href="https://creativecommons.org/licenses/by/4.0/" rel="noreferrer">Creative Commons Attribution 4.0 International License</a>.</p>
+            <p>
+                <strong>360 Giving</strong> (Trading as <strong>360Giving</strong>) is a registered charity <a href="https://register-of-charities.charitycommission.gov.uk/charity-details/?regId=1164883&amp;subId=0">1164883</a> and a registered company <a href="https://beta.companieshouse.gov.uk/company/09668396">09668396</a>.
+                <br>Registered address: 360Giving, c/o Esmée Fairbairn Foundation, Kings Place, 90 York Way, London N1 9AG.
+            </p>
         </div>
 
         <div class="footer__row wrapper footer__small-print">
 
             <div class="footer__column-2">
-                <p>360Giving  
-                    is a registered charity <a href="https://ccew.dkane.net/charity/1164883" rel="noreferrer">1164883</a>
-                    and a registered company <a href="https://beta.companieshouse.gov.uk/company/09668396" rel="noreferrer">09668396</a>
+                <p>
+                    © Copyright <?php echo date("Y"); ?> 360Giving.
+                    <br>Licensed under a <a href="https://creativecommons.org/licenses/by/4.0/" rel="noreferrer">Creative Commons Attribution 4.0 International License</a>.
                 </p>
             </div>
             <div class="footer__column-2 footer__policy-links">
