@@ -81,6 +81,17 @@
 
 
     </main>
+
+    <div style="position: fixed; bottom: 20px; right: 20px; max-width: 450px; background-color: white;">
+    <div class="box box--red"> 
+    <h3 class="box__heading"><a href="https://gk9euo5dzz9.typeform.com/to/nNVeqZdX"><strong>Take our survey</strong></a></h3>
+    <p>
+        We are running a short survey to help us better understand and meet the needs of our network and users. 
+        <a href="https://gk9euo5dzz9.typeform.com/to/nNVeqZdX"><strong>Take the survey now</strong></a>
+    </p>
+    </div>
+    </div>
+
     <?php get_template_part('components/footer'); ?>
 </div>
 <?php get_footer(); ?>
