@@ -83,13 +83,17 @@
     </main>
 
     <div style="position: fixed; bottom: 20px; right: 20px; max-width: 450px; background-color: white;">
-    <div class="box box--red"> 
-    <h3 class="box__heading"><a href="https://gk9euo5dzz9.typeform.com/to/nNVeqZdX"><strong>Take our survey</strong></a></h3>
-    <p>
-    Do you have 5 minutes? We are running a survey to help us better understand and meet the needs of our users. 
-        <a href="https://gk9euo5dzz9.typeform.com/to/nNVeqZdX"><strong>Take the survey now</strong></a>
-    </p>
-    </div>
+        <div class="base-card base-card--new" style="padding: 0px;"> 
+            <div class="base-card__content" style="text-align: left;">
+                <h2 class="base-card__title">Have you got 5 minutes?</h2>
+                <p class="base-card__text">
+                    We are running a survey to help us better understand and meet the needs of our users. 
+                </p>
+                <p class="base-card__text">
+                    <a href="https://gk9euo5dzz9.typeform.com/to/nNVeqZdX" class="button">Take the survey now</a>
+                </p>
+            </div>
+        </div>
     </div>
 
     <?php get_template_part('components/footer'); ?>
