@@ -7,7 +7,7 @@
         <div class="layout__content-inner">
             <div class="wrapper">
                 <section class="cards-section">
-                    <!-- <h2 class="cards-section__heading">Search results</h2> -->
+                    <!-- <h1 class="cards-section__heading">Search results</h1> -->
                     <?php if ( have_posts() ) : ?>
                     <p class="cards-section__tagline">
                         Found 

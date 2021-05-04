@@ -18,16 +18,16 @@ function tsg_widgets_init() {
         'id'            => 'tsg-front-page',
         'before_widget' => '<div class="grid__1">',
         'after_widget'  => '</div>',
-        'before_title'  => '<h2 class="base-card__title">',
-        'after_title'   => '</h2>',
+        'before_title'  => '<h3 class="base-card__title">',
+        'after_title'   => '</h3>',
     ) );
     register_sidebar( array(
         'name'          => __( 'Footer Sidebar', 'tsg' ),
         'id'            => 'tsg-footer',
         'before_widget' => '<div class="footer__column-2 footer__section">',
         'after_widget'  => '</div>',
-        'before_title'  => '<h3 class="footer__heading">',
-        'after_title'   => '</h3>',
+        'before_title'  => '<h2 class="footer__heading">',
+        'after_title'   => '</h2>',
     ) );
 }
 add_action( 'widgets_init', 'tsg_widgets_init' );

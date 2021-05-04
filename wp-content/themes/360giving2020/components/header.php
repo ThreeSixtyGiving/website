@@ -20,13 +20,13 @@
                     </a>
                 </div>
                 <div class="hero__column hero__lead">
-                    <h2 class="hero__title">
+                    <p class="hero__title">
                         <?php if(empty($tsg_page_kicker)): ?>
                         <?php bloginfo('description'); ?>
                         <?php else: ?>
                         <?php echo $tsg_page_kicker; ?>
                         <?php endif; ?>
-                    </h2>
+                    </p>
                     <p class="hero__blurb">
                         <?php if(empty($tsg_page_blurb)): ?>
                         <?php echo get_theme_mod( 'tsg_site_description', TSG_DEFAULTS['site_description'] ); ?>
