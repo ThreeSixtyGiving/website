@@ -4,7 +4,7 @@
     <?php get_template_part('components/header'); ?>
     <main class="layout__content">
         <?php if ( have_posts() ) : ?>
-        <div class="layout__content-inner">
+        <div class="layout__content-inner wrapper">
             <div class="wrapper">
                 <section class="cards-section">
                     <?php if ( is_category() ): ?>

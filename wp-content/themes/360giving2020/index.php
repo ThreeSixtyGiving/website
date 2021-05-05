@@ -3,7 +3,7 @@
     <?php get_template_part('components/topbar'); ?>
     <?php get_template_part('components/header'); ?>
     <main class="layout__content">
-        <div class="layout__content-inner">
+        <div class="layout__content-inner wrapper">
         <?php if ( have_posts() ) : ?>
             <?php while ( have_posts() ) : the_post(); ?>
             <div class="prose prose--wp">

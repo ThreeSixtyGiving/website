@@ -4,7 +4,7 @@
     <?php get_template_part('components/topbar'); ?>
     <?php get_template_part('components/header'); ?>
     <main class="layout__content">
-        <div class="layout__content-inner">
+        <div class="layout__content-inner wrapper">
             <div class="wrapper">
                 <section class="cards-section">
                     <!-- <h1 class="cards-section__heading">Search results</h1> -->

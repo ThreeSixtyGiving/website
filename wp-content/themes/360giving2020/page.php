@@ -8,7 +8,7 @@
         <section class="cards-section">
             <h1 class="cards-section__heading"><?php the_title(); ?></h1>
         </section>
-        <div class="layout__content-inner">
+        <div class="layout__content-inner wrapper">
             <div class="prose prose--wp">
                 <section class="prose__section">
                     <?php the_content(); ?>
