@@ -25,6 +25,7 @@
         <meta name="msapplication-TileImage" content="<?php echo get_template_directory_uri() . '/assets'; ?>/images/favicon/ms-icon-144x144.png">
         <meta name="theme-color" content="#ffffff">
         <link rel="shortcut icon" href="<?php echo get_template_directory_uri() . '/assets'; ?>/images/favicon/favicon.ico"/>
+        <link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?> RSS Feed" href="<?php bloginfo('rss2_url'); ?>" />
         <?php wp_head(); ?>
     </head>
     <body>
