@@ -11,7 +11,7 @@ if ( ( $locations = get_nav_menu_locations() ) && isset( $locations[ $tc_menu_na
     <footer class="footer">
         <div class="footer__row wrapper">
             <div class="footer__column-2 footer__branding">
-                <div class="footer__logo"><a href='<?php echo get_home_url(); ?>'><img src="<?php echo get_template_directory_uri() . '/assets'; ?>/images/360-giving-logo-white.svg" alt="360Giving"></a></div>
+                <div class="footer__logo"><a href='<?php echo get_home_url(); ?>'><img src="<?php echo get_template_directory_uri() . '/assets'; ?>/images/360-giving-logo-white.svg" alt="360Giving logo"></a></div>
                 <p class="footer__tagline"><?php echo get_theme_mod( 'tsg_footer_tagline', TSG_DEFAULTS['footer_tagline'] ); ?></p>
             </div>
             <div class="footer__column-1 footer__social hide-print">

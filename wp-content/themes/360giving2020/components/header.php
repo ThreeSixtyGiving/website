@@ -16,7 +16,7 @@
                 <!-- .hero--orange, .hero--yellow, .hero--red -->
                 <div class="hero__column hero__logo">
                     <a href="<?php echo get_home_url(); ?>">
-                        <img src="<?php echo get_template_directory_uri() . '/assets'; ?>/images/360-logos/360giving-main.svg" alt="360 Main">
+                        <img src="<?php echo get_template_directory_uri() . '/assets'; ?>/images/360-logos/360giving-main.svg" alt="360Giving Logo">
                     </a>
                 </div>
                 <div class="hero__column hero__lead">
