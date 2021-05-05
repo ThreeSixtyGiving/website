@@ -3395,24 +3395,25 @@ a.base-card:hover:before {
   position: relative;
   z-index: 1; }
 
-.prose blockquote:before {
-  content: "format_quote";
-  transform: scaleX(-1);
-  font-size: 10rem;
-  position: absolute;
-  left: -50px;
-  top: -50px;
-  color: hsl(var(--orange-hsl), 0.2);
-  z-index: -1; }
-
-@media print {
-  .prose blockquote {
-    margin-left: 5mm;
-    padding-left: 5mm;
-    font-style: italic;
-    border-left: 3px solid hsl(var(--orange-hsl), 0.2); }
-    .prose blockquote:before {
-      content: ""; } }
+.prose blockquote {
+  padding-left: 4rem; }
+  .prose blockquote:before {
+    content: "format_quote";
+    transform: scaleX(-0.9);
+    font-size: 10rem;
+    position: absolute;
+    left: -65px;
+    top: -50px;
+    color: hsl(var(--orange-hsl), 0.15);
+    z-index: -1; }
+  @media print {
+    .prose blockquote {
+      margin-left: 5mm;
+      padding-left: 5mm;
+      font-style: italic;
+      border-left: 3px solid hsl(var(--orange-hsl), 0.2); }
+      .prose blockquote:before {
+        content: ""; } }
 
 .prose blockquote p + p {
   padding-top: .8rem; }
