@@ -28,7 +28,7 @@
             'post_type'         => 'post'
         );
         $nq = new WP_Query($args);
-        $sq->posts = array_merge($nq->posts, $sq->posts);
+        $sq->posts = array_merge($sq->posts, $nq->posts);
         $sq->post_count += $nq->post_count;
 
     endif;
