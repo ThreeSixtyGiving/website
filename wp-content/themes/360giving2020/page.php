@@ -5,11 +5,9 @@
     <?php get_template_part('components/topbar'); ?>
     <?php get_template_part('components/header'); ?>
     <main class="layout__content">
-        <section class="cards-section">
-            <h1 class="cards-section__heading"><?php the_title(); ?></h1>
-        </section>
         <div class="layout__content-inner wrapper">
             <div class="prose prose--wp">
+                <h1 class="prose__h1-long"><?php the_title(); ?></h1>
                 <section class="prose__section">
                     <?php the_content(); ?>
                 </section>
