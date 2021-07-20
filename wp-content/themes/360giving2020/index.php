@@ -7,7 +7,17 @@
         <?php if ( have_posts() ) : ?>
             <?php while ( have_posts() ) : the_post(); ?>
             <div class="prose prose--wp">
-                <?php if(has_tag()): ?><h2 class="prose__brow"><?php the_tags(''); ?></h2><?php endif; ?>
+                <?php if(has_tag()): ?>
+                <script type="text/javascript">
+                    <?php $tags = get_the_tags(); ?>
+                    if (typeof ga === 'function' && ga.loaded){
+                        <?php foreach ( $tags as $index=>$tag ): ?>
+                        ga('set', 'contentGroup<?php echo $index + 1; ?>', '<?php echo $tag->name; ?>');
+                        <?php endforeach; ?>
+                    }
+                </script>
+                <?php /*if(has_tag()): ?><h2 class="prose__brow"><?php the_tags(''); ?></h2><?php endif;*/ ?>
+                <?php endif; ?>
                 <h1 class="prose__h1-long"><?php the_title(); ?></h1>
                 <p class="prose__author">
                     By <?php the_author_posts_link(); ?>
