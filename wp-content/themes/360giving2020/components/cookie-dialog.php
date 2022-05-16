@@ -6,13 +6,18 @@
                     Privacy Policy</a>
             </h2>
             <p class="base-card__text">
-                <a href="#" onclick="_paq.push(['rememberCookieConsentGiven']); hideCookieConsentDialog(true);"
+                <a href="#"
+                    onclick="_paq.push(['rememberCookieConsentGiven']); hideCookieConsentDialog(true); addGoogleAnalytics();"
                     class="button">Yes</a>
                 <a href="#" onclick="noCookieConsent(); hideCookieConsentDialog(true);" class="button">No</a>
                 <a href="#" onclick="_paq.push(['optUserOut']); hideCookieConsentDialog(true);" class="button">Disable
                     Analytics</a>
             </p>
-            <p id="cookie-dialog-desc" style="font-style: italic;">360Giving uses privacy-respecting analytics. If you
+            <?php /* ?><p id="cookie-dialog-desc" style="font-style: italic;">360Giving uses privacy-respecting
+                analytics. If you
+                don't accept cookies, we will track only basic information about your visit. Click "Disable Analytics"
+                if you don't want us to track at all. </p><?php */ ?>
+            <p id="cookie-dialog-desc" style="font-style: italic;">360Giving uses analytics. If you
                 don't accept cookies, we will track only basic information about your visit. Click "Disable Analytics"
                 if you don't want us to track at all. </p>
         </div>
