@@ -68,6 +68,7 @@ function tsg_bootstrap(){
     locate_template( array( 'functions/api.php' ), true, true );
     locate_template( array( 'functions/get-numbers.php' ), true, true );
     locate_template( array( 'functions/metabox.php' ), true, true );
+    locate_template( array( 'functions/number-shortcode.php' ), true, true );
     
     // add custom colours
     add_theme_support( 'editor-color-palette', array(
