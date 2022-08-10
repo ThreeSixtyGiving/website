@@ -1969,6 +1969,24 @@ form.generic-form {
     display: block;
     margin-top: 1.3rem;
     margin-bottom: 0rem; }
+  form.generic-form.fixed-width input[type=text],
+  form.generic-form.fixed-width input[type=email],
+  form.generic-form.fixed-width input[type=color],
+  form.generic-form.fixed-width input[type=url],
+  form.generic-form.fixed-width input[type=search],
+  form.generic-form.fixed-width input[type=tel],
+  form.generic-form.fixed-width input[type=number],
+  form.generic-form.fixed-width input[type=date],
+  form.generic-form.fixed-width input[type=datetime-local],
+  form.generic-form.fixed-width input[type=week],
+  form.generic-form.fixed-width input[type=time],
+  form.generic-form.fixed-width input[type=password],
+  form.generic-form.fixed-width input[type=month],
+  form.generic-form.fixed-width input[type=file],
+  form.generic-form.fixed-width textarea,
+  form.generic-form.fixed-width select {
+    width: 450px;
+    max-width: 100%; }
   form.generic-form input[type=text],
   form.generic-form input[type=email],
   form.generic-form input[type=color],
