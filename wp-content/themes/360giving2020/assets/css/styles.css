@@ -2067,22 +2067,22 @@ form.generic-form {
     form.generic-form textarea::placeholder,
     form.generic-form select::placeholder {
       color: hsl(var(--base-hsl), 0.7); }
-    form.generic-form input[type=text] .full-width,
-    form.generic-form input[type=email] .full-width,
-    form.generic-form input[type=color] .full-width,
-    form.generic-form input[type=url] .full-width,
-    form.generic-form input[type=search] .full-width,
-    form.generic-form input[type=tel] .full-width,
-    form.generic-form input[type=number] .full-width,
-    form.generic-form input[type=date] .full-width,
-    form.generic-form input[type=datetime-local] .full-width,
-    form.generic-form input[type=week] .full-width,
-    form.generic-form input[type=time] .full-width,
-    form.generic-form input[type=password] .full-width,
-    form.generic-form input[type=month] .full-width,
-    form.generic-form input[type=file] .full-width,
-    form.generic-form textarea .full-width,
-    form.generic-form select .full-width {
+    form.generic-form input[type=text].full-width,
+    form.generic-form input[type=email].full-width,
+    form.generic-form input[type=color].full-width,
+    form.generic-form input[type=url].full-width,
+    form.generic-form input[type=search].full-width,
+    form.generic-form input[type=tel].full-width,
+    form.generic-form input[type=number].full-width,
+    form.generic-form input[type=date].full-width,
+    form.generic-form input[type=datetime-local].full-width,
+    form.generic-form input[type=week].full-width,
+    form.generic-form input[type=time].full-width,
+    form.generic-form input[type=password].full-width,
+    form.generic-form input[type=month].full-width,
+    form.generic-form input[type=file].full-width,
+    form.generic-form textarea.full-width,
+    form.generic-form select.full-width {
       width: 100%; }
   form.generic-form label.required::after {
     content: " *";
