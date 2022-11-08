@@ -6,3 +6,23 @@
         position: fixed;
     }
 }
+.prose .base-card .base-card__title {
+    font-size: 1.6rem;
+    line-height: 1.3;
+    font-weight: 500;
+    margin: 0;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.prose .base-card .base-card__content p {
+    margin-top: 8px;
+    margin-bottom: 0px;
+    text-decoration: none;
+}
+
+.prose a.base-card {
+    text-decoration: none;
+}
+.prose a.base-card .base-card__title {
+    text-decoration: underline;
+}
