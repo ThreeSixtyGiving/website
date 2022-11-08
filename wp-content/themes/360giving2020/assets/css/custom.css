@@ -19,7 +19,9 @@
     margin-bottom: 0px;
     text-decoration: none;
 }
-
+.grid .base-card {
+	height: 100%;
+}
 .prose a.base-card {
     text-decoration: none;
 }
