@@ -15,6 +15,7 @@ if ( ( $locations = get_nav_menu_locations() ) && isset( $locations[ $tc_menu_na
                 <p class="footer__tagline"><?php echo get_theme_mod( 'tsg_footer_tagline', TSG_DEFAULTS['footer_tagline'] ); ?></p>
             </div>
             <div class="footer__column-1 footer__social hide-print">
+                <a href="https://www.linkedin.com/company/360giving/" class="github-icon"><img src="<?php echo get_template_directory_uri() . '/assets'; ?>/images/linkedin-logo.svg" alt="LinkedIn"></a>
                 <a href="https://github.com/threesixtygiving/" class="github-icon"><img src="<?php echo get_template_directory_uri() . '/assets'; ?>/images/github-logo.svg" alt="Check our Github"></a>
                 <a href="https://twitter.com/360Giving/" class="twitter-icon"><img src="<?php echo get_template_directory_uri() . '/assets'; ?>/images/twitter-logo.svg" alt="Follow us on Twitter"></a>
             </div>
