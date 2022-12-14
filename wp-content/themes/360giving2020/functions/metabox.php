@@ -28,9 +28,7 @@ function tsg_kicker_blurb_box_html($post)
     <p class="post-attributes-label-wrapper">
         <label for="tsg_page_blurb">Page blurb</label>
     </p>
-    <textarea name="tsg_page_blurb" id="tsg_page_blurb" class="postbox">
-		<?php echo $tsg_page_blurb; ?>
-	</textarea>
+    <textarea name="tsg_page_blurb" id="tsg_page_blurb" class="postbox" rows="5"><?php echo $tsg_page_blurb; ?></textarea>
     <?php
 }
 

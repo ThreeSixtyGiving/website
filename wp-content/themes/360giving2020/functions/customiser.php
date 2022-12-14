@@ -25,6 +25,11 @@ function tsg_customize_register( $wp_customize ) {
         'type' => 'textarea',
         'section' => 'title_tagline',
     ) );
+    
+    $wp_customize->add_section( 'tsg_front_page' , array(
+        'title'      => __( '360Giving Front Page', 'tsg' ),
+        'priority'   => 30,
+    ) );
     $wp_customize->add_setting( 'tsg_footer_tagline', array(
         'type' => 'theme_mod',
         'default' => TSG_DEFAULTS['footer_tagline']
@@ -32,7 +37,7 @@ function tsg_customize_register( $wp_customize ) {
     $wp_customize->add_control( 'tsg_footer_tagline', array(
         'label' => __( 'Footer tagline' ),
         'type' => 'textarea',
-        'section' => 'static_front_page',
+        'section' => 'tsg_front_page',
     ) );
     $wp_customize->add_setting( 'tsg_cards_tagline', array(
         'type' => 'theme_mod',
@@ -41,45 +46,45 @@ function tsg_customize_register( $wp_customize ) {
     $wp_customize->add_control( 'tsg_cards_tagline', array(
         'label' => __( 'Front page tagline' ),
         'type' => 'textarea',
-        'section' => 'static_front_page',
+        'section' => 'tsg_front_page',
     ) );
     $wp_customize->add_setting( 'tsg_funder_count', array(
         'type' => 'theme_mod',
         'default' => TSG_DEFAULTS['funder_count'],
     ) );
-    $wp_customize->add_control( 'tsg_funder_count', array(
-        'label' => __( 'Funders' ),
-        'type' => 'number',
-        'section' => 'static_front_page',
-    ) );
+    // $wp_customize->add_control( 'tsg_funder_count', array(
+    //     'label' => __( 'Funders' ),
+    //     'type' => 'number',
+    //     'section' => 'tsg_front_page',
+    // ) );
     $wp_customize->add_setting( 'tsg_recipient_count', array(
         'type' => 'theme_mod',
         'default' => TSG_DEFAULTS['recipient_count'],
     ) );
-    $wp_customize->add_control( 'tsg_recipient_count', array(
-        'label' => __( 'Recipients' ),
-        'type' => 'number',
-        'section' => 'static_front_page',
-    ) );
+    // $wp_customize->add_control( 'tsg_recipient_count', array(
+    //     'label' => __( 'Recipients' ),
+    //     'type' => 'number',
+    //     'section' => 'tsg_front_page',
+    // ) );
     $wp_customize->add_setting( 'tsg_grant_count', array(
         'type' => 'theme_mod',
         'default' => TSG_DEFAULTS['grant_count'],
     ) );
-    $wp_customize->add_control( 'tsg_grant_count', array(
-        'label' => __( 'Grants' ),
-        'type' => 'number',
-        'section' => 'static_front_page',
-    ) );
+    // $wp_customize->add_control( 'tsg_grant_count', array(
+    //     'label' => __( 'Grants' ),
+    //     'type' => 'number',
+    //     'section' => 'tsg_front_page',
+    // ) );
     $wp_customize->add_setting( 'tsg_grant_amount', array(
         'type' => 'theme_mod',
         'default' => TSG_DEFAULTS['grant_amount'],
     ) );
-    $wp_customize->add_control( 'tsg_grant_amount', array(
-        'label' => __( 'Grant amount' ),
-        'description' => __( 'In £. Don\'t include a £ symbol.' ),
-        'type' => 'number',
-        'section' => 'static_front_page',
-    ) );
+    // $wp_customize->add_control( 'tsg_grant_amount', array(
+    //     'label' => __( 'Grant amount' ),
+    //     'description' => __( 'In £. Don\'t include a £ symbol.' ),
+    //     'type' => 'number',
+    //     'section' => 'tsg_front_page',
+    // ) );
 
     $wp_customize->add_section( 'tsg_mailchimp_section' , array(
         'title'      => __( 'Mailchimp newsletter signup', 'tsg' ),
