@@ -57,7 +57,7 @@ if ( ( $locations = get_nav_menu_locations() ) && isset( $locations[ $tc_menu_na
         <div class="wrapper footer__small-print">
             <p>
                 <strong>360 Giving</strong> (Trading as <strong>360Giving</strong>) is a registered charity <a href="https://register-of-charities.charitycommission.gov.uk/charity-details/?regId=1164883&amp;subId=0">1164883</a> and a registered company <a href="https://beta.companieshouse.gov.uk/company/09668396">09668396</a>.
-                <br>Registered address: 360Giving, c/o Esmée Fairbairn Foundation, Kings Place, 90 York Way, London N1 9AG.
+                <br>Registered address: 360 Giving, c/o Sayer Vincent, Invicta House, 108-114 Golden Lane, London, EC1Y 0TL.
             </p>
         </div>
 
