@@ -1,11 +1,13 @@
 .accordion-list__item .accordion::before {
     content: "";
 }
+
 @media screen and (max-width:600px) {
     #wpadminbar {
         position: fixed;
     }
 }
+
 .prose .base-card .base-card__title {
     font-size: 1.6rem;
     line-height: 1.3;
@@ -14,17 +16,24 @@
     margin-top: 0px;
     margin-bottom: 0px;
 }
+
 .prose .base-card .base-card__content p {
     margin-top: 8px;
     margin-bottom: 0px;
     text-decoration: none;
 }
+
 .grid .base-card {
-	height: 100%;
+    height: 100%;
 }
-.prose a.base-card {
+
+.prose a.base-card,
+a.base-card .base-card__title,
+.media-card__category-tag,
+a.base-card {
     text-decoration: none;
 }
+
 .prose a.base-card .base-card__title {
     text-decoration: underline;
 }
