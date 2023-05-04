@@ -42,9 +42,15 @@ a.base-card {
     max-width: 100%;
 }
 
-.prose.prose--wide .prose__section > p,
-.prose.prose--wide .prose__section > div.box,
-.prose.prose--wide .prose__section > ol,
-.prose.prose--wide .prose__section > ul {
+.prose.prose--wide .prose__section>p,
+.prose.prose--wide .prose__section>div.box,
+.prose.prose--wide .prose__section>ol,
+.prose.prose--wide .prose__section>ul {
     max-width: 800px;
+}
+
+.tabs li.tab,
+.tabs li.tabs-empty-bar {
+    margin-top: 0;
+    margin-left: 0;
 }

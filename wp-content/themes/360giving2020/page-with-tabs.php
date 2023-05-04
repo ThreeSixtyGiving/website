@@ -8,7 +8,9 @@
     $children = get_children(array(
         "post_parent"=>$top_level_post,
         "post_type"=>'page',
-        "post_status"=>'publish'
+        "post_status"=>'publish',
+        "orderby"=>"menu_order",
+        "order"=>"ASC"
     )); 
 ?>
 <div class="layout layout--single-column">
