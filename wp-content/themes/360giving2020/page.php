@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 <?php if ( have_posts() ) : ?>
 <?php while ( have_posts() ) : the_post(); ?>
-<div class="layout <?php if(!$children): ?>layout--single-column<?php else: ?>layout--two-columns<?php endif; ?>">
+<div class="layout layout--single-column">
     <?php get_template_part('components/topbar'); ?>
     <?php get_template_part('components/header'); ?>
     <main class="layout__content">

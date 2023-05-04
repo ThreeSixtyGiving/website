@@ -1,4 +1,4 @@
-<?php /* Template Name: Page with sidebar */ ?>
+<?php /* Template Name: Page with tabs */ ?>
 <?php get_header(); ?>
 <?php if ( have_posts() ) : ?>
 <?php while ( have_posts() ) : the_post(); ?>
@@ -11,25 +11,27 @@
         "post_status"=>'publish'
     )); 
 ?>
-<div class="layout <?php if(!$children): ?>layout--single-column<?php else: ?>layout--two-columns<?php endif; ?>">
+<div class="layout layout--single-column">
     <?php get_template_part('components/topbar'); ?>
     <?php get_template_part('components/header'); ?>
     <main class="layout__content">
-        <?php if(empty(get_post_meta(get_the_ID(), 'tsg_page_kicker', true))): ?>
-        <section class="cards-section">
-            <h1 class="cards-section__heading"><?php the_title(); ?></h1>
-        </section>
-        <?php endif; ?>
         <div class="layout__content-inner wrapper">
-            <div class="prose prose--wp">
+            <div class="prose prose--wp prose--wide">
+                <h1 class="prose__h1-long">
+                    <?php echo get_the_title($top_level_post); ?>
+                </h1>
+                <?php include( locate_template( 'components/subpage-tabs.php', false, false ) ); ?>
+                <h2 class="prose__h2-long">
+                    <?php if($top_level_post != get_the_id()): ?>
+                    <?php the_title(); ?>
+                    <?php endif; ?>
+                </h2>
                 <section class="prose__section">
                     <?php the_content(); ?>
                 </section>
             </div>
         </div>
     </main>
-    <?php include( locate_template( 'components/page-sidebar.php', false, false ) ); ?>
-    <?php /*get_template_part('components/page-sidebar');*/ ?>
     <?php get_template_part('components/footer'); ?>
 </div>
 <?php endwhile; ?>

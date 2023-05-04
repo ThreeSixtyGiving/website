@@ -37,3 +37,14 @@ a.base-card {
 .prose a.base-card .base-card__title {
     text-decoration: underline;
 }
+
+.prose.prose--wide {
+    max-width: 100%;
+}
+
+.prose.prose--wide .prose__section > p,
+.prose.prose--wide .prose__section > div.box,
+.prose.prose--wide .prose__section > ol,
+.prose.prose--wide .prose__section > ul {
+    max-width: 800px;
+}
