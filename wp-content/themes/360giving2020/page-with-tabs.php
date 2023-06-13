@@ -16,17 +16,10 @@
 ?>
 <div class="layout layout--single-column">
     <?php get_template_part('components/topbar'); ?>
-    <?php get_template_part('components/header'); ?>
+    <?php get_template_part('components/header-small'); ?>
     <main class="layout__content">
         <div class="layout__content-inner wrapper">
             <div class="prose prose--wp prose--wide">
-                <h1 class="prose__h1-long">
-                    <?php if(empty($tsg_page_kicker)): ?>
-                    <?php echo get_the_title($top_level_post); ?>
-                    <?php else: ?>
-                    <?php echo $tsg_page_kicker; ?>
-                    <?php endif; ?>
-                </h1>
                 <?php include( locate_template( 'components/subpage-tabs.php', false, false ) ); ?>
                 <h2 class="prose__h2-long">
                     <?php if($top_level_post != get_the_id()): ?>

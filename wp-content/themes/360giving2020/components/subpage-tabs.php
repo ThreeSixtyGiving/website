@@ -6,7 +6,6 @@
     // )); 
 ?>
 <?php if($children): ?>
-<div class="spacer-5"></div>
 <nav aria-label="Pages in this section">
     <ul class="tabs">
         <?php if($top_level_post == get_the_id()): ?>

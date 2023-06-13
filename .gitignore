@@ -55,6 +55,8 @@ wp-content/themes/responsive/*
 wp-content/plugins/*.zip
 tests/_pycache_/
 wp-cli.phar
+!wp-content/themes/360giving2020
+!wp-content/themes/360giving
 
 # wordpress specific
 wp-config.php
