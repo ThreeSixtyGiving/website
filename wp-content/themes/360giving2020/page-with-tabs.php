@@ -16,7 +16,7 @@
 ?>
 <div class="layout layout--single-column">
     <?php get_template_part('components/topbar'); ?>
-    <?php get_template_part('components/header-small'); ?>
+    <?php include( locate_template( 'components/header-small.php', false, false ) ); ?>
     <main class="layout__content">
         <div class="layout__content-inner wrapper">
             <div class="prose prose--wp prose--wide">
