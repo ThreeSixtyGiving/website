@@ -45,6 +45,7 @@ a.base-card {
 .prose figcaption > h3 {
   margin-top: 0;
   margin-bottom: 0;
+  font-size: 1.4rem;
 }
 
 .prose.prose--wide .prose__section>p,
