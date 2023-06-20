@@ -42,6 +42,11 @@ a.base-card {
     max-width: 100%;
 }
 
+.prose figcaption > h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
 .prose.prose--wide .prose__section>p,
 .prose.prose--wide .prose__section>div.box,
 .prose.prose--wide .prose__section>ol,
