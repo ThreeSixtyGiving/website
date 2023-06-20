@@ -6,13 +6,11 @@
                 alt="360Giving Logo">
         </a>
         <h1 class="nav-bar__title">
-            <a class="" href="/">
-                <?php if(empty($tsg_page_kicker)): ?>
-                <?php echo get_the_title($top_level_post); ?>
-                <?php else: ?>
-                <?php echo $tsg_page_kicker; ?>
-                <?php endif; ?>
-            </a>
+			<?php if(empty($tsg_page_kicker)): ?>
+			<?php echo get_the_title($top_level_post); ?>
+			<?php else: ?>
+			<?php echo $tsg_page_kicker; ?>
+			<?php endif; ?>
         </h1>
     </div>
 </header>
