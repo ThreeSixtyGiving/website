@@ -13,6 +13,7 @@
         "order"=>"ASC"
     )); 
     $tsg_page_kicker = get_post_meta($top_level_post, 'tsg_page_kicker', true);
+    $tsg_page_blurb = get_post_meta($top_level_post, 'tsg_page_blurb', true);
 ?>
 <div class="layout layout--single-column">
     <?php get_template_part('components/topbar'); ?>
