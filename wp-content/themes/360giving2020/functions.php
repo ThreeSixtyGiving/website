@@ -4,11 +4,11 @@ add_theme_support( 'post-thumbnails' );
 
 // Add custom stylesheet
 function tsg_enqueue_style() {
-    wp_enqueue_style( '360giving-style', get_template_directory_uri() . '/assets/css/styles.css', false );
-    wp_enqueue_style( '360giving-style-custom', get_template_directory_uri() . '/assets/css/custom.css', false );
-    wp_enqueue_style( 'material-icons', 'https://fonts.googleapis.com/icon?family=Material+Icons', false );
-    wp_enqueue_script( '360g-top-bar', get_template_directory_uri() . '/assets/js/top-bar.js', false );
-    wp_enqueue_script( '360g-analytics', get_template_directory_uri() . '/assets/js/analytics.js', false );
+    wp_enqueue_style( '360giving-style', get_template_directory_uri() . '/assets/css/styles.css', array(), '20230627' );
+    wp_enqueue_style( '360giving-style-custom', get_template_directory_uri() . '/assets/css/custom.css', array(), '20230627' );
+    wp_enqueue_style( 'material-icons', 'https://fonts.googleapis.com/icon?family=Material+Icons', array(), '20230627' );
+    wp_enqueue_script( '360g-top-bar', get_template_directory_uri() . '/assets/js/top-bar.js', array(), '20230627' );
+    wp_enqueue_script( '360g-analytics', get_template_directory_uri() . '/assets/js/analytics.js', array(), '20230627' );
 }
 add_action( 'wp_enqueue_scripts', 'tsg_enqueue_style' );
 
