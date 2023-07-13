@@ -4,8 +4,8 @@ add_theme_support( 'post-thumbnails' );
 
 // Add custom stylesheet
 function tsg_enqueue_style() {
-    wp_enqueue_style( '360giving-style', get_template_directory_uri() . '/assets/css/styles.css', array(), '20230714' );
-    wp_enqueue_style( '360giving-style-custom', get_template_directory_uri() . '/assets/css/custom.css', array(), '20230714' );
+    wp_enqueue_style( '360giving-style', get_template_directory_uri() . '/assets/css/styles.css', array(), '20230715' );
+    wp_enqueue_style( '360giving-style-custom', get_template_directory_uri() . '/assets/css/custom.css', array(), '20230715' );
     wp_enqueue_style( 'material-icons', 'https://fonts.googleapis.com/icon?family=Material+Icons', array(), '20230627' );
     wp_enqueue_script( '360g-top-bar', get_template_directory_uri() . '/assets/js/top-bar.js', array(), '20230627' );
     wp_enqueue_script( '360g-analytics', get_template_directory_uri() . '/assets/js/analytics.js', array(), '20230627' );
