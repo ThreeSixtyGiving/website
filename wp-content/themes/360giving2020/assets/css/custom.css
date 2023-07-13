@@ -64,10 +64,13 @@ a.base-card {
 
 
 #footer-logos .gallery {
-    display: grid;
-    gap: 1rem;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    align-items: center;
+	  display: flex;
+	  gap: 1rem;
+	  justify-content: space-between;
+}
+
+#footer-logos .gallery > br {
+    display: none;
 }
 
 #footer-logos .gallery .gallery-item {
