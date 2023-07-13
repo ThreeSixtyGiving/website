@@ -11,13 +11,22 @@ if ( ( $locations = get_nav_menu_locations() ) && isset( $locations[ $tc_menu_na
     <footer class="footer">
         <div class="footer__row wrapper">
             <div class="footer__column-2 footer__branding">
-                <div class="footer__logo"><a href='<?php echo get_home_url(); ?>'><img src="<?php echo get_template_directory_uri() . '/assets'; ?>/images/360-giving-logo-white.svg" alt="360Giving logo"></a></div>
-                <p class="footer__tagline"><?php echo get_theme_mod( 'tsg_footer_tagline', TSG_DEFAULTS['footer_tagline'] ); ?></p>
+                <div class="footer__logo"><a href='<?php echo get_home_url(); ?>'><img
+                            src="<?php echo get_template_directory_uri() . '/assets'; ?>/images/360-giving-logo-white.svg"
+                            alt="360Giving logo"></a></div>
+                <p class="footer__tagline">
+                    <?php echo get_theme_mod( 'tsg_footer_tagline', TSG_DEFAULTS['footer_tagline'] ); ?></p>
             </div>
             <div class="footer__column-1 footer__social hide-print">
-                <a href="https://www.linkedin.com/company/360giving/" class="github-icon"><img src="<?php echo get_template_directory_uri() . '/assets'; ?>/images/linkedin-logo.svg" alt="LinkedIn"></a>
-                <a href="https://github.com/threesixtygiving/" class="github-icon"><img src="<?php echo get_template_directory_uri() . '/assets'; ?>/images/github-logo.svg" alt="Check our Github"></a>
-                <a href="https://twitter.com/360Giving/" class="twitter-icon"><img src="<?php echo get_template_directory_uri() . '/assets'; ?>/images/twitter-logo.svg" alt="Follow us on Twitter"></a>
+                <a href="https://www.linkedin.com/company/360giving/" class="github-icon"><img
+                        src="<?php echo get_template_directory_uri() . '/assets'; ?>/images/linkedin-logo.svg"
+                        alt="LinkedIn"></a>
+                <a href="https://github.com/threesixtygiving/" class="github-icon"><img
+                        src="<?php echo get_template_directory_uri() . '/assets'; ?>/images/github-logo.svg"
+                        alt="Check our Github"></a>
+                <a href="https://twitter.com/360Giving/" class="twitter-icon"><img
+                        src="<?php echo get_template_directory_uri() . '/assets'; ?>/images/twitter-logo.svg"
+                        alt="Follow us on Twitter"></a>
             </div>
         </div>
 
@@ -54,11 +63,12 @@ if ( ( $locations = get_nav_menu_locations() ) && isset( $locations[ $tc_menu_na
 
         </div>
 
+        <div class="footer__row wrapper hide-print" id="footer-logos">
+            <?php dynamic_sidebar( 'tsg-footer-logos' ); ?>
+        </div>
+
         <div class="wrapper footer__small-print">
-            <p>
-                <strong>360 Giving</strong> (Trading as <strong>360Giving</strong>) is a registered charity <a href="https://register-of-charities.charitycommission.gov.uk/charity-details/?regId=1164883&amp;subId=0">1164883</a> and a registered company <a href="https://beta.companieshouse.gov.uk/company/09668396">09668396</a>.
-                <br>Registered address: 360 Giving, c/o Sayer Vincent, Invicta House, 108-114 Golden Lane, London, EC1Y 0TL.
-            </p>
+            <?php dynamic_sidebar( 'tsg-footer-small-print' ); ?>
         </div>
 
         <div class="footer__row wrapper footer__small-print">
@@ -66,7 +76,8 @@ if ( ( $locations = get_nav_menu_locations() ) && isset( $locations[ $tc_menu_na
             <div class="footer__column-2">
                 <p>
                     © Copyright <?php echo date("Y"); ?> 360Giving.
-                    <br>Licensed under a <a href="https://creativecommons.org/licenses/by/4.0/" rel="noreferrer">Creative Commons Attribution 4.0 International License</a>.
+                    <br>Licensed under a <a href="https://creativecommons.org/licenses/by/4.0/"
+                        rel="noreferrer">Creative Commons Attribution 4.0 International License</a>.
                 </p>
             </div>
             <div class="footer__column-2 footer__policy-links hide-print">
@@ -79,5 +90,5 @@ if ( ( $locations = get_nav_menu_locations() ) && isset( $locations[ $tc_menu_na
             </div>
         </div>
     </footer>
-    
+
 </footer>

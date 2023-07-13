@@ -42,10 +42,10 @@ a.base-card {
     max-width: 100%;
 }
 
-.prose figcaption > h3 {
-  margin-top: 0;
-  margin-bottom: 0;
-  font-size: 1.4rem;
+.prose figcaption>h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 1.4rem;
 }
 
 .prose.prose--wide .prose__section>p,
@@ -59,4 +59,29 @@ a.base-card {
 .tabs li.tabs-empty-bar {
     margin-top: 0;
     margin-left: 0;
+}
+
+
+
+#footer-logos .gallery {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    align-items: center;
+}
+
+#footer-logos .gallery .gallery-item {
+    width: auto;
+    float: none;
+}
+
+#footer-logos .gallery .gallery-item img {
+    border: 0;
+    height: auto;
+    width: auto;
+    max-height: 125px;
+}
+
+.footer__small-print p {
+    margin-bottom: 0;
 }
