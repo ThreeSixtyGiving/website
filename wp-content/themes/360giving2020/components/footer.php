@@ -24,9 +24,6 @@ if ( ( $locations = get_nav_menu_locations() ) && isset( $locations[ $tc_menu_na
                 <a href="https://github.com/threesixtygiving/" class="github-icon"><img
                         src="<?php echo get_template_directory_uri() . '/assets'; ?>/images/github-logo.svg"
                         alt="Check our Github"></a>
-                <a href="https://twitter.com/360Giving/" class="twitter-icon"><img
-                        src="<?php echo get_template_directory_uri() . '/assets'; ?>/images/twitter-logo.svg"
-                        alt="Follow us on Twitter"></a>
             </div>
         </div>
 
