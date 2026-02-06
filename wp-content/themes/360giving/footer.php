@@ -37,7 +37,7 @@
 			<div class="sub-footer">
 				<div class="container">
 					<a class="newsletter-signup" href="https://us10.campaign-archive.com/home/?u=216b8b926250184f90c7198e8&id=91870dde44"><i class="fa fa-envelope-o"></i>Sign up to our newsletter</a>
-					<p class="legal">360Giving is a company limited by guarantee <a href="https://beta.companieshouse.gov.uk/company/09668396" target="_blank" style="color:white">09668396</a> and a registered charity <a href="http://beta.charitycommission.gov.uk/charity-details/?regid=1164883&subid=0"  target="_blank" style="color:white">1164883</p>
+					<p class="legal">360 Giving is a trading name of Funders Together. Funders Together is a charitable company registered in England and Wales, Company number: 5596299 and Charity number: 1116201. Registered address: 4 Chiswell Street, London EC1Y 4UP.</p>
 					<nav class="footer-nav">
 						<?php wp_nav_menu( array(
 							'menu' => 'footer_2',
